@@ -1,0 +1,363 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>lns666.me/blog/17/Android-git/</loc>
+    <lastmod>2017-05-24T07:36:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Studio Git 忽略文件(转)</title>
+        <pubTime>2017-02-10T02:17:33.000Z</pubTime>
+        
+        <tag>开发编程</tag>
+         
+        <tag>Android Studio</tag>
+         
+        <tag>转</tag>
+         
+        <tag>git</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/17/Android-EditText/</loc>
+    <lastmod>2017-05-24T07:25:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android EditText 值得注意的地方(转)</title>
+        <pubTime>2017-05-24T07:24:52.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+        <tag>EditText</tag>
+         
+        <tag>转</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/17/Android-Dialog/</loc>
+    <lastmod>2017-05-10T05:19:23.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android Dialog 对话框</title>
+        <pubTime>2017-05-09T15:22:32.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+        <tag>Dialog</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/17/Android-CountDownTimer/</loc>
+    <lastmod>2017-04-03T03:41:00.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android CountDownTimer 倒计时</title>
+        <pubTime>2017-02-12T14:20:32.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+        <tag>倒计时</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/17/Android-TitleBar/</loc>
+    <lastmod>2017-04-03T03:40:46.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android自定义标题栏</title>
+        <pubTime>2017-02-10T04:10:30.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+        <tag>界面美化</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/16/test/</loc>
+    <lastmod>2017-02-17T01:27:27.000Z</lastmod>
+    <data>
+        <display>
+        <title>测试文章标题</title>
+        <pubTime>2016-10-18T07:37:53.000Z</pubTime>
+        
+        <tag>测试标签</tag>
+         
+         
+           
+             
+              <breadCrumb title="测试分类" url="lns666.me/categories/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/16/Android-application/</loc>
+    <lastmod>2017-02-11T05:29:37.000Z</lastmod>
+    <data>
+        <display>
+        <title>Application 保存全局变量</title>
+        <pubTime>2016-10-25T15:57:33.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/16/Android-ProgressDialog/</loc>
+    <lastmod>2017-02-11T05:29:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android 进度条</title>
+        <pubTime>2016-10-26T11:27:53.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/16/Android-sha1-md5/</loc>
+    <lastmod>2017-02-11T05:29:18.000Z</lastmod>
+    <data>
+        <display>
+        <title>AndroidStudio获取SHA1和MD5超简单的方法</title>
+        <pubTime>2016-10-30T02:17:53.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+        <tag>技巧</tag>
+         
+        <tag>Android Studio</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/16/Android-Segmentation-Log/</loc>
+    <lastmod>2017-02-11T05:29:09.000Z</lastmod>
+    <data>
+        <display>
+        <title>AndroidStudio Log 分段输出</title>
+        <pubTime>2016-11-02T15:57:53.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+        <tag>技巧</tag>
+         
+        <tag>Android Studio</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/16/Android-BroadcastReceiver/</loc>
+    <lastmod>2017-02-11T05:28:58.000Z</lastmod>
+    <data>
+        <display>
+        <title>BroadcastReceiver广播接收器的简单用法</title>
+        <pubTime>2016-11-02T16:07:23.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+        <tag>BroadcastReceiver</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/16/xcode-write-c/</loc>
+    <lastmod>2017-02-11T05:28:50.000Z</lastmod>
+    <data>
+        <display>
+        <title>使用Xcode写C语言程序</title>
+        <pubTime>2016-11-05T00:20:18.000Z</pubTime>
+        
+        <tag>开发编程</tag>
+         
+        <tag>技巧</tag>
+         
+        <tag>C语言</tag>
+         
+        <tag>Xcode</tag>
+         
+        <tag>MacOS</tag>
+         
+         
+           
+             
+              <breadCrumb title="C语言" url="lns666.me/categories/C%E8%AF%AD%E8%A8%80/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/16/app-chinese-localization/</loc>
+    <lastmod>2016-12-03T00:18:58.000Z</lastmod>
+    <data>
+        <display>
+        <title>一些软件的汉化教程</title>
+        <pubTime>2016-10-22T14:17:13.000Z</pubTime>
+        
+        <tag>软件</tag>
+         
+        <tag>汉化</tag>
+         
+        <tag>Mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="奇技淫巧" url="lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
+    <loc>lns666.me/blog/16/google-search-skill/</loc>
+    <lastmod>2016-11-29T05:31:05.000Z</lastmod>
+    <data>
+        <display>
+        <title>Google搜索技巧</title>
+        <pubTime>2016-10-20T12:46:23.000Z</pubTime>
+        
+        <tag>Google</tag>
+         
+        <tag>搜索</tag>
+         
+        <tag>技巧</tag>
+         
+         
+           
+             
+              <breadCrumb title="奇技淫巧" url="lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/16/hello-world/</loc>
+    <lastmod>2016-11-29T04:41:03.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2016-11-29T04:41:03.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+</urlset>

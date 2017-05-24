@@ -1,0 +1,904 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Android,开发编程,EditText,转," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="梁耐松" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。原文地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android EditText 值得注意的地方(转)">
+<meta property="og:url" content="lns666.me/blog/17/Android-EditText/index.html">
+<meta property="og:site_name" content="梁耐松">
+<meta property="og:description" content="Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。原文地址">
+<meta property="og:image" content="http://ww3.sinaimg.cn/large/006tNbRwgy1ffwh2563h5j30k006st8l.jpg">
+<meta property="og:updated_time" content="2017-05-24T07:25:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android EditText 值得注意的地方(转)">
+<meta name="twitter:description" content="Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。原文地址">
+<meta name="twitter:image" content="http://ww3.sinaimg.cn/large/006tNbRwgy1ffwh2563h5j30k006st8l.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 'undefined',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: 'GH8RISOSHU',
+      apiKey: 'db68a4fced9efa768fce547ac1017377',
+      indexName: 'myBlog',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="lns666.me/blog/17/Android-EditText/"/>
+
+
+
+
+
+  <title> Android EditText 值得注意的地方(转) | 梁耐松 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?c4d70519d174935f8cec0c648bb0c64c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">梁耐松</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">欢迎访问我的个人主页 >_<</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="lns666.me/blog/17/Android-EditText/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁耐松">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="梁耐松">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Android EditText 值得注意的地方(转)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T15:24:52+08:00">
+                2017-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/blog/17/Android-EditText/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://ww3.sinaimg.cn/large/006tNbRwgy1ffwh2563h5j30k006st8l.jpg" width="450px"></p>
+<p>Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。<a href="http://www.jianshu.com/p/1f05bb1fde3e" target="_blank" rel="external">原文地址</a></p>
+<a id="more"></a>
+<h2 id="设置默认输入法"><a href="#设置默认输入法" class="headerlink" title="设置默认输入法"></a>设置默认输入法</h2><p> 有时候为了提高用户体验，在弹出输入法时需要设置默认的输入状态，比如单词应用弹出输入法时，输入法最好是在英文输入状态下。如果是字典应用，弹出输入法时最好是在中文输入状态下，Android并没有提供设置默认的输入状态的接口，但我们可以通过如下方法一样能够达到想要的效果：</p>
+<p> 默认中文：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mEditText.setInputType(EditorInfo.TYPE\_CLASS\_TEXT);</div></pre></td></tr></table></figure>
+<p> 默认英文：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mEditText.setInputType(EditorInfo.TYPE\_TEXT\_VARIATION\_URI);</div></pre></td></tr></table></figure>
+<h2 id="打开和关闭输入法"><a href="#打开和关闭输入法" class="headerlink" title="打开和关闭输入法"></a>打开和关闭输入法</h2><p> 手动控制输入法的开关状态也能提升用户体验，比如：</p>
+<ul>
+<li>有的搜索框会有一个清除按钮，点击清除按钮时就应该弹出输入法，因为用户清除搜索内容的目的多数时候是需要输入新的内容；</li>
+<li>执行搜索时应该隐藏输入法，因为显示输入法时会遮挡搜索结果，用户体验不太好；</li>
+<li><p>闹钟来时或者有其它window弹出时应该隐藏输入法，因为输入法也是window，如果不隐藏可能导致输入法遮挡住了其它window等用户体验不太友好的问题。</p>
+<p>打开输入法：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">private void open(Context context, View editText)&#123;</div><div class="line">    InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);</div><div class="line">    inputMethodManager.showSoftInput(editText, 0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 关闭输入法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">private void close(Context context, View editText)&#123;</div><div class="line">    InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);</div><div class="line">    inputMethodManager.hideSoftInputFromWindow(editText.getWindowToken(), 0);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="监听EditText的输入状态"><a href="#监听EditText的输入状态" class="headerlink" title="监听EditText的输入状态"></a>监听EditText的输入状态</h2><ul>
+<li>类似新浪微博，在输入内容时会提示还可以输入多少字；</li>
+<li>有的搜索引擎，输入内容时实时显示搜索结果；</li>
+<li><p>有的输入框有输入长度限制，输入内容超过长度限制时弹出提示信息。</p>
+<p>上面这些都可以通过监听EditText的输入状态来实现，具体实现方式如下：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mInputEditTxt.addTextChangedListener(new TextWatcher() &#123;</div><div class="line">        @Override</div><div class="line">        public void beforeTextChanged(CharSequence s, int start, int count, int after) &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void onTextChanged(CharSequence s, int start, int before, int count) &#123;</div><div class="line">            System.out.println(&quot;监听EditText输入内容的变化，在这里可以监听输入内容的长度。&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void afterTextChanged(Editable s) &#123;</div><div class="line">            System.out.println(&quot;这里可以实现所输即所得，用户输入的同时可以立即在这里根据输入内容执行操作，显示搜索结果！&quot;);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<h2 id="监听输入法中的回车按钮"><a href="#监听输入法中的回车按钮" class="headerlink" title="监听输入法中的回车按钮"></a>监听输入法中的回车按钮</h2><p> 比如搜狗输入法的右下角有一个回车按钮，我们希望用户点击它时也执行确认功能，可以通过监听EditText的按键点击事件来实现：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/\*\* \* 监听输入法按键 \* \* \*/</div><div class="line">    mInputEditTxt.setOnKeyListener(new OnKeyListener() &#123;</div><div class="line">        @Override public boolean onKey(View v, int keyCode, KeyEvent event) &#123;</div><div class="line">            if (keyCode == KeyEvent.KEYCODE_ENTER &amp;&amp; event.getAction() == KeyEvent.ACTION_UP) &#123;</div><div class="line">                System.out.println(&quot;手指弹起时执行确认功能&quot;);</div><div class="line">                return true;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
+<h2 id="改变输入法中回车按钮的显示内容"><a href="#改变输入法中回车按钮的显示内容" class="headerlink" title="改变输入法中回车按钮的显示内容"></a>改变输入法中回车按钮的显示内容</h2><p> 如果回车按钮是执行搜索功能，则回车按钮上显示”搜索”，如果是执行发送功能，则显示”发送”,如果是下一步，则显示”下一步”。</p>
+<p> 实现这个功能需要调用EditText的setImeOptions方法：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/\*\* \* \* IME\_ACTION\_SEARCH 搜索 \* IME\_ACTION\_SEND 发送 \* IME\_ACTION\_NEXT 下一步 \* IME\_ACTION\_DONE 完成 \*/</div><div class="line">mInputEditTxt.setImeOptions(EditorInfo.IME_ACTION_SEARCH);</div></pre></td></tr></table></figure>
+<h2 id="限制输入内容"><a href="#限制输入内容" class="headerlink" title="限制输入内容"></a>限制输入内容</h2><p> 有时候我们根本就不想用户输入一些杂七杂八的内容，因为这需要程序针对输入的内容做各种处理，如果处理不当还会有好多不可预见的问题，索性在输入内容时就禁止用户输入一些非法字符，这可以通过下面的方式实现，新建一个类InputTxtFilter：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">public class InputTxtFilter&#123;</div><div class="line">    public static final int INPUT_TYPE_EN = 0x01;</div><div class="line">    public static final int INPUT_TYPE_CH = 0x02;</div><div class="line">    private static final String[] SPELL = new String[]&#123;</div><div class="line">        &quot;a&quot;,&quot;b&quot;,&quot;c&quot;,&quot;d&quot;,&quot;e&quot;,&quot;f&quot;,&quot;g&quot;,&quot;h&quot;,&quot;i&quot;,&quot;j&quot;,&quot;k&quot;,&quot;l&quot;,&quot;m&quot;,&quot;n&quot;,&quot;o&quot;,&quot;p&quot;,&quot;q&quot;,&quot;r&quot;,&quot;s&quot;,&quot;t&quot;,&quot;u&quot;,&quot;v&quot;,&quot;w&quot;,&quot;x&quot;,&quot;y&quot;,&quot;z&quot;,</div><div class="line">        &quot;ā&quot;,&quot;á&quot;,&quot;ǎ&quot;,&quot;à&quot;,&quot;ō&quot;,&quot;ó&quot;,&quot;ǒ&quot;,&quot;ò&quot;,&quot;ē&quot;,&quot;é&quot;,&quot;ě&quot;,&quot;è&quot;,&quot;ī&quot;,&quot;í&quot;,&quot;ǐ&quot;,&quot;ì&quot;,&quot;ū&quot;,&quot;ú&quot;,&quot;ǔ&quot;,&quot;ù&quot;,&quot;ǖ&quot;,&quot;ǘ&quot;,&quot;ǚ&quot;,&quot;ǜ&quot;,&quot;ü&quot;</div><div class="line">    &#125;;</div><div class="line">    private static char[] chineseParam = new char[]&#123;&apos;」&apos;,&apos;，&apos;,&apos;。&apos;,&apos;？&apos;,&apos;…&apos;,&apos;：&apos;,&apos;～&apos;,&apos;【&apos;,&apos;＃&apos;,&apos;、&apos;,&apos;％&apos;,&apos;＊&apos;,&apos;＆&apos;,&apos;＄&apos;,&apos;（&apos;,&apos;‘&apos;,&apos;’&apos;,&apos;“&apos;,&apos;”&apos;,&apos;『&apos;,&apos;〔&apos;,&apos;｛&apos;,&apos;【&apos;</div><div class="line">        ,&apos;￥&apos;,&apos;￡&apos;,&apos;‖&apos;,&apos;〖&apos;,&apos;《&apos;,&apos;「&apos;,&apos;》&apos;,&apos;〗&apos;,&apos;】&apos;,&apos;｝&apos;,&apos;〕&apos;,&apos;』&apos;,&apos;”&apos;,&apos;）&apos;,&apos;！&apos;,&apos;；&apos;,&apos;—&apos;&#125;;</div><div class="line"></div><div class="line">    private InputTxtFilter( )&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public static void inputFilter( final Context context, final EditText editText, final int type, final int inputLimit)&#123;</div><div class="line">        InputFilter[] filters = new InputFilter[1];</div><div class="line">        filters[0] = new InputFilter.LengthFilter(inputLimit)&#123;</div><div class="line">            public CharSequence filter(CharSequence source, int start, int end, Spanned dest, int dstart, int dend)&#123;</div><div class="line">                boolean isRightCharater = false;</div><div class="line">                if(type == INPUT_TYPE_EN)&#123;</div><div class="line">                    isRightCharater = isLetter(source.toString());</div><div class="line">                &#125;else if(type == INPUT_TYPE_CH)&#123;</div><div class="line">                    isRightCharater = isChineseWord(source.toString());</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                if ( !isRightCharater|| dest.toString( ).length( )&gt;=inputLimit )&#123;</div><div class="line">                    return &quot;&quot;;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                return source;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        editText.setFilters(filters);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /\*\* \* 检测String是否全是中文 \* \*/</div><div class="line">    public static boolean isChineseWord( String name )&#123;</div><div class="line">        boolean res=true;</div><div class="line">        char[] cTemp = name.toCharArray( );</div><div class="line"></div><div class="line">        for( int i = 0; i &lt; name.length( ); i++ )&#123;</div><div class="line">            if( !isChinese( cTemp[ i ] ) )&#123;</div><div class="line">                res=false;</div><div class="line">                break;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return res;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /\*\* \* 是否为英文字母 \* \* \*/</div><div class="line">    public static boolean isLetter( String inputStr )&#123;</div><div class="line">        char[] inputArray = inputStr.toCharArray( );</div><div class="line">        List&lt;String&gt; spellList = Arrays.asList( SPELL );</div><div class="line"></div><div class="line">        for( char input : inputArray )&#123;</div><div class="line">            if( !spellList.contains( input + &quot;&quot; ) )&#123;</div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /\*\* \* 判定输入汉字 \* @param c \*/</div><div class="line">    public static boolean isChinese( char c )&#123;</div><div class="line">        for( char param : chineseParam )&#123;</div><div class="line">            if( param == c )&#123;</div><div class="line">                return false;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        Character.UnicodeBlock ub = Character.UnicodeBlock.of( c );</div><div class="line">        if ( ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS</div><div class="line">            || ub == Character.UnicodeBlock.CJK_COMPATIBILITY_IDEOGRAPHS</div><div class="line">            || ub == Character.UnicodeBlock.CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A</div><div class="line">            || ub == Character.UnicodeBlock.GENERAL_PUNCTUATION</div><div class="line">            || ub == Character.UnicodeBlock.CJK_SYMBOLS_AND_PUNCTUATION</div><div class="line">            || ub == Character.UnicodeBlock.HALFWIDTH_AND_FULLWIDTH_FORMS )&#123;</div><div class="line">            return true;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return false;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p> 在初始化EditText时，调用InputTxtFilter的inputFilter方法，传入输入长度限制、输入内容的类型限制等即可，eg：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">InputTxtFilter.inputFilter(this, mInputEditTxt, InputTxtFilter.INPUT\_TYPE\_EN, 5);</div></pre></td></tr></table></figure>
+<h2 id="屏蔽EditText的复制、粘贴功能"><a href="#屏蔽EditText的复制、粘贴功能" class="headerlink" title="屏蔽EditText的复制、粘贴功能"></a>屏蔽EditText的复制、粘贴功能</h2><p> 在低版本的Android SDK中，如果对EditText的输入长度有限制时，长按EditText并将选中的内容拖动到EditText输入框中，如果这时候的长度超过了EditText的输入长度限制，程序会直接崩溃掉，在高版本的Android SDK中这个问题已经改了，如果出现上面的情况会直接清空输入框中的内容，为了避免这种讨厌的问题，我们可以屏蔽EditText的复制和粘贴功能，只需要屏蔽EditText的长按响应即可：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">/\*\* \* 屏蔽复制、粘贴功能 \* \* \*/</div><div class="line">    mInputEditTxt.setCustomSelectionActionModeCallback(new ActionMode.Callback() &#123;</div><div class="line">        public boolean onCreateActionMode(ActionMode actionMode, Menu menu) &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void onDestroyActionMode(ActionMode mode) &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    mInputEditTxt.setLongClickable(false);</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div></br>请我喝杯咖啡吧:-)</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://ww3.sinaimg.cn/large/006tNc79gw1faw4aaoozlj307w07wab5.jpg" alt="梁耐松 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://ww3.sinaimg.cn/large/006tNc79gw1faw493tsg0j307l07l75b.jpg" alt="梁耐松 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag"># Android</a>
+          
+            <a href="/tags/开发编程/" rel="tag"># 开发编程</a>
+          
+            <a href="/tags/EditText/" rel="tag"># EditText</a>
+          
+            <a href="/tags/转/" rel="tag"># 转</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/blog/17/Android-Dialog/" rel="next" title="Android Dialog 对话框">
+                <i class="fa fa-chevron-left"></i> Android Dialog 对话框
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/avatar.jpg"
+               alt="梁耐松" />
+          <p class="site-author-name" itemprop="name">梁耐松</p>
+           
+              <p class="site-description motion-element" itemprop="description">梁耐松 主页 博客 网站</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liangnaisong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/l8064" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=FHgsJCIgVGVlOnd7eQ" target="_blank" title="E-mail">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  E-mail
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#设置默认输入法"><span class="nav-number">1.</span> <span class="nav-text">设置默认输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开和关闭输入法"><span class="nav-number">2.</span> <span class="nav-text">打开和关闭输入法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听EditText的输入状态"><span class="nav-number">3.</span> <span class="nav-text">监听EditText的输入状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#监听输入法中的回车按钮"><span class="nav-number">4.</span> <span class="nav-text">监听输入法中的回车按钮</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变输入法中回车按钮的显示内容"><span class="nav-number">5.</span> <span class="nav-text">改变输入法中回车按钮的显示内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#限制输入内容"><span class="nav-number">6.</span> <span class="nav-text">限制输入内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏蔽EditText的复制、粘贴功能"><span class="nav-number">7.</span> <span class="nav-text">屏蔽EditText的复制、粘贴功能</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">梁耐松</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "20dd9b4049e54d609c63542c239b4ef4",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
