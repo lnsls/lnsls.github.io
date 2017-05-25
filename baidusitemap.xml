@@ -4,6 +4,56 @@
 
     
   <url>
+    <loc>lns666.me/blog/17/Android-CloseActivity/</loc>
+    <lastmod>2017-05-25T09:24:28.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android关闭Activity的方法</title>
+        <pubTime>2017-02-12T14:20:32.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+        <tag>Activity</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/17/Android-EditText/</loc>
+    <lastmod>2017-05-24T08:05:17.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android EditText 值得注意的地方(转)</title>
+        <pubTime>2017-05-24T07:24:52.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+        <tag>EditText</tag>
+         
+        <tag>转</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>lns666.me/blog/17/Android-git/</loc>
     <lastmod>2017-05-24T07:36:43.000Z</lastmod>
     <data>
@@ -18,32 +68,6 @@
         <tag>转</tag>
          
         <tag>git</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>lns666.me/blog/17/Android-EditText/</loc>
-    <lastmod>2017-05-24T07:25:18.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android EditText 值得注意的地方(转)</title>
-        <pubTime>2017-05-24T07:24:52.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>开发编程</tag>
-         
-        <tag>EditText</tag>
-         
-        <tag>转</tag>
          
          
            
@@ -203,9 +227,9 @@
          
         <tag>开发编程</tag>
          
-        <tag>技巧</tag>
-         
         <tag>Android Studio</tag>
+         
+        <tag>技巧</tag>
          
          
            
@@ -229,9 +253,9 @@
          
         <tag>开发编程</tag>
          
-        <tag>技巧</tag>
-         
         <tag>Android Studio</tag>
+         
+        <tag>技巧</tag>
          
          
            
@@ -328,11 +352,11 @@
         <title>Google搜索技巧</title>
         <pubTime>2016-10-20T12:46:23.000Z</pubTime>
         
+        <tag>技巧</tag>
+         
         <tag>Google</tag>
          
         <tag>搜索</tag>
-         
-        <tag>技巧</tag>
          
          
            
