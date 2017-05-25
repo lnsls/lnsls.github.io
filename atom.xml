@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="lns666.me/"/>
-  <updated>2017-05-24T08:05:17.000Z</updated>
+  <updated>2017-05-25T09:26:49.000Z</updated>
   <id>lns666.me/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android关闭Activity的方法</title>
+    <link href="lns666.me/blog/17/Android-CloseActivity/"/>
+    <id>lns666.me/blog/17/Android-CloseActivity/</id>
+    <published>2017-05-25T10:20:12.000Z</published>
+    <updated>2017-05-25T09:26:49.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>Activity是Android最常用的组件之一,Activity可以用来显示界面,被打开的Activity始终关闭,本文将介绍几种常用的Activity关闭方法.</p>
+<h2 id="关闭当前Activity"><a href="#关闭当前Activity" class="headerlink" title="关闭当前Activity"></a>关闭当前Activity</h2><p>关闭当前Activity的几种方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//关闭当前Activity方法一  </span></div><div class="line">finish();  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法二  </span></div><div class="line">android.os.Process.killProcess(android.os.Process.myPid());  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法三  </span></div><div class="line">System.exit(<span class="number">0</span>);  </div><div class="line">  </div><div class="line"><span class="comment">//关闭当前Activity方法四  </span></div><div class="line"><span class="keyword">this</span>.onDestroy();</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="关闭指定Activity"><a href="#关闭指定Activity" class="headerlink" title="关闭指定Activity"></a>关闭指定Activity</h2><p>例如:在ActivityB中关闭ActivityA.</p>
+<p>1.在ActivityA里创建静态变量instance,初始化为this<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> ActivityA instance = <span class="keyword">null</span>;</div><div class="line">instance = <span class="keyword">this</span>;</div></pre></td></tr></table></figure></p>
+<p>2.在 ActivityB里执行ActivityA.instance.finish()来关闭ActivityA<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ActivityA.instance.finish();</div></pre></td></tr></table></figure></p>
+<h2 id="关闭所有Activity"><a href="#关闭所有Activity" class="headerlink" title="关闭所有Activity"></a>关闭所有Activity</h2><p>1.创建用来处理Activity的类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//使用list来保存每一个activity</span></div><div class="line">    <span class="keyword">private</span> List&lt;Activity&gt; mList = <span class="keyword">new</span> LinkedList&lt;Activity&gt;();</div><div class="line"></div><div class="line">    <span class="comment">//为了实现每次使用该类时不创建新的对象而创建的静态对象  </span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MyApplication instance;</div><div class="line"></div><div class="line">    <span class="comment">//构造方法  </span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyApplication</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//实例化一次  </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> MyApplication <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == instance) &#123;</div><div class="line">            instance = <span class="keyword">new</span> MyApplication();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// add Activity    </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addActivity</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">        mList.add(activity);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//关闭每一个list里的Activity</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exit</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">for</span> (Activity activity : mList) &#123;</div><div class="line">                <span class="keyword">if</span> (activity != <span class="keyword">null</span>)</div><div class="line">                    activity.finish();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            System.exit(<span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//杀进程  </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLowMemory</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onLowMemory();</div><div class="line">        System.gc();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>2.在每个Activity被创建时将该Activity添加到list中去。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MyApplication.getInstance().addActivity(<span class="keyword">this</span>);</div></pre></td></tr></table></figure></p>
+<p>3.调用MyApplication的exit方法关闭所有Activity<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MyApplication.getInstance().exit();</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Activity是Android最常用的组件之一,Activity可以用来显示界面,被打开的Activity始终关闭,本文将介绍几种常用的Activity关闭方法.&lt;/p&gt;
+&lt;h2 id=&quot;关闭当前Activity&quot;&gt;&lt;a href=&quot;#关闭当前Activity&quot; class=&quot;headerlink&quot; title=&quot;关闭当前Activity&quot;&gt;&lt;/a&gt;关闭当前Activity&lt;/h2&gt;&lt;p&gt;关闭当前Activity的几种方法&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法一  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;finish();  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法二  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;android.os.Process.killProcess(android.os.Process.myPid());  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法三  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.exit(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法四  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onDestroy();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="lns666.me/tags/Android/"/>
+    
+      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Activity" scheme="lns666.me/tags/Activity/"/>
+    
+  </entry>
   
   <entry>
     <title>Android EditText 值得注意的地方(转)</title>
@@ -119,45 +158,6 @@
       <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
       <category term="Dialog" scheme="lns666.me/tags/Dialog/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android关闭Activity的方法</title>
-    <link href="lns666.me/blog/17/Android-CloseActivity/"/>
-    <id>lns666.me/blog/17/Android-CloseActivity/</id>
-    <published>2017-02-12T14:20:32.000Z</published>
-    <updated>2017-05-25T09:24:28.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Activity是Android最常用的组件之一,Activity可以用来显示界面,被打开的Activity始终关闭,本文将介绍几种常用的Activity关闭方法.</p>
-<h2 id="关闭当前Activity"><a href="#关闭当前Activity" class="headerlink" title="关闭当前Activity"></a>关闭当前Activity</h2><p>关闭当前Activity的几种方法</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//关闭当前Activity方法一  </span></div><div class="line">finish();  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法二  </span></div><div class="line">android.os.Process.killProcess(android.os.Process.myPid());  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法三  </span></div><div class="line">System.exit(<span class="number">0</span>);  </div><div class="line">  </div><div class="line"><span class="comment">//关闭当前Activity方法四  </span></div><div class="line"><span class="keyword">this</span>.onDestroy();</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="关闭指定Activity"><a href="#关闭指定Activity" class="headerlink" title="关闭指定Activity"></a>关闭指定Activity</h2><p>例如:在ActivityB中关闭ActivityA.</p>
-<p>1.在ActivityA里创建静态变量instance,初始化为this<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> ActivityA instance = <span class="keyword">null</span>;</div><div class="line">instance = <span class="keyword">this</span>;</div></pre></td></tr></table></figure></p>
-<p>2.在 ActivityB里执行ActivityA.instance.finish()来关闭ActivityA<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ActivityA.instance.finish();</div></pre></td></tr></table></figure></p>
-<h2 id="关闭所有Activity"><a href="#关闭所有Activity" class="headerlink" title="关闭所有Activity"></a>关闭所有Activity</h2><p>1.创建用来处理Activity的类</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//使用list来保存每一个activity</span></div><div class="line">    <span class="keyword">private</span> List&lt;Activity&gt; mList = <span class="keyword">new</span> LinkedList&lt;Activity&gt;();</div><div class="line"></div><div class="line">    <span class="comment">//为了实现每次使用该类时不创建新的对象而创建的静态对象  </span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MyApplication instance;</div><div class="line"></div><div class="line">    <span class="comment">//构造方法  </span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyApplication</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//实例化一次  </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> MyApplication <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == instance) &#123;</div><div class="line">            instance = <span class="keyword">new</span> MyApplication();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// add Activity    </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addActivity</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">        mList.add(activity);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//关闭每一个list里的Activity</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exit</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">for</span> (Activity activity : mList) &#123;</div><div class="line">                <span class="keyword">if</span> (activity != <span class="keyword">null</span>)</div><div class="line">                    activity.finish();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            System.exit(<span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//杀进程  </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLowMemory</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onLowMemory();</div><div class="line">        System.gc();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>2.在每个Activity被创建时将该Activity添加到list中去。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MyApplication.getInstance().addActivity(<span class="keyword">this</span>);</div></pre></td></tr></table></figure></p>
-<p>3.调用MyApplication的exit方法关闭所有Activity<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MyApplication.getInstance().exit();</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Activity是Android最常用的组件之一,Activity可以用来显示界面,被打开的Activity始终关闭,本文将介绍几种常用的Activity关闭方法.&lt;/p&gt;
-&lt;h2 id=&quot;关闭当前Activity&quot;&gt;&lt;a href=&quot;#关闭当前Activity&quot; class=&quot;headerlink&quot; title=&quot;关闭当前Activity&quot;&gt;&lt;/a&gt;关闭当前Activity&lt;/h2&gt;&lt;p&gt;关闭当前Activity的几种方法&lt;/p&gt;
-&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法一  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;finish();  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法二  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;android.os.Process.killProcess(android.os.Process.myPid());  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法三  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.exit(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法四  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onDestroy();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
-    
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Activity" scheme="lns666.me/tags/Activity/"/>
     
   </entry>
   
@@ -374,9 +374,9 @@
     
       <category term="Android" scheme="lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="BroadcastReceiver" scheme="lns666.me/tags/BroadcastReceiver/"/>
+    
+      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
