@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>lns666.me/blog/16/hello-world/</loc>
+    
+    <lastmod>2017-05-26T01:32:49.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>lns666.me/blog/16/google-search-skill/</loc>
     
     <lastmod>2017-05-26T01:16:34.000Z</lastmod>
@@ -110,13 +117,6 @@
     <loc>lns666.me/about/index.html</loc>
     
     <lastmod>2016-11-30T07:06:55.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>lns666.me/blog/16/hello-world/</loc>
-    
-    <lastmod>2016-11-29T04:41:03.000Z</lastmod>
     
   </url>
   

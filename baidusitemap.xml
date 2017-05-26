@@ -4,6 +4,26 @@
 
     
   <url>
+    <loc>lns666.me/blog/16/hello-world/</loc>
+    <lastmod>2017-05-26T01:32:49.000Z</lastmod>
+    <data>
+        <display>
+        <title>测试文章标题</title>
+        <pubTime>2016-10-08T04:28:13.000Z</pubTime>
+        
+        <tag>测试标签</tag>
+         
+         
+           
+             
+              <breadCrumb title="测试分类" url="lns666.me/categories/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>lns666.me/blog/16/google-search-skill/</loc>
     <lastmod>2017-05-26T01:16:34.000Z</lastmod>
     <data>
@@ -39,9 +59,9 @@
          
         <tag>Android Studio</tag>
          
-        <tag>git</tag>
-         
         <tag>转</tag>
+         
+        <tag>git</tag>
          
          
            
@@ -265,9 +285,9 @@
          
         <tag>开发编程</tag>
          
-        <tag>转</tag>
-         
         <tag>EditText</tag>
+         
+        <tag>转</tag>
          
          
            
@@ -367,21 +387,6 @@
     </url>
 
     
-    
-  <url>
-    <loc>lns666.me/blog/16/hello-world/</loc>
-    <lastmod>2016-11-29T04:41:03.000Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2016-11-29T04:41:03.000Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
     
     
 </urlset>
