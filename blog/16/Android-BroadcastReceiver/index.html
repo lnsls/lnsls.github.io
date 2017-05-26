@@ -89,21 +89,21 @@
 
 
 
-<meta name="description" content="BroadcastReceiver简介BroadcastReceiver作为Android四大组件之一,是一种广泛运用在应用程序之间传输信息的机制,没有界面.
-BroadcastReceiver包括两个概念,广播发送者和广播接收者(Receiver),这里的广播实际就是指Intent,程序可以自己发送广播自己接收,也可以接受系统或其他应用的广播或是发送广播给其他应用程序.
+<meta name="description" content="BroadcastReceiver简介BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。
+BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。
 我们的应用可以使用它对外">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BroadcastReceiver广播接收器的简单用法">
 <meta property="og:url" content="lns666.me/blog/16/Android-BroadcastReceiver/index.html">
 <meta property="og:site_name" content="梁耐松">
-<meta property="og:description" content="BroadcastReceiver简介BroadcastReceiver作为Android四大组件之一,是一种广泛运用在应用程序之间传输信息的机制,没有界面.
-BroadcastReceiver包括两个概念,广播发送者和广播接收者(Receiver),这里的广播实际就是指Intent,程序可以自己发送广播自己接收,也可以接受系统或其他应用的广播或是发送广播给其他应用程序.
+<meta property="og:description" content="BroadcastReceiver简介BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。
+BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。
 我们的应用可以使用它对外">
-<meta property="og:updated_time" content="2017-02-11T05:28:58.000Z">
+<meta property="og:updated_time" content="2017-05-26T00:36:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BroadcastReceiver广播接收器的简单用法">
-<meta name="twitter:description" content="BroadcastReceiver简介BroadcastReceiver作为Android四大组件之一,是一种广泛运用在应用程序之间传输信息的机制,没有界面.
-BroadcastReceiver包括两个概念,广播发送者和广播接收者(Receiver),这里的广播实际就是指Intent,程序可以自己发送广播自己接收,也可以接受系统或其他应用的广播或是发送广播给其他应用程序.
+<meta name="twitter:description" content="BroadcastReceiver简介BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。
+BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。
 我们的应用可以使用它对外">
 
 
@@ -429,13 +429,13 @@ BroadcastReceiver包括两个概念,广播发送者和广播接收者(Receiver),
       
 
       
-        <h2 id="BroadcastReceiver简介"><a href="#BroadcastReceiver简介" class="headerlink" title="BroadcastReceiver简介"></a>BroadcastReceiver简介</h2><p>BroadcastReceiver作为Android四大组件之一,是一种广泛运用在应用程序之间传输信息的机制,没有界面.</p>
-<p>BroadcastReceiver包括两个概念,广播发送者和广播接收者(Receiver),这里的广播实际就是指Intent,程序可以自己发送广播自己接收,也可以接受系统或其他应用的广播或是发送广播给其他应用程序.</p>
-<p>我们的应用可以使用它对外部事件进行过滤只对感兴趣的外部事件进行接收并做出响应.例如当WIFI断开时,应当停止下载任务,以节省流量.</p>
+        <h2 id="BroadcastReceiver简介"><a href="#BroadcastReceiver简介" class="headerlink" title="BroadcastReceiver简介"></a>BroadcastReceiver简介</h2><p>BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。</p>
+<p>BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。</p>
+<p>我们的应用可以使用它对外部事件进行过滤只对感兴趣的外部事件进行接收并做出响应。例如当WIFI断开时，应当停止下载任务，以节省流量。</p>
 <a id="more"></a>
-<h2 id="BroadcastReceiver简单用法"><a href="#BroadcastReceiver简单用法" class="headerlink" title="BroadcastReceiver简单用法"></a>BroadcastReceiver简单用法</h2><p>首先在需要发送信息的地方,把要发送的信息和用于过滤的信息(如Action、Category)装入一个Intent对象 ,然后通过调用 sendOrderBroadcast()或sendStickyBroadcast()方法,把 Intent对象以广播方式发送出去.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 发送广播</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"android.intent.action.CART_BROADCAST"</span>);</div><div class="line">LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);</div></pre></td></tr></table></figure></p>
-<p>当Intent发送以后,所有已经注册的BroadcastReceiver会检查注册时的IntentFilter是否与发送的Intent相匹配,若匹配则就会调用BroadcastReceiver的onReceive()方法.所以当我们定义一个BroadcastReceiver的时候,都需要实现onReceive()方法.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 广播接收器声明变量</span></div><div class="line"><span class="keyword">private</span> LocalBroadcastManager broadcastManager;</div><div class="line"><span class="keyword">private</span> IntentFilter intentFilter;</div><div class="line"><span class="keyword">private</span> BroadcastReceiver mReceiver;</div><div class="line"></div><div class="line"><span class="comment">// 广播注册,可以写在Activity（onCreate）,也可以写在Fragment（onActivityCreated）里。</span></div><div class="line">broadcastManager = LocalBroadcastManager.getInstance(getActivity());</div><div class="line">intentFilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">intentFilter.addAction(<span class="string">"android.intent.action.CART_BROADCAST"</span>);  <span class="comment">//过滤器</span></div><div class="line">mReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span></span>&#123;</div><div class="line">                <span class="comment">//收到广播后所作的操作</span></div><div class="line">            &#125;</div><div class="line"> &#125;;</div><div class="line"> broadcastManager.registerReceiver(mReceiver, intentFilter);</div><div class="line"></div><div class="line"><span class="comment">// 和正常广播一样，也要在对应的生命周期中反注册掉:</span></div><div class="line"><span class="meta">@Override</span>  </div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;  </div><div class="line">   <span class="keyword">super</span>.onDestroy();  </div><div class="line">   broadcastManager.unregisterReceiver(mReceiver);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>本文简单阐述了的用法,如果想了解更多可以查看<a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">官方文档</a>.</p>
+<h2 id="BroadcastReceiver简单用法"><a href="#BroadcastReceiver简单用法" class="headerlink" title="BroadcastReceiver简单用法"></a>BroadcastReceiver简单用法</h2><p>首先在需要发送信息的地方，把要发送的信息和用于过滤的信息(如Action、Category)装入一个Intent对象 ，然后通过调用 sendOrderBroadcast()或sendStickyBroadcast()方法，把 Intent对象以广播方式发送出去。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 发送广播</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"android.intent.action.CART_BROADCAST"</span>);</div><div class="line">LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);</div></pre></td></tr></table></figure></p>
+<p>当Intent发送以后，所有已经注册的BroadcastReceiver会检查注册时的IntentFilter是否与发送的Intent相匹配，若匹配则就会调用BroadcastReceiver的onReceive()方法。所以当我们定义一个BroadcastReceiver的时候，都需要实现onReceive()方法。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 广播接收器声明变量</span></div><div class="line"><span class="keyword">private</span> LocalBroadcastManager broadcastManager;</div><div class="line"><span class="keyword">private</span> IntentFilter intentFilter;</div><div class="line"><span class="keyword">private</span> BroadcastReceiver mReceiver;</div><div class="line"></div><div class="line"><span class="comment">// 广播注册,可以写在Activity（onCreate）,也可以写在Fragment（onActivityCreated）里。</span></div><div class="line">broadcastManager = LocalBroadcastManager.getInstance(getActivity());</div><div class="line">intentFilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">intentFilter.addAction(<span class="string">"android.intent.action.CART_BROADCAST"</span>);  <span class="comment">//过滤器</span></div><div class="line">mReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span></span>&#123;</div><div class="line">                <span class="comment">//收到广播后所作的操作</span></div><div class="line">            &#125;</div><div class="line"> &#125;;</div><div class="line"> broadcastManager.registerReceiver(mReceiver, intentFilter);</div><div class="line"></div><div class="line"><span class="comment">// 和正常广播一样,也要在对应的生命周期中反注册掉</span></div><div class="line"><span class="meta">@Override</span>  </div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;  </div><div class="line">   <span class="keyword">super</span>.onDestroy();  </div><div class="line">   broadcastManager.unregisterReceiver(mReceiver);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>本文简单阐述了的用法，如果想了解更多可以查看<a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">官方文档</a>。</p>
 
       
     </div>

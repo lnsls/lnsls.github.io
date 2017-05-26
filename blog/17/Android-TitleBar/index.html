@@ -89,17 +89,17 @@
 
 
 
-<meta name="description" content="在Android开发中,我们常常需要在标题栏中增加返回按钮和提交按钮,并将标题文字居中这就需要自定义标题栏.">
+<meta name="description" content="在Android开发中，我们常常需要在标题栏中增加返回按钮和提交按钮，并将标题文字居中这就需要自定义标题栏。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android自定义标题栏">
 <meta property="og:url" content="lns666.me/blog/17/Android-TitleBar/index.html">
 <meta property="og:site_name" content="梁耐松">
-<meta property="og:description" content="在Android开发中,我们常常需要在标题栏中增加返回按钮和提交按钮,并将标题文字居中这就需要自定义标题栏.">
+<meta property="og:description" content="在Android开发中，我们常常需要在标题栏中增加返回按钮和提交按钮，并将标题文字居中这就需要自定义标题栏。">
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006tNc79gy1fcmg3a61tqj30u00hhq33.jpg">
-<meta property="og:updated_time" content="2017-04-03T03:40:46.000Z">
+<meta property="og:updated_time" content="2017-05-25T09:33:10.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android自定义标题栏">
-<meta name="twitter:description" content="在Android开发中,我们常常需要在标题栏中增加返回按钮和提交按钮,并将标题文字居中这就需要自定义标题栏.">
+<meta name="twitter:description" content="在Android开发中，我们常常需要在标题栏中增加返回按钮和提交按钮，并将标题文字居中这就需要自定义标题栏。">
 <meta name="twitter:image" content="https://ww3.sinaimg.cn/large/006tNc79gy1fcmg3a61tqj30u00hhq33.jpg">
 
 
@@ -425,9 +425,9 @@
       
 
       
-        <p><img src="https://ww3.sinaimg.cn/large/006tNc79gy1fcmg3a61tqj30u00hhq33.jpg" width="400px"><br>在Android开发中,我们常常需要在标题栏中增加返回按钮和提交按钮,并将标题文字居中这就需要自定义标题栏.</p>
+        <p><img src="https://ww3.sinaimg.cn/large/006tNc79gy1fcmg3a61tqj30u00hhq33.jpg" width="400px"><br>在Android开发中，我们常常需要在标题栏中增加返回按钮和提交按钮，并将标题文字居中这就需要自定义标题栏。</p>
 <a id="more"></a>
-<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>代码比较简单,可以下载Dome查看<br><a href="https://github.com/liangnaisong/TitleBar" target="_blank" rel="external">https://github.com/liangnaisong/TitleBar</a></p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>代码比较简单，可以下载Dome查看<br><a href="https://github.com/liangnaisong/TitleBar" target="_blank" rel="external">https://github.com/liangnaisong/TitleBar</a></p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//设置标题名称</span></div><div class="line">setTitle(<span class="string">"标题"</span>);</div><div class="line"><span class="comment">//设置返回按钮并显示</span></div><div class="line">showBackwardView(R.string.text_back,<span class="keyword">true</span>);</div><div class="line"><span class="comment">//设置提交按钮并显示</span></div><div class="line">showForwardView(R.string.text_forward, <span class="keyword">true</span>);</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 重写点击返回按钮操作,返回按钮点击后触发</div><div class="line"> * <span class="doctag">@param</span> backwardView</div><div class="line"> */</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onBackward</span><span class="params">(View backwardView)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onBackward(backwardView);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 重写点击提交按钮操作,提交按钮点击后触发</div><div class="line"> * <span class="doctag">@param</span> forwardView</div><div class="line"> */</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onForward</span><span class="params">(View forwardView)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onForward(forwardView);</div><div class="line">&#125;</div></pre></td></tr></table></figure>

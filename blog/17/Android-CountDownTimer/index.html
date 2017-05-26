@@ -89,18 +89,18 @@
 
 
 
-<meta name="description" content="在Android开发中,我们会常常需要使用倒计时,比如在发送短信验证码时的60秒等待,我们可以通过CountDownTimer来简单的实现倒计时的功能.">
+<meta name="description" content="在Android开发中，我们会常常需要使用倒计时，比如在发送短信验证码时的60秒等待，我们可以通过CountDownTimer来简单的实现倒计时的功能。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android CountDownTimer 倒计时">
 <meta property="og:url" content="lns666.me/blog/17/Android-CountDownTimer/index.html">
 <meta property="og:site_name" content="梁耐松">
-<meta property="og:description" content="在Android开发中,我们会常常需要使用倒计时,比如在发送短信验证码时的60秒等待,我们可以通过CountDownTimer来简单的实现倒计时的功能.">
+<meta property="og:description" content="在Android开发中，我们会常常需要使用倒计时，比如在发送短信验证码时的60秒等待，我们可以通过CountDownTimer来简单的实现倒计时的功能。">
 <meta property="og:image" content="https://ww4.sinaimg.cn/large/006y8lVagy1fcnz0ihdeej30u00k0dgt.jpg">
 <meta property="og:image" content="https://ww3.sinaimg.cn/large/006y8lVagy1fcnz0eemguj30u00k0q3w.jpg">
-<meta property="og:updated_time" content="2017-04-03T03:41:00.000Z">
+<meta property="og:updated_time" content="2017-05-25T09:32:48.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android CountDownTimer 倒计时">
-<meta name="twitter:description" content="在Android开发中,我们会常常需要使用倒计时,比如在发送短信验证码时的60秒等待,我们可以通过CountDownTimer来简单的实现倒计时的功能.">
+<meta name="twitter:description" content="在Android开发中，我们会常常需要使用倒计时，比如在发送短信验证码时的60秒等待，我们可以通过CountDownTimer来简单的实现倒计时的功能。">
 <meta name="twitter:image" content="https://ww4.sinaimg.cn/large/006y8lVagy1fcnz0ihdeej30u00k0dgt.jpg">
 
 
@@ -426,12 +426,12 @@
       
 
       
-        <p>在Android开发中,我们会常常需要使用倒计时,比如在发送短信验证码时的60秒等待,我们可以通过CountDownTimer来简单的实现倒计时的功能.</p>
+        <p>在Android开发中，我们会常常需要使用倒计时，比如在发送短信验证码时的60秒等待，我们可以通过CountDownTimer来简单的实现倒计时的功能。</p>
 <p><img src="https://ww4.sinaimg.cn/large/006y8lVagy1fcnz0ihdeej30u00k0dgt.jpg" width="400px"></p>
 <a id="more"></a>
 <p><img src="https://ww3.sinaimg.cn/large/006y8lVagy1fcnz0eemguj30u00k0q3w.jpg" width="400px"></p>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 60秒倒计时示例</div><div class="line"> */</div><div class="line"> <span class="keyword">new</span> CountDownTimer(<span class="number">60000</span>, <span class="number">1000</span>) &#123;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTick</span><span class="params">(<span class="keyword">long</span> millisUntilFinished)</span> </span>&#123;</div><div class="line">         mTextField.setText(<span class="string">"seconds remaining: "</span> + millisUntilFinished / <span class="number">1000</span>);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinish</span><span class="params">()</span> </span>&#123;</div><div class="line">         mTextField.setText(<span class="string">"done!"</span>);</div><div class="line">     &#125;</div><div class="line">  &#125;.start();</div></pre></td></tr></table></figure>
-<p>CountDownTimer每隔1秒就会调用一次onTick()方法, 在倒计时结束时会调用onFinish()方法,如此我们便可以通过它简单实现倒计时功能啦.</p>
+<p>CountDownTimer每隔1秒就会调用一次onTick()方法，在倒计时结束时会调用onFinish()方法，如此我们便可以通过它简单实现倒计时功能啦。</p>
 <h2 id="公共构造函数"><a href="#公共构造函数" class="headerlink" title="公共构造函数"></a>公共构造函数</h2><p>CountDownTimer(long millisInFuture, long countDownInterval)</p>
 <p><code>millisInFuture</code> 倒计时总时间 ms</p>
 <p><code>countDownInterval</code> 倒计时间隔时间 ms</p>
@@ -439,7 +439,7 @@
 <p><code>onFinish()</code> 倒计时结束回调</p>
 <p><code>onTick(long millisUntilFinished)</code> 到达间隔时间的定期回调</p>
 <p><code>start()</code> 开始倒计时</p>
-<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>代码比较简单,可以下载Dome查看<br><a href="https://github.com/liangnaisong/Countdown" target="_blank" rel="external">https://github.com/liangnaisong/Countdown</a></p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>代码比较简单，可以下载Dome查看<br><a href="https://github.com/liangnaisong/Countdown" target="_blank" rel="external">https://github.com/liangnaisong/Countdown</a></p>
 
       
     </div>

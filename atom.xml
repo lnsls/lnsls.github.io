@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="lns666.me/"/>
-  <updated>2017-05-25T09:26:49.000Z</updated>
+  <updated>2017-05-25T09:33:58.000Z</updated>
   <id>lns666.me/</id>
   
   <author>
@@ -20,24 +20,24 @@
     <link href="lns666.me/blog/17/Android-CloseActivity/"/>
     <id>lns666.me/blog/17/Android-CloseActivity/</id>
     <published>2017-05-25T10:20:12.000Z</published>
-    <updated>2017-05-25T09:26:49.000Z</updated>
+    <updated>2017-05-25T09:33:58.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Activity是Android最常用的组件之一,Activity可以用来显示界面,被打开的Activity始终关闭,本文将介绍几种常用的Activity关闭方法.</p>
+    <content type="html"><![CDATA[<p>Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终关闭，本文将介绍几种常用的Activity关闭方法。</p>
 <h2 id="关闭当前Activity"><a href="#关闭当前Activity" class="headerlink" title="关闭当前Activity"></a>关闭当前Activity</h2><p>关闭当前Activity的几种方法</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//关闭当前Activity方法一  </span></div><div class="line">finish();  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法二  </span></div><div class="line">android.os.Process.killProcess(android.os.Process.myPid());  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法三  </span></div><div class="line">System.exit(<span class="number">0</span>);  </div><div class="line">  </div><div class="line"><span class="comment">//关闭当前Activity方法四  </span></div><div class="line"><span class="keyword">this</span>.onDestroy();</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="关闭指定Activity"><a href="#关闭指定Activity" class="headerlink" title="关闭指定Activity"></a>关闭指定Activity</h2><p>例如:在ActivityB中关闭ActivityA.</p>
-<p>1.在ActivityA里创建静态变量instance,初始化为this<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> ActivityA instance = <span class="keyword">null</span>;</div><div class="line">instance = <span class="keyword">this</span>;</div></pre></td></tr></table></figure></p>
+<p>1.在ActivityA里创建静态变量instance，初始化为this<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> ActivityA instance = <span class="keyword">null</span>;</div><div class="line">instance = <span class="keyword">this</span>;</div></pre></td></tr></table></figure></p>
 <p>2.在 ActivityB里执行ActivityA.instance.finish()来关闭ActivityA<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">ActivityA.instance.finish();</div></pre></td></tr></table></figure></p>
 <h2 id="关闭所有Activity"><a href="#关闭所有Activity" class="headerlink" title="关闭所有Activity"></a>关闭所有Activity</h2><p>1.创建用来处理Activity的类</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//使用list来保存每一个activity</span></div><div class="line">    <span class="keyword">private</span> List&lt;Activity&gt; mList = <span class="keyword">new</span> LinkedList&lt;Activity&gt;();</div><div class="line"></div><div class="line">    <span class="comment">//为了实现每次使用该类时不创建新的对象而创建的静态对象  </span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MyApplication instance;</div><div class="line"></div><div class="line">    <span class="comment">//构造方法  </span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyApplication</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//实例化一次  </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> MyApplication <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == instance) &#123;</div><div class="line">            instance = <span class="keyword">new</span> MyApplication();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// add Activity    </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addActivity</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">        mList.add(activity);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//关闭每一个list里的Activity</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exit</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">for</span> (Activity activity : mList) &#123;</div><div class="line">                <span class="keyword">if</span> (activity != <span class="keyword">null</span>)</div><div class="line">                    activity.finish();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            System.exit(<span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//杀进程  </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLowMemory</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onLowMemory();</div><div class="line">        System.gc();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>2.在每个Activity被创建时将该Activity添加到list中去。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MyApplication.getInstance().addActivity(<span class="keyword">this</span>);</div></pre></td></tr></table></figure></p>
+<p>2.在每个Activity被创建时将该Activity添加到list中去<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MyApplication.getInstance().addActivity(<span class="keyword">this</span>);</div></pre></td></tr></table></figure></p>
 <p>3.调用MyApplication的exit方法关闭所有Activity<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MyApplication.getInstance().exit();</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Activity是Android最常用的组件之一,Activity可以用来显示界面,被打开的Activity始终关闭,本文将介绍几种常用的Activity关闭方法.&lt;/p&gt;
+      &lt;p&gt;Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终关闭，本文将介绍几种常用的Activity关闭方法。&lt;/p&gt;
 &lt;h2 id=&quot;关闭当前Activity&quot;&gt;&lt;a href=&quot;#关闭当前Activity&quot; class=&quot;headerlink&quot; title=&quot;关闭当前Activity&quot;&gt;&lt;/a&gt;关闭当前Activity&lt;/h2&gt;&lt;p&gt;关闭当前Activity的几种方法&lt;/p&gt;
 &lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法一  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;finish();  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法二  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;android.os.Process.killProcess(android.os.Process.myPid());  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法三  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.exit(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法四  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onDestroy();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
@@ -166,14 +166,14 @@
     <link href="lns666.me/blog/17/Android-CountDownTimer/"/>
     <id>lns666.me/blog/17/Android-CountDownTimer/</id>
     <published>2017-02-12T14:20:32.000Z</published>
-    <updated>2017-04-03T03:41:00.000Z</updated>
+    <updated>2017-05-25T09:32:48.000Z</updated>
     
-    <content type="html"><![CDATA[<p>在Android开发中,我们会常常需要使用倒计时,比如在发送短信验证码时的60秒等待,我们可以通过CountDownTimer来简单的实现倒计时的功能.</p>
+    <content type="html"><![CDATA[<p>在Android开发中，我们会常常需要使用倒计时，比如在发送短信验证码时的60秒等待，我们可以通过CountDownTimer来简单的实现倒计时的功能。</p>
 <p><img src="https://ww4.sinaimg.cn/large/006y8lVagy1fcnz0ihdeej30u00k0dgt.jpg" width="400px"></p>
 <a id="more"></a>
 <p><img src="https://ww3.sinaimg.cn/large/006y8lVagy1fcnz0eemguj30u00k0q3w.jpg" width="400px"></p>
 <h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 60秒倒计时示例</div><div class="line"> */</div><div class="line"> <span class="keyword">new</span> CountDownTimer(<span class="number">60000</span>, <span class="number">1000</span>) &#123;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTick</span><span class="params">(<span class="keyword">long</span> millisUntilFinished)</span> </span>&#123;</div><div class="line">         mTextField.setText(<span class="string">"seconds remaining: "</span> + millisUntilFinished / <span class="number">1000</span>);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onFinish</span><span class="params">()</span> </span>&#123;</div><div class="line">         mTextField.setText(<span class="string">"done!"</span>);</div><div class="line">     &#125;</div><div class="line">  &#125;.start();</div></pre></td></tr></table></figure>
-<p>CountDownTimer每隔1秒就会调用一次onTick()方法, 在倒计时结束时会调用onFinish()方法,如此我们便可以通过它简单实现倒计时功能啦.</p>
+<p>CountDownTimer每隔1秒就会调用一次onTick()方法，在倒计时结束时会调用onFinish()方法，如此我们便可以通过它简单实现倒计时功能啦。</p>
 <h2 id="公共构造函数"><a href="#公共构造函数" class="headerlink" title="公共构造函数"></a>公共构造函数</h2><p>CountDownTimer(long millisInFuture, long countDownInterval)</p>
 <p><code>millisInFuture</code> 倒计时总时间 ms</p>
 <p><code>countDownInterval</code> 倒计时间隔时间 ms</p>
@@ -181,12 +181,12 @@
 <p><code>onFinish()</code> 倒计时结束回调</p>
 <p><code>onTick(long millisUntilFinished)</code> 到达间隔时间的定期回调</p>
 <p><code>start()</code> 开始倒计时</p>
-<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>代码比较简单,可以下载Dome查看<br><a href="https://github.com/liangnaisong/Countdown" target="_blank" rel="external">https://github.com/liangnaisong/Countdown</a></p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>代码比较简单，可以下载Dome查看<br><a href="https://github.com/liangnaisong/Countdown" target="_blank" rel="external">https://github.com/liangnaisong/Countdown</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;在Android开发中,我们会常常需要使用倒计时,比如在发送短信验证码时的60秒等待,我们可以通过CountDownTimer来简单的实现倒计时的功能.&lt;/p&gt;
+      &lt;p&gt;在Android开发中，我们会常常需要使用倒计时，比如在发送短信验证码时的60秒等待，我们可以通过CountDownTimer来简单的实现倒计时的功能。&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;https://ww4.sinaimg.cn/large/006y8lVagy1fcnz0ihdeej30u00k0dgt.jpg&quot; width=&quot;400px&quot;/&gt;&lt;/p&gt;
     
     </summary>
@@ -207,11 +207,11 @@
     <link href="lns666.me/blog/17/Android-TitleBar/"/>
     <id>lns666.me/blog/17/Android-TitleBar/</id>
     <published>2017-02-10T04:10:30.000Z</published>
-    <updated>2017-04-03T03:40:46.000Z</updated>
+    <updated>2017-05-25T09:33:10.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="https://ww3.sinaimg.cn/large/006tNc79gy1fcmg3a61tqj30u00hhq33.jpg" width="400px"><br>在Android开发中,我们常常需要在标题栏中增加返回按钮和提交按钮,并将标题文字居中这就需要自定义标题栏.</p>
+    <content type="html"><![CDATA[<p><img src="https://ww3.sinaimg.cn/large/006tNc79gy1fcmg3a61tqj30u00hhq33.jpg" width="400px"><br>在Android开发中，我们常常需要在标题栏中增加返回按钮和提交按钮，并将标题文字居中这就需要自定义标题栏。</p>
 <a id="more"></a>
-<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>代码比较简单,可以下载Dome查看<br><a href="https://github.com/liangnaisong/TitleBar" target="_blank" rel="external">https://github.com/liangnaisong/TitleBar</a></p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><p>代码比较简单，可以下载Dome查看<br><a href="https://github.com/liangnaisong/TitleBar" target="_blank" rel="external">https://github.com/liangnaisong/TitleBar</a></p>
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//设置标题名称</span></div><div class="line">setTitle(<span class="string">"标题"</span>);</div><div class="line"><span class="comment">//设置返回按钮并显示</span></div><div class="line">showBackwardView(R.string.text_back,<span class="keyword">true</span>);</div><div class="line"><span class="comment">//设置提交按钮并显示</span></div><div class="line">showForwardView(R.string.text_forward, <span class="keyword">true</span>);</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 重写点击返回按钮操作,返回按钮点击后触发</div><div class="line"> * <span class="doctag">@param</span> backwardView</div><div class="line"> */</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onBackward</span><span class="params">(View backwardView)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onBackward(backwardView);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 重写点击提交按钮操作,提交按钮点击后触发</div><div class="line"> * <span class="doctag">@param</span> forwardView</div><div class="line"> */</div><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onForward</span><span class="params">(View forwardView)</span> </span>&#123;</div><div class="line">    <span class="keyword">super</span>.onForward(forwardView);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -219,7 +219,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;https://ww3.sinaimg.cn/large/006tNc79gy1fcmg3a61tqj30u00hhq33.jpg&quot; width=&quot;400px&quot;/&gt;&lt;br&gt;在Android开发中,我们常常需要在标题栏中增加返回按钮和提交按钮,并将标题文字居中这就需要自定义标题栏.&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;https://ww3.sinaimg.cn/large/006tNc79gy1fcmg3a61tqj30u00hhq33.jpg&quot; width=&quot;400px&quot;/&gt;&lt;br&gt;在Android开发中，我们常常需要在标题栏中增加返回按钮和提交按钮，并将标题文字居中这就需要自定义标题栏。&lt;/p&gt;
     
     </summary>
     
@@ -239,9 +239,9 @@
     <link href="lns666.me/blog/17/Android-git/"/>
     <id>lns666.me/blog/17/Android-git/</id>
     <published>2017-02-10T02:17:33.000Z</published>
-    <updated>2017-05-24T07:36:43.000Z</updated>
+    <updated>2017-05-26T00:40:16.000Z</updated>
     
-    <content type="html"><![CDATA[<p>通过git同步代码时，有些代码或文件不希望推送到版本库中，可以忽略该文件再上传,下面是Android Studio可忽略文件列表。<a href="https://github.com/github/gitignore/blob/master/Android.gitignore" target="_blank" rel="external">原文地址</a></p>
+    <content type="html"><![CDATA[<p>通过git同步代码时，有些代码或文件不希望推送到版本库中，可以忽略该文件再上传，下面是Android Studio可忽略文件列表。<a href="https://github.com/github/gitignore/blob/master/Android.gitignore" target="_blank" rel="external">原文地址</a></p>
 <a id="more"></a>
 <h1 id="Built-application-files"><a href="#Built-application-files" class="headerlink" title="Built application files"></a>Built application files</h1><p><code>*.apk</code><br><code>*.ap_</code></p>
 <h1 id="Files-for-the-ART-Dalvik-VM"><a href="#Files-for-the-ART-Dalvik-VM" class="headerlink" title="Files for the ART/Dalvik VM"></a>Files for the ART/Dalvik VM</h1><p><code>*.dex</code></p>
@@ -262,7 +262,7 @@
     
     <summary type="html">
     
-      &lt;p&gt;通过git同步代码时，有些代码或文件不希望推送到版本库中，可以忽略该文件再上传,下面是Android Studio可忽略文件列表。&lt;a href=&quot;https://github.com/github/gitignore/blob/master/Android.gitignore&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
+      &lt;p&gt;通过git同步代码时，有些代码或文件不希望推送到版本库中，可以忽略该文件再上传，下面是Android Studio可忽略文件列表。&lt;a href=&quot;https://github.com/github/gitignore/blob/master/Android.gitignore&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -314,19 +314,19 @@
     <link href="lns666.me/blog/16/xcode-write-c/"/>
     <id>lns666.me/blog/16/xcode-write-c/</id>
     <published>2016-11-05T00:20:18.000Z</published>
-    <updated>2017-02-11T05:28:50.000Z</updated>
+    <updated>2017-05-25T09:32:15.000Z</updated>
     
-    <content type="html"><![CDATA[<p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fa99edxj4wj30m808wmxi.jpg" alt="">在MacOS上写C语言程序Xcode是一个不错的选择,那么如何使用Xcode写C语言程序呢?</p>
+    <content type="html"><![CDATA[<p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fa99edxj4wj30m808wmxi.jpg" alt="">在MacOS上写C语言程序Xcode是一个不错的选择，那么如何使用Xcode写C语言程序呢?</p>
 <a id="more"></a>
-<p>1.打开Xcode,可以看到Welcome to Xcode界面,选择Create a new Xcode Project新建一个项目.<br><img src="http://ww2.sinaimg.cn/large/006y8lVagw1fa935e6qe4j30qt0p8tbb.jpg" width="500px"></p>
-<p>2.在上边的归类中选择MacOS,在Application分类中选择Command Line Tool,然后进入下一步.<br><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fa935ecphkj314k0ssn12.jpg" width="600px"></p>
-<p>3.输入项目名等信息,记得将Language选择为C,下一步,选择存放的目录.<br><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fa935ei6njj314k0ssjtq.jpg" width="600px"></p>
-<p>4.看到了熟悉的代码界面,可以开心的敲代码咯.<br><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fa935e2rrzj31kw0v90xc.jpg" width="600px"></p>
+<p>1.打开Xcode，可以看到Welcome to Xcode界面，选择Create a new Xcode Project新建一个项目。<br><img src="http://ww2.sinaimg.cn/large/006y8lVagw1fa935e6qe4j30qt0p8tbb.jpg" width="500px"></p>
+<p>2.在上边的归类中选择MacOS，在Application分类中选择Command Line Tool，然后进入下一步。<br><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fa935ecphkj314k0ssn12.jpg" width="600px"></p>
+<p>3.输入项目名等信息，记得将Language选择为C，下一步,选择存放的目录。<br><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fa935ei6njj314k0ssjtq.jpg" width="600px"></p>
+<p>4.看到了熟悉的代码界面，可以开心的敲代码咯。<br><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fa935e2rrzj31kw0v90xc.jpg" width="600px"></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/006y8lVagw1fa99edxj4wj30m808wmxi.jpg&quot; alt=&quot;&quot;&gt;在MacOS上写C语言程序Xcode是一个不错的选择,那么如何使用Xcode写C语言程序呢?&lt;/p&gt;
+      &lt;p&gt;&lt;img src=&quot;http://ww4.sinaimg.cn/large/006y8lVagw1fa99edxj4wj30m808wmxi.jpg&quot; alt=&quot;&quot;&gt;在MacOS上写C语言程序Xcode是一个不错的选择，那么如何使用Xcode写C语言程序呢?&lt;/p&gt;
     
     </summary>
     
@@ -350,22 +350,22 @@
     <link href="lns666.me/blog/16/Android-BroadcastReceiver/"/>
     <id>lns666.me/blog/16/Android-BroadcastReceiver/</id>
     <published>2016-11-02T16:07:23.000Z</published>
-    <updated>2017-02-11T05:28:58.000Z</updated>
+    <updated>2017-05-26T00:36:58.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="BroadcastReceiver简介"><a href="#BroadcastReceiver简介" class="headerlink" title="BroadcastReceiver简介"></a>BroadcastReceiver简介</h2><p>BroadcastReceiver作为Android四大组件之一,是一种广泛运用在应用程序之间传输信息的机制,没有界面.</p>
-<p>BroadcastReceiver包括两个概念,广播发送者和广播接收者(Receiver),这里的广播实际就是指Intent,程序可以自己发送广播自己接收,也可以接受系统或其他应用的广播或是发送广播给其他应用程序.</p>
-<p>我们的应用可以使用它对外部事件进行过滤只对感兴趣的外部事件进行接收并做出响应.例如当WIFI断开时,应当停止下载任务,以节省流量.</p>
+    <content type="html"><![CDATA[<h2 id="BroadcastReceiver简介"><a href="#BroadcastReceiver简介" class="headerlink" title="BroadcastReceiver简介"></a>BroadcastReceiver简介</h2><p>BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。</p>
+<p>BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。</p>
+<p>我们的应用可以使用它对外部事件进行过滤只对感兴趣的外部事件进行接收并做出响应。例如当WIFI断开时，应当停止下载任务，以节省流量。</p>
 <a id="more"></a>
-<h2 id="BroadcastReceiver简单用法"><a href="#BroadcastReceiver简单用法" class="headerlink" title="BroadcastReceiver简单用法"></a>BroadcastReceiver简单用法</h2><p>首先在需要发送信息的地方,把要发送的信息和用于过滤的信息(如Action、Category)装入一个Intent对象 ,然后通过调用 sendOrderBroadcast()或sendStickyBroadcast()方法,把 Intent对象以广播方式发送出去.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 发送广播</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"android.intent.action.CART_BROADCAST"</span>);</div><div class="line">LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);</div></pre></td></tr></table></figure></p>
-<p>当Intent发送以后,所有已经注册的BroadcastReceiver会检查注册时的IntentFilter是否与发送的Intent相匹配,若匹配则就会调用BroadcastReceiver的onReceive()方法.所以当我们定义一个BroadcastReceiver的时候,都需要实现onReceive()方法.<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 广播接收器声明变量</span></div><div class="line"><span class="keyword">private</span> LocalBroadcastManager broadcastManager;</div><div class="line"><span class="keyword">private</span> IntentFilter intentFilter;</div><div class="line"><span class="keyword">private</span> BroadcastReceiver mReceiver;</div><div class="line"></div><div class="line"><span class="comment">// 广播注册,可以写在Activity（onCreate）,也可以写在Fragment（onActivityCreated）里。</span></div><div class="line">broadcastManager = LocalBroadcastManager.getInstance(getActivity());</div><div class="line">intentFilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">intentFilter.addAction(<span class="string">"android.intent.action.CART_BROADCAST"</span>);  <span class="comment">//过滤器</span></div><div class="line">mReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span></span>&#123;</div><div class="line">                <span class="comment">//收到广播后所作的操作</span></div><div class="line">            &#125;</div><div class="line"> &#125;;</div><div class="line"> broadcastManager.registerReceiver(mReceiver, intentFilter);</div><div class="line"></div><div class="line"><span class="comment">// 和正常广播一样，也要在对应的生命周期中反注册掉:</span></div><div class="line"><span class="meta">@Override</span>  </div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;  </div><div class="line">   <span class="keyword">super</span>.onDestroy();  </div><div class="line">   broadcastManager.unregisterReceiver(mReceiver);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>本文简单阐述了的用法,如果想了解更多可以查看<a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">官方文档</a>.</p>
+<h2 id="BroadcastReceiver简单用法"><a href="#BroadcastReceiver简单用法" class="headerlink" title="BroadcastReceiver简单用法"></a>BroadcastReceiver简单用法</h2><p>首先在需要发送信息的地方，把要发送的信息和用于过滤的信息(如Action、Category)装入一个Intent对象 ，然后通过调用 sendOrderBroadcast()或sendStickyBroadcast()方法，把 Intent对象以广播方式发送出去。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 发送广播</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"android.intent.action.CART_BROADCAST"</span>);</div><div class="line">LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);</div></pre></td></tr></table></figure></p>
+<p>当Intent发送以后，所有已经注册的BroadcastReceiver会检查注册时的IntentFilter是否与发送的Intent相匹配，若匹配则就会调用BroadcastReceiver的onReceive()方法。所以当我们定义一个BroadcastReceiver的时候，都需要实现onReceive()方法。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 广播接收器声明变量</span></div><div class="line"><span class="keyword">private</span> LocalBroadcastManager broadcastManager;</div><div class="line"><span class="keyword">private</span> IntentFilter intentFilter;</div><div class="line"><span class="keyword">private</span> BroadcastReceiver mReceiver;</div><div class="line"></div><div class="line"><span class="comment">// 广播注册,可以写在Activity（onCreate）,也可以写在Fragment（onActivityCreated）里。</span></div><div class="line">broadcastManager = LocalBroadcastManager.getInstance(getActivity());</div><div class="line">intentFilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">intentFilter.addAction(<span class="string">"android.intent.action.CART_BROADCAST"</span>);  <span class="comment">//过滤器</span></div><div class="line">mReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span></span>&#123;</div><div class="line">                <span class="comment">//收到广播后所作的操作</span></div><div class="line">            &#125;</div><div class="line"> &#125;;</div><div class="line"> broadcastManager.registerReceiver(mReceiver, intentFilter);</div><div class="line"></div><div class="line"><span class="comment">// 和正常广播一样,也要在对应的生命周期中反注册掉</span></div><div class="line"><span class="meta">@Override</span>  </div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;  </div><div class="line">   <span class="keyword">super</span>.onDestroy();  </div><div class="line">   broadcastManager.unregisterReceiver(mReceiver);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>本文简单阐述了的用法，如果想了解更多可以查看<a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">官方文档</a>。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;BroadcastReceiver简介&quot;&gt;&lt;a href=&quot;#BroadcastReceiver简介&quot; class=&quot;headerlink&quot; title=&quot;BroadcastReceiver简介&quot;&gt;&lt;/a&gt;BroadcastReceiver简介&lt;/h2&gt;&lt;p&gt;BroadcastReceiver作为Android四大组件之一,是一种广泛运用在应用程序之间传输信息的机制,没有界面.&lt;/p&gt;
-&lt;p&gt;BroadcastReceiver包括两个概念,广播发送者和广播接收者(Receiver),这里的广播实际就是指Intent,程序可以自己发送广播自己接收,也可以接受系统或其他应用的广播或是发送广播给其他应用程序.&lt;/p&gt;
-&lt;p&gt;我们的应用可以使用它对外部事件进行过滤只对感兴趣的外部事件进行接收并做出响应.例如当WIFI断开时,应当停止下载任务,以节省流量.&lt;/p&gt;
+      &lt;h2 id=&quot;BroadcastReceiver简介&quot;&gt;&lt;a href=&quot;#BroadcastReceiver简介&quot; class=&quot;headerlink&quot; title=&quot;BroadcastReceiver简介&quot;&gt;&lt;/a&gt;BroadcastReceiver简介&lt;/h2&gt;&lt;p&gt;BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。&lt;/p&gt;
+&lt;p&gt;BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。&lt;/p&gt;
+&lt;p&gt;我们的应用可以使用它对外部事件进行过滤只对感兴趣的外部事件进行接收并做出响应。例如当WIFI断开时，应当停止下载任务，以节省流量。&lt;/p&gt;
     
     </summary>
     
@@ -385,17 +385,17 @@
     <link href="lns666.me/blog/16/Android-Segmentation-Log/"/>
     <id>lns666.me/blog/16/Android-Segmentation-Log/</id>
     <published>2016-11-02T15:57:53.000Z</published>
-    <updated>2017-02-11T05:29:09.000Z</updated>
+    <updated>2017-05-25T09:30:15.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="为什么要分段输出"><a href="#为什么要分段输出" class="headerlink" title="为什么要分段输出?"></a>为什么要分段输出?</h2><p>AndroidStudio对Log输出的长度进行了限制,Log最大只能输出1024x4个字符,超出的就无法显示了,因此,我们可以将Log分成长度不超过1024x4的若干个小段,以实现完整的Log输出.</p>
+    <content type="html"><![CDATA[<h2 id="为什么要分段输出"><a href="#为什么要分段输出" class="headerlink" title="为什么要分段输出?"></a>为什么要分段输出?</h2><p>AndroidStudio对Log输出的长度进行了限制，Log最大只能输出1024x4个字符，超出的就无法显示了，因此，我们可以将Log分成长度不超过1024x4的若干个小段，以实现完整的Log输出。</p>
 <h2 id="分段输出的方法"><a href="#分段输出的方法" class="headerlink" title="分段输出的方法"></a>分段输出的方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Log分段输出</span></div><div class="line">String mString = <span class="string">"需要分段输出的内容"</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (mString.length() &gt; <span class="number">4000</span>) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mString.length(); i += <span class="number">4000</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (i + <span class="number">4000</span> &lt; mString.length()) &#123;</div><div class="line">            Log.i(TAG + i, mString.substring(i, i + <span class="number">4000</span>));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            Log.i(TAG + i, mString.substring(i, mString.length()));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    Log.i(TAG, mString);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>如果使用了以上方法依然无法完整输出,可以试着将4000改成2000,这样就可以完整输出了.这是为什么呢?我猜测是中文占两个字符的问题,使用.length()计算长度时一个中文只占一个长度,而Log输出时一个中文占2个字符.</p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>如果使用了以上方法依然无法完整输出，可以试着将4000改成2000，这样就可以完整输出了。这是为什么呢?我猜测是中文占两个字符的问题，使用.length()计算长度时一个中文只占一个长度，而Log输出时一个中文占2个字符。</p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;为什么要分段输出&quot;&gt;&lt;a href=&quot;#为什么要分段输出&quot; class=&quot;headerlink&quot; title=&quot;为什么要分段输出?&quot;&gt;&lt;/a&gt;为什么要分段输出?&lt;/h2&gt;&lt;p&gt;AndroidStudio对Log输出的长度进行了限制,Log最大只能输出1024x4个字符,超出的就无法显示了,因此,我们可以将Log分成长度不超过1024x4的若干个小段,以实现完整的Log输出.&lt;/p&gt;
+      &lt;h2 id=&quot;为什么要分段输出&quot;&gt;&lt;a href=&quot;#为什么要分段输出&quot; class=&quot;headerlink&quot; title=&quot;为什么要分段输出?&quot;&gt;&lt;/a&gt;为什么要分段输出?&lt;/h2&gt;&lt;p&gt;AndroidStudio对Log输出的长度进行了限制，Log最大只能输出1024x4个字符，超出的就无法显示了，因此，我们可以将Log分成长度不超过1024x4的若干个小段，以实现完整的Log输出。&lt;/p&gt;
 &lt;h2 id=&quot;分段输出的方法&quot;&gt;&lt;a href=&quot;#分段输出的方法&quot; class=&quot;headerlink&quot; title=&quot;分段输出的方法&quot;&gt;&lt;/a&gt;分段输出的方法&lt;/h2&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Log分段输出&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;String mString = &lt;span class=&quot;string&quot;&gt;&quot;需要分段输出的内容&quot;&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (mString.length() &amp;gt; &lt;span class=&quot;number&quot;&gt;4000&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; mString.length(); i += &lt;span class=&quot;number&quot;&gt;4000&lt;/span&gt;) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (i + &lt;span class=&quot;number&quot;&gt;4000&lt;/span&gt; &amp;lt; mString.length()) &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            Log.i(TAG + i, mString.substring(i, i + &lt;span class=&quot;number&quot;&gt;4000&lt;/span&gt;));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;            Log.i(TAG + i, mString.substring(i, mString.length()));&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    Log.i(TAG, mString);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
@@ -418,18 +418,18 @@
     <link href="lns666.me/blog/16/Android-sha1-md5/"/>
     <id>lns666.me/blog/16/Android-sha1-md5/</id>
     <published>2016-10-30T02:17:53.000Z</published>
-    <updated>2017-02-11T05:29:18.000Z</updated>
+    <updated>2017-05-25T09:30:52.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="超简单的方法"><a href="#超简单的方法" class="headerlink" title="超简单的方法"></a>超简单的方法</h2><p>在Android开发的过程中经常要查看项目的SHA1或MD5码, 通过图示的方法可以方便的查看SHA1和MD5, 超简单, 有木有!!!<br><img src="http://ww1.sinaimg.cn/large/006y8mN6gw1f9iayk7krcj31kw0zkwm7.jpg" alt=""></p>
+    <content type="html"><![CDATA[<h2 id="超简单的方法"><a href="#超简单的方法" class="headerlink" title="超简单的方法"></a>超简单的方法</h2><p>在Android开发的过程中经常要查看项目的SHA1或MD5码，通过图示的方法可以方便的查看SHA1和MD5，超简单，有木有!!!<br><img src="http://ww1.sinaimg.cn/large/006y8mN6gw1f9iayk7krcj31kw0zkwm7.jpg" alt=""></p>
 <a id="more"></a>
-<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>在 Android Studio 2.2版本以后, 按照上图的方法操作后得到的却是下图这个界面, 看不到的SHA1和MD5, 怎么办怎么办?<br><img src="http://ww2.sinaimg.cn/large/006y8mN6gw1f9iayjy8t5j30yg08qtb1.jpg" alt=""></p>
-<p>别担心, 这时候我们点击一下这个小按钮, 还是熟悉的味道, 还是熟悉的感觉.<br><img src="http://ww1.sinaimg.cn/large/006y8mN6gw1f9iayjxpb5j31kw0edadq.jpg" alt=""></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>在 Android Studio 2.2版本以后，按照上图的方法操作后得到的却是下图这个界面，看不到的SHA1和MD5，怎么办怎么办?<br><img src="http://ww2.sinaimg.cn/large/006y8mN6gw1f9iayjy8t5j30yg08qtb1.jpg" alt=""></p>
+<p>别担心，这时候我们点击一下这个小按钮，还是熟悉的味道，还是熟悉的感觉。<br><img src="http://ww1.sinaimg.cn/large/006y8mN6gw1f9iayjxpb5j31kw0edadq.jpg" alt=""></p>
 <h2 id="顺便吐槽一下网上的方法"><a href="#顺便吐槽一下网上的方法" class="headerlink" title="顺便吐槽一下网上的方法"></a>顺便吐槽一下网上的方法</h2><p><img src="http://ww2.sinaimg.cn/large/006y8mN6gw1f9iayj67osj31710evjug.jpg" alt=""></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;超简单的方法&quot;&gt;&lt;a href=&quot;#超简单的方法&quot; class=&quot;headerlink&quot; title=&quot;超简单的方法&quot;&gt;&lt;/a&gt;超简单的方法&lt;/h2&gt;&lt;p&gt;在Android开发的过程中经常要查看项目的SHA1或MD5码, 通过图示的方法可以方便的查看SHA1和MD5, 超简单, 有木有!!!&lt;br&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/006y8mN6gw1f9iayk7krcj31kw0zkwm7.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+      &lt;h2 id=&quot;超简单的方法&quot;&gt;&lt;a href=&quot;#超简单的方法&quot; class=&quot;headerlink&quot; title=&quot;超简单的方法&quot;&gt;&lt;/a&gt;超简单的方法&lt;/h2&gt;&lt;p&gt;在Android开发的过程中经常要查看项目的SHA1或MD5码，通过图示的方法可以方便的查看SHA1和MD5，超简单，有木有!!!&lt;br&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/large/006y8mN6gw1f9iayk7krcj31kw0zkwm7.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     
@@ -510,15 +510,15 @@
     <link href="lns666.me/blog/16/app-chinese-localization/"/>
     <id>lns666.me/blog/16/app-chinese-localization/</id>
     <published>2016-10-22T14:17:13.000Z</published>
-    <updated>2016-12-03T00:18:58.000Z</updated>
+    <updated>2017-05-25T09:31:11.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Navicat-Premium-for-Mac-11-2-13"><a href="#Navicat-Premium-for-Mac-11-2-13" class="headerlink" title="Navicat Premium for Mac 11.2.13"></a>Navicat Premium for Mac 11.2.13</h2><p><a href="http://dl.download.csdn.net/down11/20160414/d2e77ceae41a1ce34238a41c92b20eaa.zip?response-content-disposition=attachment%3Bfilename%3D%22zh-Hans.lproj.zip%22&amp;OSSAccessKeyId=9q6nvzoJGowBj4q1&amp;Expires=1476279425&amp;Signature=fz1IZOBLQ5AK2T9yraJ9nzigcZo%3D" target="_blank" rel="external">下载后</a>, 解压, 拖入, app右键显示包内内容/Contents/Resources 即可.</p>
+    <content type="html"><![CDATA[<h2 id="Navicat-Premium-for-Mac-11-2-13"><a href="#Navicat-Premium-for-Mac-11-2-13" class="headerlink" title="Navicat Premium for Mac 11.2.13"></a>Navicat Premium for Mac 11.2.13</h2><p><a href="http://dl.download.csdn.net/down11/20160414/d2e77ceae41a1ce34238a41c92b20eaa.zip?response-content-disposition=attachment%3Bfilename%3D%22zh-Hans.lproj.zip%22&amp;OSSAccessKeyId=9q6nvzoJGowBj4q1&amp;Expires=1476279425&amp;Signature=fz1IZOBLQ5AK2T9yraJ9nzigcZo%3D" target="_blank" rel="external">下载后</a>，解压，拖入，app右键显示包内内容/Contents/Resources 即可。</p>
 <h2 id="Sketch41"><a href="#Sketch41" class="headerlink" title="Sketch41"></a>Sketch41</h2><p><a href="https://github.com/cute/SketchI18N" target="_blank" rel="external">https://github.com/cute/SketchI18N</a></p>
 <a id="more"></a>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Navicat-Premium-for-Mac-11-2-13&quot;&gt;&lt;a href=&quot;#Navicat-Premium-for-Mac-11-2-13&quot; class=&quot;headerlink&quot; title=&quot;Navicat Premium for Mac 11.2.13&quot;&gt;&lt;/a&gt;Navicat Premium for Mac 11.2.13&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://dl.download.csdn.net/down11/20160414/d2e77ceae41a1ce34238a41c92b20eaa.zip?response-content-disposition=attachment%3Bfilename%3D%22zh-Hans.lproj.zip%22&amp;amp;OSSAccessKeyId=9q6nvzoJGowBj4q1&amp;amp;Expires=1476279425&amp;amp;Signature=fz1IZOBLQ5AK2T9yraJ9nzigcZo%3D&quot;&gt;下载后&lt;/a&gt;, 解压, 拖入, app右键显示包内内容/Contents/Resources 即可.&lt;/p&gt;
+      &lt;h2 id=&quot;Navicat-Premium-for-Mac-11-2-13&quot;&gt;&lt;a href=&quot;#Navicat-Premium-for-Mac-11-2-13&quot; class=&quot;headerlink&quot; title=&quot;Navicat Premium for Mac 11.2.13&quot;&gt;&lt;/a&gt;Navicat Premium for Mac 11.2.13&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://dl.download.csdn.net/down11/20160414/d2e77ceae41a1ce34238a41c92b20eaa.zip?response-content-disposition=attachment%3Bfilename%3D%22zh-Hans.lproj.zip%22&amp;amp;OSSAccessKeyId=9q6nvzoJGowBj4q1&amp;amp;Expires=1476279425&amp;amp;Signature=fz1IZOBLQ5AK2T9yraJ9nzigcZo%3D&quot;&gt;下载后&lt;/a&gt;，解压，拖入，app右键显示包内内容/Contents/Resources 即可。&lt;/p&gt;
 &lt;h2 id=&quot;Sketch41&quot;&gt;&lt;a href=&quot;#Sketch41&quot; class=&quot;headerlink&quot; title=&quot;Sketch41&quot;&gt;&lt;/a&gt;Sketch41&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/cute/SketchI18N&quot;&gt;https://github.com/cute/SketchI18N&lt;/a&gt;&lt;/p&gt;
     
     </summary>
@@ -539,29 +539,37 @@
     <link href="lns666.me/blog/16/google-search-skill/"/>
     <id>lns666.me/blog/16/google-search-skill/</id>
     <published>2016-10-20T12:46:23.000Z</published>
-    <updated>2016-11-29T05:31:05.000Z</updated>
+    <updated>2017-05-26T01:16:34.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="搜索特定网页的内容"><a href="#搜索特定网页的内容" class="headerlink" title="搜索特定网页的内容"></a>搜索特定网页的内容</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">关键字 + site:xxx.com</div></pre></td></tr></table></figure>
+    <content type="html"><![CDATA[<h2 id="搜索特定网页的内容"><a href="#搜索特定网页的内容" class="headerlink" title="搜索特定网页的内容"></a>搜索特定网页的内容</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">关键字 site:xxx.com</div></pre></td></tr></table></figure>
 <p>例如在 百度网盘 中搜索 雅思真题<br><img src="http://ww2.sinaimg.cn/large/006y8mN6gw1fa8wrgp3rhj31a00p245j.jpg" alt=""></p>
 <a id="more"></a>
-<h2 id="近义词关联"><a href="#近义词关联" class="headerlink" title="近义词关联"></a>近义词关联</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">~ + 关键字</div></pre></td></tr></table></figure>
-<p>例如搜索 番茄炒蛋,可以看到在搜索结果中 西红柿 也被作为关键字<br><img src="http://ww3.sinaimg.cn/large/006y8mN6gw1fa8wrgq2olj319s0pqgs0.jpg" alt=""></p>
+<h2 id="精确搜索"><a href="#精确搜索" class="headerlink" title="精确搜索"></a>精确搜索</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&quot;关键词&quot;</div></pre></td></tr></table></figure>
+<p>在搜索词上加双引号，搜索引擎就会完全的匹配你所要的词<br><img src="https://ws4.sinaimg.cn/large/006tNc79gy1ffyhlt199vj319o0kydic.jpg" alt=""></p>
+<h2 id="缩小范围"><a href="#缩小范围" class="headerlink" title="缩小范围"></a>缩小范围</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">- 关键词</div></pre></td></tr></table></figure>
+<p>通过减号，能够去掉一些无关的搜索结果<br><img src="https://ws2.sinaimg.cn/large/006tNc79gy1ffyhvqobspj319u0ncaci.jpg" alt=""><br><img src="https://ws3.sinaimg.cn/large/006tNc79gy1ffyhwde59ij319y0m0ta9.jpg" alt=""></p>
+<h2 id="近义词关联"><a href="#近义词关联" class="headerlink" title="近义词关联"></a>近义词关联</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">~ 关键字</div></pre></td></tr></table></figure>
+<p>例如搜索 番茄炒蛋，可以看到在搜索结果中 西红柿 也被作为关键字<br><img src="http://ww3.sinaimg.cn/large/006y8mN6gw1fa8wrgq2olj319s0pqgs0.jpg" alt=""></p>
 <h2 id="搜索书籍或电影"><a href="#搜索书籍或电影" class="headerlink" title="搜索书籍或电影"></a>搜索书籍或电影</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">《关键字》</div></pre></td></tr></table></figure>
 <p><img src="http://ww4.sinaimg.cn/large/006y8mN6gw1fa8wrg9v5aj319k0omtdk.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/large/006y8mN6gw1fa8wrgdwouj317s0v0456.jpg" alt=""></p>
-<h2 id="直接搜索文件"><a href="#直接搜索文件" class="headerlink" title="直接搜索文件"></a>直接搜索文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">关键字 + “filetype:” + 文件格式</div></pre></td></tr></table></figure>
+<h2 id="直接搜索文件"><a href="#直接搜索文件" class="headerlink" title="直接搜索文件"></a>直接搜索文件</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">关键字 “filetype:” 文件格式</div></pre></td></tr></table></figure>
 <p><img src="http://ww1.sinaimg.cn/large/006y8mN6gw1fa8wrh4i6xj318a0q27ap.jpg" alt=""></p>
-<h2 id="突破网站入口查看网站内容"><a href="#突破网站入口查看网站内容" class="headerlink" title="突破网站入口查看网站内容"></a>突破网站入口查看网站内容</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">index of / + 关键字</div></pre></td></tr></table></figure>
+<h2 id="突破网站入口查看网站内容"><a href="#突破网站入口查看网站内容" class="headerlink" title="突破网站入口查看网站内容"></a>突破网站入口查看网站内容</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">index of / 关键字</div></pre></td></tr></table></figure>
 <p>例如:</p>
-<blockquote>
-<p>index of /inurl:lib 你将进入许多图书馆下载喜欢的书籍.<br>index of /cnki 可以找到许多图书馆的CNKI、VIP、超星等入口.<br>index of /ppt 可以突破网站入口下载powerpint作品.<br>index of /mp3 可以突破网站入口下载mp3、rm等影视作品.<br>indexof /软件名 可以突破网站入口下载软件.<br>如果你输入：indexof/ AVI ???<br>或者其他更有意思的 Index of /admin, Index of/ secret</p>
-</blockquote>
-<h2 id="用Google看世界"><a href="#用Google看世界" class="headerlink" title="用Google看世界"></a>用Google看世界</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">inurl:&quot;viewerframe?mode=&quot;</div></pre></td></tr></table></figure>
-<p>只要你在Google里输入特殊的关键字,就可以搜到数千个摄象头的IP地址!通过他你就可以看到其所摄的实时影象!!</p>
+<ul>
+<li>index of /inurl:lib 你将进入许多图书馆下载喜欢的书籍.</li>
+<li>index of /cnki 可以找到许多图书馆的CNKI、VIP、超星等入口.</li>
+<li>index of /ppt 可以突破网站入口下载powerpint作品.</li>
+<li>index of /mp3 可以突破网站入口下载mp3、rm等影视作品.</li>
+<li>indexof /软件名 可以突破网站入口下载软件.</li>
+<li>如果你输入：indexof/ AVI ???</li>
+<li>或者其他更有意思的 Index of /admin, Index of/ secret</li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;搜索特定网页的内容&quot;&gt;&lt;a href=&quot;#搜索特定网页的内容&quot; class=&quot;headerlink&quot; title=&quot;搜索特定网页的内容&quot;&gt;&lt;/a&gt;搜索特定网页的内容&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;关键字 + site:xxx.com&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h2 id=&quot;搜索特定网页的内容&quot;&gt;&lt;a href=&quot;#搜索特定网页的内容&quot; class=&quot;headerlink&quot; title=&quot;搜索特定网页的内容&quot;&gt;&lt;/a&gt;搜索特定网页的内容&lt;/h2&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;关键字 site:xxx.com&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;例如在 百度网盘 中搜索 雅思真题&lt;br&gt;&lt;img src=&quot;http://ww2.sinaimg.cn/large/006y8mN6gw1fa8wrgp3rhj31a00p245j.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
