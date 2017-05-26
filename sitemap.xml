@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>lns666.me/blog/17/Android-CloseActivity/</loc>
+    
+    <lastmod>2017-05-26T01:44:13.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>lns666.me/blog/16/hello-world/</loc>
     
     <lastmod>2017-05-26T01:35:41.000Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>lns666.me/blog/16/Android-BroadcastReceiver/</loc>
     
     <lastmod>2017-05-26T00:36:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>lns666.me/blog/17/Android-CloseActivity/</loc>
-    
-    <lastmod>2017-05-25T09:33:58.000Z</lastmod>
     
   </url>
   

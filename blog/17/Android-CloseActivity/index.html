@@ -90,21 +90,18 @@
 
 
 <meta name="description" content="Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终关闭，本文将介绍几种常用的Activity关闭方法。
-关闭当前Activity关闭当前Activity的几种方法
-//关闭当前Activity方法一  finish();        //关闭当前Activity方法二  android.os.Process.killProcess(a">
+关闭当前Activity//关闭当前Activity方法一  finish();        //关闭当前Activity方法二  android.os.Process.killProcess(android.os.Process.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android关闭Activity的方法">
 <meta property="og:url" content="lns666.me/blog/17/Android-CloseActivity/index.html">
 <meta property="og:site_name" content="梁耐松">
 <meta property="og:description" content="Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终关闭，本文将介绍几种常用的Activity关闭方法。
-关闭当前Activity关闭当前Activity的几种方法
-//关闭当前Activity方法一  finish();        //关闭当前Activity方法二  android.os.Process.killProcess(a">
-<meta property="og:updated_time" content="2017-05-25T09:33:58.000Z">
+关闭当前Activity//关闭当前Activity方法一  finish();        //关闭当前Activity方法二  android.os.Process.killProcess(android.os.Process.">
+<meta property="og:updated_time" content="2017-05-26T01:44:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android关闭Activity的方法">
 <meta name="twitter:description" content="Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终关闭，本文将介绍几种常用的Activity关闭方法。
-关闭当前Activity关闭当前Activity的几种方法
-//关闭当前Activity方法一  finish();        //关闭当前Activity方法二  android.os.Process.killProcess(a">
+关闭当前Activity//关闭当前Activity方法一  finish();        //关闭当前Activity方法二  android.os.Process.killProcess(android.os.Process.">
 
 
 
@@ -430,8 +427,7 @@
 
       
         <p>Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终关闭，本文将介绍几种常用的Activity关闭方法。</p>
-<h2 id="关闭当前Activity"><a href="#关闭当前Activity" class="headerlink" title="关闭当前Activity"></a>关闭当前Activity</h2><p>关闭当前Activity的几种方法</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//关闭当前Activity方法一  </span></div><div class="line">finish();  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法二  </span></div><div class="line">android.os.Process.killProcess(android.os.Process.myPid());  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法三  </span></div><div class="line">System.exit(<span class="number">0</span>);  </div><div class="line">  </div><div class="line"><span class="comment">//关闭当前Activity方法四  </span></div><div class="line"><span class="keyword">this</span>.onDestroy();</div></pre></td></tr></table></figure>
+<h2 id="关闭当前Activity"><a href="#关闭当前Activity" class="headerlink" title="关闭当前Activity"></a>关闭当前Activity</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//关闭当前Activity方法一  </span></div><div class="line">finish();  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法二  </span></div><div class="line">android.os.Process.killProcess(android.os.Process.myPid());  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法三  </span></div><div class="line">System.exit(<span class="number">0</span>);  </div><div class="line">  </div><div class="line"><span class="comment">//关闭当前Activity方法四  </span></div><div class="line"><span class="keyword">this</span>.onDestroy();</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="关闭指定Activity"><a href="#关闭指定Activity" class="headerlink" title="关闭指定Activity"></a>关闭指定Activity</h2><p>例如:在ActivityB中关闭ActivityA.</p>
 <p>1.在ActivityA里创建静态变量instance，初始化为this<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">static</span> ActivityA instance = <span class="keyword">null</span>;</div><div class="line">instance = <span class="keyword">this</span>;</div></pre></td></tr></table></figure></p>

@@ -4,6 +4,30 @@
 
     
   <url>
+    <loc>lns666.me/blog/17/Android-CloseActivity/</loc>
+    <lastmod>2017-05-26T01:44:13.000Z</lastmod>
+    <data>
+        <display>
+        <title>Android关闭Activity的方法</title>
+        <pubTime>2017-05-25T10:20:12.000Z</pubTime>
+        
+        <tag>Android</tag>
+         
+        <tag>开发编程</tag>
+         
+        <tag>Activity</tag>
+         
+         
+           
+             
+              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>lns666.me/blog/16/hello-world/</loc>
     <lastmod>2017-05-26T01:35:41.000Z</lastmod>
     <data>
@@ -86,30 +110,6 @@
         <tag>开发编程</tag>
          
         <tag>BroadcastReceiver</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>lns666.me/blog/17/Android-CloseActivity/</loc>
-    <lastmod>2017-05-25T09:33:58.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android关闭Activity的方法</title>
-        <pubTime>2017-05-25T10:20:12.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>开发编程</tag>
-         
-        <tag>Activity</tag>
          
          
            
