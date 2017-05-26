@@ -114,9 +114,9 @@
     
       <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="EditText" scheme="lns666.me/tags/EditText/"/>
-    
       <category term="转" scheme="lns666.me/tags/%E8%BD%AC/"/>
+    
+      <category term="EditText" scheme="lns666.me/tags/EditText/"/>
     
   </entry>
   
@@ -273,9 +273,9 @@
     
       <category term="Android Studio" scheme="lns666.me/tags/Android-Studio/"/>
     
-      <category term="转" scheme="lns666.me/tags/%E8%BD%AC/"/>
-    
       <category term="git" scheme="lns666.me/tags/git/"/>
+    
+      <category term="转" scheme="lns666.me/tags/%E8%BD%AC/"/>
     
   </entry>
   
