@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="lns666.me/"/>
-  <updated>2017-05-26T01:44:13.000Z</updated>
+  <updated>2017-06-03T02:27:50.000Z</updated>
   <id>lns666.me/</id>
   
   <author>
@@ -20,9 +20,9 @@
     <link href="lns666.me/blog/17/Android-CloseActivity/"/>
     <id>lns666.me/blog/17/Android-CloseActivity/</id>
     <published>2017-05-25T10:20:12.000Z</published>
-    <updated>2017-05-26T01:44:13.000Z</updated>
+    <updated>2017-06-03T02:27:50.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终关闭，本文将介绍几种常用的Activity关闭方法。</p>
+    <content type="html"><![CDATA[<p>Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终要关闭，本文将介绍几种常用的Activity关闭方法。</p>
 <h2 id="关闭当前Activity"><a href="#关闭当前Activity" class="headerlink" title="关闭当前Activity"></a>关闭当前Activity</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//关闭当前Activity方法一  </span></div><div class="line">finish();  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法二  </span></div><div class="line">android.os.Process.killProcess(android.os.Process.myPid());  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法三  </span></div><div class="line">System.exit(<span class="number">0</span>);  </div><div class="line">  </div><div class="line"><span class="comment">//关闭当前Activity方法四  </span></div><div class="line"><span class="keyword">this</span>.onDestroy();</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h2 id="关闭指定Activity"><a href="#关闭指定Activity" class="headerlink" title="关闭指定Activity"></a>关闭指定Activity</h2><p>例如:在ActivityB中关闭ActivityA.</p>
@@ -32,11 +32,12 @@
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyApplication</span> <span class="keyword">extends</span> <span class="title">Application</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//使用list来保存每一个activity</span></div><div class="line">    <span class="keyword">private</span> List&lt;Activity&gt; mList = <span class="keyword">new</span> LinkedList&lt;Activity&gt;();</div><div class="line"></div><div class="line">    <span class="comment">//为了实现每次使用该类时不创建新的对象而创建的静态对象  </span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> MyApplication instance;</div><div class="line"></div><div class="line">    <span class="comment">//构造方法  </span></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">MyApplication</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//实例化一次  </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">static</span> MyApplication <span class="title">getInstance</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">null</span> == instance) &#123;</div><div class="line">            instance = <span class="keyword">new</span> MyApplication();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> instance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// add Activity    </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addActivity</span><span class="params">(Activity activity)</span> </span>&#123;</div><div class="line">        mList.add(activity);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//关闭每一个list里的Activity</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exit</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">for</span> (Activity activity : mList) &#123;</div><div class="line">                <span class="keyword">if</span> (activity != <span class="keyword">null</span>)</div><div class="line">                    activity.finish();</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            System.exit(<span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//杀进程  </span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onLowMemory</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onLowMemory();</div><div class="line">        System.gc();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>2.在每个Activity被创建时将该Activity添加到list中去<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MyApplication.getInstance().addActivity(<span class="keyword">this</span>);</div></pre></td></tr></table></figure></p>
 <p>3.调用MyApplication的exit方法关闭所有Activity<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">MyApplication.getInstance().exit();</div></pre></td></tr></table></figure></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="http://java--hhf.iteye.com/blog/1826880" target="_blank" rel="external">Android开发中如何结束所有的Activity</a></p>
 ]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终关闭，本文将介绍几种常用的Activity关闭方法。&lt;/p&gt;
+      &lt;p&gt;Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终要关闭，本文将介绍几种常用的Activity关闭方法。&lt;/p&gt;
 &lt;h2 id=&quot;关闭当前Activity&quot;&gt;&lt;a href=&quot;#关闭当前Activity&quot; class=&quot;headerlink&quot; title=&quot;关闭当前Activity&quot;&gt;&lt;/a&gt;关闭当前Activity&lt;/h2&gt;&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法一  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;finish();  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法二  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;android.os.Process.killProcess(android.os.Process.myPid());  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;      &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法三  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.exit(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//关闭当前Activity方法四  &lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.onDestroy();&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
@@ -57,7 +58,7 @@
     <link href="lns666.me/blog/17/Android-EditText/"/>
     <id>lns666.me/blog/17/Android-EditText/</id>
     <published>2017-05-24T07:24:52.000Z</published>
-    <updated>2017-05-24T08:05:17.000Z</updated>
+    <updated>2017-05-26T02:25:42.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="http://ww3.sinaimg.cn/large/006tNbRwgy1ffwh2563h5j30k006st8l.jpg" width="450px"></p>
 <p>Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。<a href="http://www.jianshu.com/p/1f05bb1fde3e" target="_blank" rel="external">原文地址</a></p>
@@ -71,20 +72,18 @@
 <ul>
 <li>有的搜索框会有一个清除按钮，点击清除按钮时就应该弹出输入法，因为用户清除搜索内容的目的多数时候是需要输入新的内容；</li>
 <li>执行搜索时应该隐藏输入法，因为显示输入法时会遮挡搜索结果，用户体验不太好；</li>
-<li><p>闹钟来时或者有其它window弹出时应该隐藏输入法，因为输入法也是window，如果不隐藏可能导致输入法遮挡住了其它window等用户体验不太友好的问题。</p>
-<p>打开输入法：</p>
-</li>
+<li>闹钟来时或者有其它window弹出时应该隐藏输入法，因为输入法也是window，如果不隐藏可能导致输入法遮挡住了其它window等用户体验不太友好的问题。</li>
 </ul>
+<p>打开输入法：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">open</span><span class="params">(Context context, View editText)</span></span>&#123;</div><div class="line">    InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);</div><div class="line">    inputMethodManager.showSoftInput(editText, <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p> 关闭输入法：</p>
+<p>关闭输入法：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">(Context context, View editText)</span></span>&#123;</div><div class="line">    InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);</div><div class="line">    inputMethodManager.hideSoftInputFromWindow(editText.getWindowToken(), <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="监听EditText的输入状态"><a href="#监听EditText的输入状态" class="headerlink" title="监听EditText的输入状态"></a>监听EditText的输入状态</h2><ul>
 <li>类似新浪微博，在输入内容时会提示还可以输入多少字；</li>
 <li>有的搜索引擎，输入内容时实时显示搜索结果；</li>
-<li><p>有的输入框有输入长度限制，输入内容超过长度限制时弹出提示信息。</p>
-<p>上面这些都可以通过监听EditText的输入状态来实现，具体实现方式如下：</p>
-</li>
+<li>有的输入框有输入长度限制，输入内容超过长度限制时弹出提示信息。</li>
 </ul>
+<p>上面这些都可以通过监听EditText的输入状态来实现，具体实现方式如下：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line">mInputEditTxt.addTextChangedListener(<span class="keyword">new</span> TextWatcher() &#123;</div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">beforeTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> count, <span class="keyword">int</span> after)</span> </span>&#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onTextChanged</span><span class="params">(CharSequence s, <span class="keyword">int</span> start, <span class="keyword">int</span> before, <span class="keyword">int</span> count)</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"监听EditText输入内容的变化，在这里可以监听输入内容的长度。"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="meta">@Override</span></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterTextChanged</span><span class="params">(Editable s)</span> </span>&#123;</div><div class="line">            System.out.println(<span class="string">"这里可以实现所输即所得，用户输入的同时可以立即在这里根据输入内容执行操作，显示搜索结果！"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div></pre></td></tr></table></figure>
 <h2 id="监听输入法中的回车按钮"><a href="#监听输入法中的回车按钮" class="headerlink" title="监听输入法中的回车按钮"></a>监听输入法中的回车按钮</h2><p> 比如搜狗输入法的右下角有一个回车按钮，我们希望用户点击它时也执行确认功能，可以通过监听EditText的按键点击事件来实现：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//监听输入法按键</span></div><div class="line">mInputEditTxt.setOnKeyListener(<span class="keyword">new</span> OnKeyListener() &#123;</div><div class="line">    <span class="meta">@Override</span> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onKey</span><span class="params">(View v, <span class="keyword">int</span> keyCode, KeyEvent event)</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (keyCode == KeyEvent.KEYCODE_ENTER &amp;&amp; event.getAction() == KeyEvent.ACTION_UP) &#123;</div><div class="line">            System.out.println(<span class="string">"手指弹起时执行确认功能"</span>);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
@@ -233,51 +232,6 @@
   </entry>
   
   <entry>
-    <title>Android Studio Git 忽略文件(转)</title>
-    <link href="lns666.me/blog/17/Android-git/"/>
-    <id>lns666.me/blog/17/Android-git/</id>
-    <published>2017-02-10T02:17:33.000Z</published>
-    <updated>2017-05-26T00:40:16.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>通过git同步代码时，有些代码或文件不希望推送到版本库中，可以忽略该文件再上传，下面是Android Studio可忽略文件列表。<a href="https://github.com/github/gitignore/blob/master/Android.gitignore" target="_blank" rel="external">原文地址</a></p>
-<a id="more"></a>
-<h1 id="Built-application-files"><a href="#Built-application-files" class="headerlink" title="Built application files"></a>Built application files</h1><p><code>*.apk</code><br><code>*.ap_</code></p>
-<h1 id="Files-for-the-ART-Dalvik-VM"><a href="#Files-for-the-ART-Dalvik-VM" class="headerlink" title="Files for the ART/Dalvik VM"></a>Files for the ART/Dalvik VM</h1><p><code>*.dex</code></p>
-<h1 id="Java-class-files"><a href="#Java-class-files" class="headerlink" title="Java class files"></a>Java class files</h1><p><code>*.class</code></p>
-<h1 id="Generated-files"><a href="#Generated-files" class="headerlink" title="Generated files"></a>Generated files</h1><p><code>bin/</code><br><code>gen/</code><br><code>out/</code></p>
-<h1 id="Gradle-files"><a href="#Gradle-files" class="headerlink" title="Gradle files"></a>Gradle files</h1><p><code>.gradle/</code><br><code>build/</code></p>
-<h1 id="Local-configuration-file-sdk-path-etc"><a href="#Local-configuration-file-sdk-path-etc" class="headerlink" title="Local configuration file (sdk path, etc)"></a>Local configuration file (sdk path, etc)</h1><p><code>local.properties</code></p>
-<h1 id="Proguard-folder-generated-by-Eclipse"><a href="#Proguard-folder-generated-by-Eclipse" class="headerlink" title="Proguard folder generated by Eclipse"></a>Proguard folder generated by Eclipse</h1><p><code>proguard/</code></p>
-<h1 id="Log-Files"><a href="#Log-Files" class="headerlink" title="Log Files"></a>Log Files</h1><p><code>*.log</code></p>
-<h1 id="Android-Studio-Navigation-editor-temp-files"><a href="#Android-Studio-Navigation-editor-temp-files" class="headerlink" title="Android Studio Navigation editor temp files"></a>Android Studio Navigation editor temp files</h1><p><code>.navigation/</code></p>
-<h1 id="Android-Studio-captures-folder"><a href="#Android-Studio-captures-folder" class="headerlink" title="Android Studio captures folder"></a>Android Studio captures folder</h1><p><code>captures/</code></p>
-<h1 id="Intellij"><a href="#Intellij" class="headerlink" title="Intellij"></a>Intellij</h1><p><code>*.iml</code><br><code>.idea/workspace.xml</code><br><code>.idea/tasks.xml</code><br><code>.idea/gradle.xml</code><br><code>.idea/libraries</code></p>
-<h1 id="Keystore-files"><a href="#Keystore-files" class="headerlink" title="Keystore files"></a>Keystore files</h1><p><code>*.jks</code></p>
-<h1 id="External-native-build-folder-generated-in-Android-Studio-2-2-and-later"><a href="#External-native-build-folder-generated-in-Android-Studio-2-2-and-later" class="headerlink" title="External native build folder generated in Android Studio 2.2 and later"></a>External native build folder generated in Android Studio 2.2 and later</h1><p><code>.externalNativeBuild</code></p>
-<h1 id="Google-Services-e-g-APIs-or-Firebase"><a href="#Google-Services-e-g-APIs-or-Firebase" class="headerlink" title="Google Services (e.g. APIs or Firebase)"></a>Google Services (e.g. APIs or Firebase)</h1><p><code>google-services.json</code></p>
-<h1 id="Freeline"><a href="#Freeline" class="headerlink" title="Freeline"></a>Freeline</h1><p><code>freeline.py</code><br><code>freeline/</code><br><code>freeline_project_description.json</code></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;通过git同步代码时，有些代码或文件不希望推送到版本库中，可以忽略该文件再上传，下面是Android Studio可忽略文件列表。&lt;a href=&quot;https://github.com/github/gitignore/blob/master/Android.gitignore&quot;&gt;原文地址&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
-    
-    
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
-    
-      <category term="Android Studio" scheme="lns666.me/tags/Android-Studio/"/>
-    
-      <category term="转" scheme="lns666.me/tags/%E8%BD%AC/"/>
-    
-      <category term="git" scheme="lns666.me/tags/git/"/>
-    
-  </entry>
-  
-  <entry>
     <title>使用Xcode写C语言程序</title>
     <link href="lns666.me/blog/16/xcode-write-c/"/>
     <id>lns666.me/blog/16/xcode-write-c/</id>
@@ -342,9 +296,9 @@
     
       <category term="Android" scheme="lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
-    
       <category term="BroadcastReceiver" scheme="lns666.me/tags/BroadcastReceiver/"/>
+    
+      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -478,15 +432,15 @@
     <link href="lns666.me/blog/16/app-chinese-localization/"/>
     <id>lns666.me/blog/16/app-chinese-localization/</id>
     <published>2016-10-22T14:17:13.000Z</published>
-    <updated>2017-05-25T09:31:11.000Z</updated>
+    <updated>2017-06-16T06:30:14.000Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Navicat-Premium-for-Mac-11-2-13"><a href="#Navicat-Premium-for-Mac-11-2-13" class="headerlink" title="Navicat Premium for Mac 11.2.13"></a>Navicat Premium for Mac 11.2.13</h2><p><a href="http://dl.download.csdn.net/down11/20160414/d2e77ceae41a1ce34238a41c92b20eaa.zip?response-content-disposition=attachment%3Bfilename%3D%22zh-Hans.lproj.zip%22&amp;OSSAccessKeyId=9q6nvzoJGowBj4q1&amp;Expires=1476279425&amp;Signature=fz1IZOBLQ5AK2T9yraJ9nzigcZo%3D" target="_blank" rel="external">下载后</a>，解压，拖入，app右键显示包内内容/Contents/Resources 即可。</p>
+    <content type="html"><![CDATA[<h2 id="Navicat-Premium-for-Mac"><a href="#Navicat-Premium-for-Mac" class="headerlink" title="Navicat Premium for Mac"></a>Navicat Premium for Mac</h2><p><a href="https://www.navicat.com.cn/download/navicat-premium" target="_blank" rel="external">下载中文版</a>,把zh-Hans.lproj复制到/Applications/Navicat Premium.app/Contents/Resources中即可。</p>
 <h2 id="Sketch41"><a href="#Sketch41" class="headerlink" title="Sketch41"></a>Sketch41</h2><p><a href="https://github.com/cute/SketchI18N" target="_blank" rel="external">https://github.com/cute/SketchI18N</a></p>
 <a id="more"></a>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;Navicat-Premium-for-Mac-11-2-13&quot;&gt;&lt;a href=&quot;#Navicat-Premium-for-Mac-11-2-13&quot; class=&quot;headerlink&quot; title=&quot;Navicat Premium for Mac 11.2.13&quot;&gt;&lt;/a&gt;Navicat Premium for Mac 11.2.13&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;http://dl.download.csdn.net/down11/20160414/d2e77ceae41a1ce34238a41c92b20eaa.zip?response-content-disposition=attachment%3Bfilename%3D%22zh-Hans.lproj.zip%22&amp;amp;OSSAccessKeyId=9q6nvzoJGowBj4q1&amp;amp;Expires=1476279425&amp;amp;Signature=fz1IZOBLQ5AK2T9yraJ9nzigcZo%3D&quot;&gt;下载后&lt;/a&gt;，解压，拖入，app右键显示包内内容/Contents/Resources 即可。&lt;/p&gt;
+      &lt;h2 id=&quot;Navicat-Premium-for-Mac&quot;&gt;&lt;a href=&quot;#Navicat-Premium-for-Mac&quot; class=&quot;headerlink&quot; title=&quot;Navicat Premium for Mac&quot;&gt;&lt;/a&gt;Navicat Premium for Mac&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.navicat.com.cn/download/navicat-premium&quot;&gt;下载中文版&lt;/a&gt;,把zh-Hans.lproj复制到/Applications/Navicat Premium.app/Contents/Resources中即可。&lt;/p&gt;
 &lt;h2 id=&quot;Sketch41&quot;&gt;&lt;a href=&quot;#Sketch41&quot; class=&quot;headerlink&quot; title=&quot;Sketch41&quot;&gt;&lt;/a&gt;Sketch41&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/cute/SketchI18N&quot;&gt;https://github.com/cute/SketchI18N&lt;/a&gt;&lt;/p&gt;
     
     </summary>
@@ -507,13 +461,13 @@
     <link href="lns666.me/blog/16/google-search-skill/"/>
     <id>lns666.me/blog/16/google-search-skill/</id>
     <published>2016-10-20T12:46:23.000Z</published>
-    <updated>2017-05-26T01:16:34.000Z</updated>
+    <updated>2017-05-26T03:03:26.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="搜索特定网页的内容"><a href="#搜索特定网页的内容" class="headerlink" title="搜索特定网页的内容"></a>搜索特定网页的内容</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">关键字 site:xxx.com</div></pre></td></tr></table></figure>
 <p>例如在 百度网盘 中搜索 雅思真题<br><img src="http://ww2.sinaimg.cn/large/006y8mN6gw1fa8wrgp3rhj31a00p245j.jpg" alt=""></p>
 <a id="more"></a>
 <h2 id="精确搜索"><a href="#精确搜索" class="headerlink" title="精确搜索"></a>精确搜索</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&quot;关键词&quot;</div></pre></td></tr></table></figure>
-<p>在搜索词上加双引号，搜索引擎就会完全的匹配你所要的词<br><img src="https://ws4.sinaimg.cn/large/006tNc79gy1ffyhlt199vj319o0kydic.jpg" alt=""></p>
+<p>在搜索词上加双引号，搜索引擎就会完全的匹配你所要的词<br><img src="https://ws4.sinaimg.cn/large/006tNc79gy1ffyhlt199vj319o0kydic.jpg" alt=""><br><img src="https://ws1.sinaimg.cn/large/006tNc79gy1ffyk8yw21hj319w0ietaa.jpg" alt=""></p>
 <h2 id="缩小范围"><a href="#缩小范围" class="headerlink" title="缩小范围"></a>缩小范围</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">- 关键词</div></pre></td></tr></table></figure>
 <p>通过减号，能够去掉一些无关的搜索结果<br><img src="https://ws2.sinaimg.cn/large/006tNc79gy1ffyhvqobspj319u0ncaci.jpg" alt=""><br><img src="https://ws3.sinaimg.cn/large/006tNc79gy1ffyhwde59ij319y0m0ta9.jpg" alt=""></p>
 <h2 id="近义词关联"><a href="#近义词关联" class="headerlink" title="近义词关联"></a>近义词关联</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">~ 关键字</div></pre></td></tr></table></figure>
@@ -751,11 +705,11 @@
   </entry>
   
   <entry>
-    <title>测试文章标题</title>
+    <title>Hello World</title>
     <link href="lns666.me/blog/16/hello-world/"/>
     <id>lns666.me/blog/16/hello-world/</id>
     <published>2016-10-08T04:28:13.000Z</published>
-    <updated>2017-05-26T01:35:41.000Z</updated>
+    <updated>2017-05-26T01:57:43.000Z</updated>
     
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
 <a id="more"></a>

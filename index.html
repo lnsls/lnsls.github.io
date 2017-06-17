@@ -418,7 +418,7 @@
 
       
         
-          <p>Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终关闭，本文将介绍几种常用的Activity关闭方法。</p>
+          <p>Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终要关闭，本文将介绍几种常用的Activity关闭方法。</p>
 <h2 id="关闭当前Activity"><a href="#关闭当前Activity" class="headerlink" title="关闭当前Activity"></a>关闭当前Activity</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//关闭当前Activity方法一  </span></div><div class="line">finish();  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法二  </span></div><div class="line">android.os.Process.killProcess(android.os.Process.myPid());  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法三  </span></div><div class="line">System.exit(<span class="number">0</span>);  </div><div class="line">  </div><div class="line"><span class="comment">//关闭当前Activity方法四  </span></div><div class="line"><span class="keyword">this</span>.onDestroy();</div></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
@@ -1059,153 +1059,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="lns666.me/blog/17/Android-git/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="梁耐松">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="梁耐松">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/17/Android-git/" itemprop="url">
-                  Android Studio Git 忽略文件(转)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-10T10:17:33+08:00">
-                2017-02-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>通过git同步代码时，有些代码或文件不希望推送到版本库中，可以忽略该文件再上传，下面是Android Studio可忽略文件列表。<a href="https://github.com/github/gitignore/blob/master/Android.gitignore">原文地址</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/17/Android-git/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="lns666.me/blog/16/xcode-write-c/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1788,6 +1641,154 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="lns666.me/blog/16/Android-ProgressDialog/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="梁耐松">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="梁耐松">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/blog/16/Android-ProgressDialog/" itemprop="url">
+                  Android 进度条
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-26T19:27:53+08:00">
+                2016-10-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Android开发/" itemprop="url" rel="index">
+                    <span itemprop="name">Android开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>Android 默认进度条样式的简单使用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//声明进度条对象</span></div><div class="line"><span class="keyword">private</span> ProgressDialog pd;</div><div class="line"></div><div class="line"><span class="comment">//显示进度条的方法</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loading</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">	pd = <span class="keyword">new</span> ProgressDialog(LoginActivity.<span class="keyword">this</span>);	<span class="comment">//上下文对象</span></div><div class="line">	pd.setMessage(s);	<span class="comment">//要显示的文字</span></div><div class="line">	pd.setCanceledOnTouchOutside(<span class="keyword">false</span>);	<span class="comment">//不能通过触屏屏幕空白处取消进度条</span></div><div class="line">	pd.show();		<span class="comment">//显示进度条</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用方法显示进度条(在开始等待的地方使用)</span></div><div class="line">loading(<span class="string">"加载中.."</span>);</div><div class="line"></div><div class="line"><span class="comment">//取消显示进度条(在结束等待的地方使用)</span></div><div class="line">pd.dismiss();</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/blog/16/Android-ProgressDialog/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1837,7 +1838,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1859,7 +1860,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

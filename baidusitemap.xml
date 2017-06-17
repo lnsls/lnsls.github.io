@@ -4,8 +4,32 @@
 
     
   <url>
+    <loc>lns666.me/blog/16/app-chinese-localization/</loc>
+    <lastmod>2017-06-16T06:30:14.000Z</lastmod>
+    <data>
+        <display>
+        <title>一些软件的汉化教程</title>
+        <pubTime>2016-10-22T14:17:13.000Z</pubTime>
+        
+        <tag>软件</tag>
+         
+        <tag>汉化</tag>
+         
+        <tag>Mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="奇技淫巧" url="lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>lns666.me/blog/17/Android-CloseActivity/</loc>
-    <lastmod>2017-05-26T01:44:13.000Z</lastmod>
+    <lastmod>2017-06-03T02:27:50.000Z</lastmod>
     <data>
         <display>
         <title>Android关闭Activity的方法</title>
@@ -28,28 +52,8 @@
 
     
   <url>
-    <loc>lns666.me/blog/16/hello-world/</loc>
-    <lastmod>2017-05-26T01:35:41.000Z</lastmod>
-    <data>
-        <display>
-        <title>测试文章标题</title>
-        <pubTime>2016-10-08T04:28:13.000Z</pubTime>
-        
-        <tag>测试标签</tag>
-         
-         
-           
-             
-              <breadCrumb title="测试分类" url="lns666.me/categories/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>lns666.me/blog/16/google-search-skill/</loc>
-    <lastmod>2017-05-26T01:16:34.000Z</lastmod>
+    <lastmod>2017-05-26T03:03:26.000Z</lastmod>
     <data>
         <display>
         <title>Google搜索技巧</title>
@@ -72,25 +76,45 @@
 
     
   <url>
-    <loc>lns666.me/blog/17/Android-git/</loc>
-    <lastmod>2017-05-26T00:40:16.000Z</lastmod>
+    <loc>lns666.me/blog/17/Android-EditText/</loc>
+    <lastmod>2017-05-26T02:25:42.000Z</lastmod>
     <data>
         <display>
-        <title>Android Studio Git 忽略文件(转)</title>
-        <pubTime>2017-02-10T02:17:33.000Z</pubTime>
+        <title>Android EditText 值得注意的地方(转)</title>
+        <pubTime>2017-05-24T07:24:52.000Z</pubTime>
         
+        <tag>Android</tag>
+         
         <tag>开发编程</tag>
          
-        <tag>Android Studio</tag>
+        <tag>EditText</tag>
          
         <tag>转</tag>
-         
-        <tag>git</tag>
          
          
            
              
               <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>lns666.me/blog/16/hello-world/</loc>
+    <lastmod>2017-05-26T01:57:43.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2016-10-08T04:28:13.000Z</pubTime>
+        
+        <tag>测试标签</tag>
+         
+         
+           
+             
+              <breadCrumb title="测试分类" url="lns666.me/categories/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/"/>
           
         </display>
     </data>
@@ -107,9 +131,9 @@
         
         <tag>Android</tag>
          
-        <tag>开发编程</tag>
-         
         <tag>BroadcastReceiver</tag>
+         
+        <tag>开发编程</tag>
          
          
            
@@ -198,30 +222,6 @@
 
     
   <url>
-    <loc>lns666.me/blog/16/app-chinese-localization/</loc>
-    <lastmod>2017-05-25T09:31:11.000Z</lastmod>
-    <data>
-        <display>
-        <title>一些软件的汉化教程</title>
-        <pubTime>2016-10-22T14:17:13.000Z</pubTime>
-        
-        <tag>软件</tag>
-         
-        <tag>汉化</tag>
-         
-        <tag>Mac</tag>
-         
-         
-           
-             
-              <breadCrumb title="奇技淫巧" url="lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>lns666.me/blog/16/Android-sha1-md5/</loc>
     <lastmod>2017-05-25T09:30:52.000Z</lastmod>
     <data>
@@ -262,32 +262,6 @@
         <tag>Android Studio</tag>
          
         <tag>技巧</tag>
-         
-         
-           
-             
-              <breadCrumb title="Android开发" url="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>lns666.me/blog/17/Android-EditText/</loc>
-    <lastmod>2017-05-24T08:05:17.000Z</lastmod>
-    <data>
-        <display>
-        <title>Android EditText 值得注意的地方(转)</title>
-        <pubTime>2017-05-24T07:24:52.000Z</pubTime>
-        
-        <tag>Android</tag>
-         
-        <tag>开发编程</tag>
-         
-        <tag>EditText</tag>
-         
-        <tag>转</tag>
          
          
            
