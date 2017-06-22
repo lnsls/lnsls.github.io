@@ -1,0 +1,102 @@
+/* CSS Document */
+/*外大层*/
+#body{
+	position:absolute;
+	width:960px;
+	height:1276px;     /* 4.整个大层的高度3+100*/
+	left:50%;
+	margin-left:-480px;
+	margin-top:0px;
+	border:0px solid #000;
+}
+/*logo*/
+#logo{
+	width:112px; 
+	height:93px; 
+	border:0px solid #000; 
+	position:fixed;
+	top:10px;
+	background:url(../image/logo.png);
+}
+/*底部的栅栏*/
+#di{
+	position:fixed;
+	width:960px;
+	height:80px;
+	background:url(../image/dilan.gif);
+	left:50%;
+	margin-left:-480px;
+	bottom:0px;
+}
+/*导航栏*/
+#dh{ 
+	position:fixed;
+	width:160px;
+	height:360px;
+	border:0px solid #000;
+	bottom:0px;
+}
+/*中间主体内容大框*/
+#D{
+	width:800px;
+	height:1176px;     /* 3.整个中间层的高度2+200*/
+	position:absolute;
+	top:0px;
+	right:0px;
+	border:0px solid #000;
+}
+#d1{
+	width:800px;
+	height:516px;
+	background:url(../image/kk1.gif);
+	position:absolute;
+	right:0px;
+	top:0px;
+}
+#d2{
+	width:800px;
+	height:460px;     /* 1.控制文字背景的高度*/
+	background:url(../image/kk2.gif) repeat-y;
+	position:absolute;
+	top:516px;
+	right:0px;
+}
+#d3{
+	width:800px;
+	height:47px;     
+	background:url(../image/kk3.gif);
+	position:absolute; 
+	top:976px;		/* 2.包边到顶部的距离1+516*/
+	right:0px;
+}
+/*标题和其他*/
+#bt{
+	width:500px;
+	height:auto;
+	position:absolute;
+	left:40px;
+	top:20px;
+	border:0px solid #eee;
+	font-family:'黑体'; 
+}
+/*正文内容*/
+#t{
+	width:695px;
+	height:auto;
+	position:absolute;
+	right:50px;
+	top:210px;
+	border:0px solid #eee;
+	font-family:'微软雅黑'; 
+}
+/*备案号那些*/
+#banh{
+	widows:660px;
+	height:100px;
+	border:0px solid #000; 
+	background:#ccffcc;
+	position:absolute;
+	bottom:10px;
+	left:80px;
+	right:80px;
+}

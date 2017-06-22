@@ -1,0 +1,74 @@
+@charset "UTF-8";
+/*外大层*/
+#body{
+	position:absolute;
+	width:980px;
+	height:900px;
+	left:50%;
+	margin-left:-480px;
+	margin-top:0px;
+	border:0px solid #000;
+}
+/*背景图*/
+#t{
+	width:960px;
+	height:642px;
+	background:url(../image/zhuye.gif);
+}
+/*导航栏*/
+#dh{ 
+	position:fixed;
+	width:160px;
+	height:360px;
+	border:0px solid #000;
+	bottom:0px;
+}
+/*logo*/
+#logo{
+	width:112px; 
+	height:93px; 
+	border:0px solid #000; 
+	position:fixed;
+	top:0px;
+}
+
+/*欢迎*/
+#huany{
+	position:fixed;
+	width:600px; 
+	height:102px; 
+	border:0px solid #000; 
+	top:10px;
+}
+/*底部的栅栏*/
+#di{
+	position:fixed;
+	width:980px;
+	height:80px;
+	background:url(../image/dilan.gif);
+	left:50%;
+	margin-left:-480px;
+	bottom:0px;
+}
+/*备案号那些*/
+#banh{
+	widows:580px;
+	height:100px;
+	border:0px solid #000; 
+	background:#CF9;
+	position:absolute;
+	bottom:100px;
+	left:200px;
+	right:100px;
+}
+
+/*悬浮栏*/
+#bf{ 
+	width:150px; 
+	height:400px; 
+	border:1px solid #000; 
+	position:fixed;
+	left:0;
+	top:30%;
+}
+
