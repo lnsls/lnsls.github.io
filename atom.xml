@@ -4,9 +4,9 @@
   <subtitle>欢迎访问我的个人主页 &gt;_&lt;</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="lns666.me/"/>
+  <link href="http://lns666.me/"/>
   <updated>2017-06-03T02:27:50.000Z</updated>
-  <id>lns666.me/</id>
+  <id>http://lns666.me/</id>
   
   <author>
     <name>梁耐松</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Android关闭Activity的方法</title>
-    <link href="lns666.me/blog/17/Android-CloseActivity/"/>
-    <id>lns666.me/blog/17/Android-CloseActivity/</id>
+    <link href="http://lns666.me/blog/17/Android-CloseActivity/"/>
+    <id>http://lns666.me/blog/17/Android-CloseActivity/</id>
     <published>2017-05-25T10:20:12.000Z</published>
     <updated>2017-06-03T02:27:50.000Z</updated>
     
@@ -42,21 +42,21 @@
     
     </summary>
     
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Activity" scheme="lns666.me/tags/Activity/"/>
+      <category term="Activity" scheme="http://lns666.me/tags/Activity/"/>
     
   </entry>
   
   <entry>
     <title>Android EditText 值得注意的地方(转)</title>
-    <link href="lns666.me/blog/17/Android-EditText/"/>
-    <id>lns666.me/blog/17/Android-EditText/</id>
+    <link href="http://lns666.me/blog/17/Android-EditText/"/>
+    <id>http://lns666.me/blog/17/Android-EditText/</id>
     <published>2017-05-24T07:24:52.000Z</published>
     <updated>2017-05-26T02:25:42.000Z</updated>
     
@@ -104,23 +104,23 @@
     
     </summary>
     
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="EditText" scheme="lns666.me/tags/EditText/"/>
+      <category term="EditText" scheme="http://lns666.me/tags/EditText/"/>
     
-      <category term="转" scheme="lns666.me/tags/%E8%BD%AC/"/>
+      <category term="转" scheme="http://lns666.me/tags/%E8%BD%AC/"/>
     
   </entry>
   
   <entry>
     <title>Android Dialog 对话框</title>
-    <link href="lns666.me/blog/17/Android-Dialog/"/>
-    <id>lns666.me/blog/17/Android-Dialog/</id>
+    <link href="http://lns666.me/blog/17/Android-Dialog/"/>
+    <id>http://lns666.me/blog/17/Android-Dialog/</id>
     <published>2017-05-09T15:22:32.000Z</published>
     <updated>2017-05-10T05:19:23.000Z</updated>
     
@@ -147,21 +147,21 @@
     
     </summary>
     
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Dialog" scheme="lns666.me/tags/Dialog/"/>
+      <category term="Dialog" scheme="http://lns666.me/tags/Dialog/"/>
     
   </entry>
   
   <entry>
     <title>Android CountDownTimer 倒计时</title>
-    <link href="lns666.me/blog/17/Android-CountDownTimer/"/>
-    <id>lns666.me/blog/17/Android-CountDownTimer/</id>
+    <link href="http://lns666.me/blog/17/Android-CountDownTimer/"/>
+    <id>http://lns666.me/blog/17/Android-CountDownTimer/</id>
     <published>2017-02-12T14:20:32.000Z</published>
     <updated>2017-05-25T09:32:48.000Z</updated>
     
@@ -188,21 +188,21 @@
     
     </summary>
     
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="倒计时" scheme="lns666.me/tags/%E5%80%92%E8%AE%A1%E6%97%B6/"/>
+      <category term="倒计时" scheme="http://lns666.me/tags/%E5%80%92%E8%AE%A1%E6%97%B6/"/>
     
   </entry>
   
   <entry>
     <title>Android自定义标题栏</title>
-    <link href="lns666.me/blog/17/Android-TitleBar/"/>
-    <id>lns666.me/blog/17/Android-TitleBar/</id>
+    <link href="http://lns666.me/blog/17/Android-TitleBar/"/>
+    <id>http://lns666.me/blog/17/Android-TitleBar/</id>
     <published>2017-02-10T04:10:30.000Z</published>
     <updated>2017-05-25T09:33:10.000Z</updated>
     
@@ -220,21 +220,21 @@
     
     </summary>
     
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="界面美化" scheme="lns666.me/tags/%E7%95%8C%E9%9D%A2%E7%BE%8E%E5%8C%96/"/>
+      <category term="界面美化" scheme="http://lns666.me/tags/%E7%95%8C%E9%9D%A2%E7%BE%8E%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>使用Xcode写C语言程序</title>
-    <link href="lns666.me/blog/16/xcode-write-c/"/>
-    <id>lns666.me/blog/16/xcode-write-c/</id>
+    <link href="http://lns666.me/blog/16/xcode-write-c/"/>
+    <id>http://lns666.me/blog/16/xcode-write-c/</id>
     <published>2016-11-05T00:20:18.000Z</published>
     <updated>2017-05-25T09:32:15.000Z</updated>
     
@@ -252,25 +252,25 @@
     
     </summary>
     
-      <category term="C语言" scheme="lns666.me/categories/C%E8%AF%AD%E8%A8%80/"/>
+      <category term="C语言" scheme="http://lns666.me/categories/C%E8%AF%AD%E8%A8%80/"/>
     
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="技巧" scheme="lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
+      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
     
-      <category term="C语言" scheme="lns666.me/tags/C%E8%AF%AD%E8%A8%80/"/>
+      <category term="C语言" scheme="http://lns666.me/tags/C%E8%AF%AD%E8%A8%80/"/>
     
-      <category term="Xcode" scheme="lns666.me/tags/Xcode/"/>
+      <category term="Xcode" scheme="http://lns666.me/tags/Xcode/"/>
     
-      <category term="MacOS" scheme="lns666.me/tags/MacOS/"/>
+      <category term="MacOS" scheme="http://lns666.me/tags/MacOS/"/>
     
   </entry>
   
   <entry>
     <title>BroadcastReceiver广播接收器的简单用法</title>
-    <link href="lns666.me/blog/16/Android-BroadcastReceiver/"/>
-    <id>lns666.me/blog/16/Android-BroadcastReceiver/</id>
+    <link href="http://lns666.me/blog/16/Android-BroadcastReceiver/"/>
+    <id>http://lns666.me/blog/16/Android-BroadcastReceiver/</id>
     <published>2016-11-02T16:07:23.000Z</published>
     <updated>2017-05-26T00:36:58.000Z</updated>
     
@@ -291,21 +291,21 @@
     
     </summary>
     
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="BroadcastReceiver" scheme="lns666.me/tags/BroadcastReceiver/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="BroadcastReceiver" scheme="http://lns666.me/tags/BroadcastReceiver/"/>
     
   </entry>
   
   <entry>
     <title>AndroidStudio Log 分段输出</title>
-    <link href="lns666.me/blog/16/Android-Segmentation-Log/"/>
-    <id>lns666.me/blog/16/Android-Segmentation-Log/</id>
+    <link href="http://lns666.me/blog/16/Android-Segmentation-Log/"/>
+    <id>http://lns666.me/blog/16/Android-Segmentation-Log/</id>
     <published>2016-11-02T15:57:53.000Z</published>
     <updated>2017-05-25T09:30:15.000Z</updated>
     
@@ -322,23 +322,23 @@
     
     </summary>
     
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Android Studio" scheme="lns666.me/tags/Android-Studio/"/>
+      <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
     
-      <category term="技巧" scheme="lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
+      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
   <entry>
     <title>AndroidStudio获取SHA1和MD5超简单的方法</title>
-    <link href="lns666.me/blog/16/Android-sha1-md5/"/>
-    <id>lns666.me/blog/16/Android-sha1-md5/</id>
+    <link href="http://lns666.me/blog/16/Android-sha1-md5/"/>
+    <id>http://lns666.me/blog/16/Android-sha1-md5/</id>
     <published>2016-10-30T02:17:53.000Z</published>
     <updated>2017-05-25T09:30:52.000Z</updated>
     
@@ -355,23 +355,23 @@
     
     </summary>
     
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Android Studio" scheme="lns666.me/tags/Android-Studio/"/>
+      <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
     
-      <category term="技巧" scheme="lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
+      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
   <entry>
     <title>Android 进度条</title>
-    <link href="lns666.me/blog/16/Android-ProgressDialog/"/>
-    <id>lns666.me/blog/16/Android-ProgressDialog/</id>
+    <link href="http://lns666.me/blog/16/Android-ProgressDialog/"/>
+    <id>http://lns666.me/blog/16/Android-ProgressDialog/</id>
     <published>2016-10-26T11:27:53.000Z</published>
     <updated>2017-02-11T05:29:28.000Z</updated>
     
@@ -388,19 +388,19 @@
     
     </summary>
     
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>Application 保存全局变量</title>
-    <link href="lns666.me/blog/16/Android-application/"/>
-    <id>lns666.me/blog/16/Android-application/</id>
+    <link href="http://lns666.me/blog/16/Android-application/"/>
+    <id>http://lns666.me/blog/16/Android-application/</id>
     <published>2016-10-25T15:57:33.000Z</published>
     <updated>2017-02-11T05:29:37.000Z</updated>
     
@@ -418,19 +418,19 @@
     
     </summary>
     
-      <category term="Android开发" scheme="lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
     
     
-      <category term="Android" scheme="lns666.me/tags/Android/"/>
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="开发编程" scheme="lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
   <entry>
     <title>一些软件的汉化教程</title>
-    <link href="lns666.me/blog/16/app-chinese-localization/"/>
-    <id>lns666.me/blog/16/app-chinese-localization/</id>
+    <link href="http://lns666.me/blog/16/app-chinese-localization/"/>
+    <id>http://lns666.me/blog/16/app-chinese-localization/</id>
     <published>2016-10-22T14:17:13.000Z</published>
     <updated>2017-06-16T06:30:14.000Z</updated>
     
@@ -445,21 +445,21 @@
     
     </summary>
     
-      <category term="奇技淫巧" scheme="lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+      <category term="奇技淫巧" scheme="http://lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
     
     
-      <category term="软件" scheme="lns666.me/tags/%E8%BD%AF%E4%BB%B6/"/>
+      <category term="软件" scheme="http://lns666.me/tags/%E8%BD%AF%E4%BB%B6/"/>
     
-      <category term="汉化" scheme="lns666.me/tags/%E6%B1%89%E5%8C%96/"/>
+      <category term="汉化" scheme="http://lns666.me/tags/%E6%B1%89%E5%8C%96/"/>
     
-      <category term="Mac" scheme="lns666.me/tags/Mac/"/>
+      <category term="Mac" scheme="http://lns666.me/tags/Mac/"/>
     
   </entry>
   
   <entry>
     <title>Google搜索技巧</title>
-    <link href="lns666.me/blog/16/google-search-skill/"/>
-    <id>lns666.me/blog/16/google-search-skill/</id>
+    <link href="http://lns666.me/blog/16/google-search-skill/"/>
+    <id>http://lns666.me/blog/16/google-search-skill/</id>
     <published>2016-10-20T12:46:23.000Z</published>
     <updated>2017-05-26T03:03:26.000Z</updated>
     
@@ -496,21 +496,21 @@
     
     </summary>
     
-      <category term="奇技淫巧" scheme="lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+      <category term="奇技淫巧" scheme="http://lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
     
     
-      <category term="技巧" scheme="lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
+      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
     
-      <category term="Google" scheme="lns666.me/tags/Google/"/>
+      <category term="Google" scheme="http://lns666.me/tags/Google/"/>
     
-      <category term="搜索" scheme="lns666.me/tags/%E6%90%9C%E7%B4%A2/"/>
+      <category term="搜索" scheme="http://lns666.me/tags/%E6%90%9C%E7%B4%A2/"/>
     
   </entry>
   
   <entry>
     <title>测试文章标题</title>
-    <link href="lns666.me/blog/16/test/"/>
-    <id>lns666.me/blog/16/test/</id>
+    <link href="http://lns666.me/blog/16/test/"/>
+    <id>http://lns666.me/blog/16/test/</id>
     <published>2016-10-18T07:37:53.000Z</published>
     <updated>2017-02-17T01:27:27.000Z</updated>
     
@@ -697,17 +697,17 @@
     
     </summary>
     
-      <category term="测试分类" scheme="lns666.me/categories/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/"/>
+      <category term="测试分类" scheme="http://lns666.me/categories/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/"/>
     
     
-      <category term="测试标签" scheme="lns666.me/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/"/>
+      <category term="测试标签" scheme="http://lns666.me/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="lns666.me/blog/16/hello-world/"/>
-    <id>lns666.me/blog/16/hello-world/</id>
+    <link href="http://lns666.me/blog/16/hello-world/"/>
+    <id>http://lns666.me/blog/16/hello-world/</id>
     <published>2016-10-08T04:28:13.000Z</published>
     <updated>2017-05-26T01:57:43.000Z</updated>
     
@@ -731,10 +731,10 @@
     
     </summary>
     
-      <category term="测试分类" scheme="lns666.me/categories/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/"/>
+      <category term="测试分类" scheme="http://lns666.me/categories/%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB/"/>
     
     
-      <category term="测试标签" scheme="lns666.me/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/"/>
+      <category term="测试标签" scheme="http://lns666.me/tags/%E6%B5%8B%E8%AF%95%E6%A0%87%E7%AD%BE/"/>
     
   </entry>
   
