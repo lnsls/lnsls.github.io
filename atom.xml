@@ -327,9 +327,9 @@
     
       <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
-    
       <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
     
       <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
     
@@ -360,9 +360,9 @@
     
       <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
-      <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
-    
       <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
     
       <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
     
@@ -424,35 +424,6 @@
       <category term="Android" scheme="http://lns666.me/tags/Android/"/>
     
       <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>一些软件的汉化教程</title>
-    <link href="http://lns666.me/blog/16/app-chinese-localization/"/>
-    <id>http://lns666.me/blog/16/app-chinese-localization/</id>
-    <published>2016-10-22T14:17:13.000Z</published>
-    <updated>2017-06-16T06:30:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Navicat-Premium-for-Mac"><a href="#Navicat-Premium-for-Mac" class="headerlink" title="Navicat Premium for Mac"></a>Navicat Premium for Mac</h2><p><a href="https://www.navicat.com.cn/download/navicat-premium" target="_blank" rel="external">下载中文版</a>,把zh-Hans.lproj复制到/Applications/Navicat Premium.app/Contents/Resources中即可。</p>
-<h2 id="Sketch41"><a href="#Sketch41" class="headerlink" title="Sketch41"></a>Sketch41</h2><p><a href="https://github.com/cute/SketchI18N" target="_blank" rel="external">https://github.com/cute/SketchI18N</a></p>
-<a id="more"></a>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;Navicat-Premium-for-Mac&quot;&gt;&lt;a href=&quot;#Navicat-Premium-for-Mac&quot; class=&quot;headerlink&quot; title=&quot;Navicat Premium for Mac&quot;&gt;&lt;/a&gt;Navicat Premium for Mac&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://www.navicat.com.cn/download/navicat-premium&quot;&gt;下载中文版&lt;/a&gt;,把zh-Hans.lproj复制到/Applications/Navicat Premium.app/Contents/Resources中即可。&lt;/p&gt;
-&lt;h2 id=&quot;Sketch41&quot;&gt;&lt;a href=&quot;#Sketch41&quot; class=&quot;headerlink&quot; title=&quot;Sketch41&quot;&gt;&lt;/a&gt;Sketch41&lt;/h2&gt;&lt;p&gt;&lt;a href=&quot;https://github.com/cute/SketchI18N&quot;&gt;https://github.com/cute/SketchI18N&lt;/a&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="奇技淫巧" scheme="http://lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
-    
-    
-      <category term="软件" scheme="http://lns666.me/tags/%E8%BD%AF%E4%BB%B6/"/>
-    
-      <category term="汉化" scheme="http://lns666.me/tags/%E6%B1%89%E5%8C%96/"/>
-    
-      <category term="Mac" scheme="http://lns666.me/tags/Mac/"/>
     
   </entry>
   

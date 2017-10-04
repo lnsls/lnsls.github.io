@@ -5,30 +5,6 @@
     
     
   <url>
-    <loc>http://lns666.me/blog/16/app-chinese-localization/</loc>
-    <lastmod>2017-06-16T06:30:14.000Z</lastmod>
-    <data>
-        <display>
-        <title>一些软件的汉化教程</title>
-        <pubTime>2016-10-22T14:17:13.000Z</pubTime>
-        
-        <tag>软件</tag>
-         
-        <tag>汉化</tag>
-         
-        <tag>Mac</tag>
-         
-         
-           
-             
-              <breadCrumb title="奇技淫巧" url="http://lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://lns666.me/blog/17/Android-CloseActivity/</loc>
     <lastmod>2017-06-03T02:27:50.000Z</lastmod>
     <data>
@@ -232,9 +208,9 @@
         
         <tag>Android</tag>
          
-        <tag>Android Studio</tag>
-         
         <tag>开发编程</tag>
+         
+        <tag>Android Studio</tag>
          
         <tag>技巧</tag>
          
@@ -258,9 +234,9 @@
         
         <tag>Android</tag>
          
-        <tag>Android Studio</tag>
-         
         <tag>开发编程</tag>
+         
+        <tag>Android Studio</tag>
          
         <tag>技巧</tag>
          
