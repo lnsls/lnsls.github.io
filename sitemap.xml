@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://lns666.me/blog/17/as-hotkey/</loc>
+    
+    <lastmod>2017-10-16T11:28:40.652Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://lns666.me/404.html</loc>
     
     <lastmod>2017-08-01T15:09:21.000Z</lastmod>
@@ -30,14 +37,14 @@
   </url>
   
   <url>
-    <loc>http://lns666.me/blog/16/hello-world/</loc>
+    <loc>http://lns666.me/blog/16/hello_world/</loc>
     
     <lastmod>2017-05-26T01:57:43.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lns666.me/blog/16/Android-BroadcastReceiver/</loc>
+    <loc>http://lns666.me/blog/16/android_broadcast_receiver/</loc>
     
     <lastmod>2017-05-26T00:36:58.000Z</lastmod>
     
@@ -58,21 +65,21 @@
   </url>
   
   <url>
-    <loc>http://lns666.me/blog/16/xcode-write-c/</loc>
+    <loc>http://lns666.me/blog/16/xcode_write_c/</loc>
     
     <lastmod>2017-05-25T09:32:15.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lns666.me/blog/16/Android-sha1-md5/</loc>
+    <loc>http://lns666.me/blog/16/android_sha1_md5/</loc>
     
     <lastmod>2017-05-25T09:30:52.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lns666.me/blog/16/Android-Segmentation-Log/</loc>
+    <loc>http://lns666.me/blog/16/android_segmentation_log/</loc>
     
     <lastmod>2017-05-25T09:30:15.000Z</lastmod>
     
@@ -93,14 +100,14 @@
   </url>
   
   <url>
-    <loc>http://lns666.me/blog/16/Android-application/</loc>
+    <loc>http://lns666.me/blog/16/android_application/</loc>
     
     <lastmod>2017-02-11T05:29:37.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lns666.me/blog/16/Android-ProgressDialog/</loc>
+    <loc>http://lns666.me/blog/16/android_progress_dialog/</loc>
     
     <lastmod>2017-02-11T05:29:28.000Z</lastmod>
     

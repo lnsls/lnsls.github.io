@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lns666.me/"/>
-  <updated>2017-06-03T02:27:50.000Z</updated>
+  <updated>2017-10-16T11:28:40.652Z</updated>
   <id>http://lns666.me/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://lns666.me/blog/17/as-hotkey/"/>
+    <id>http://lns666.me/blog/17/as-hotkey/</id>
+    <published>2017-10-16T11:28:40.651Z</published>
+    <updated>2017-10-16T11:28:40.652Z</updated>
+    
+    <content type="html"><![CDATA[<p>F1 查看备注文档</p>
+<p>F2 跳转到报错的地方</p>
+<p>command + n 生成代码</p>
+<p>command + r 查找替换</p>
+<p>command + o 重写父类方法</p>
+<p>option + 鼠标上下滑动 选择多行</p>
+<p>option + command + ← 回到上一个编辑的位置</p>
+<p>shift + return 新起一行</p>
+<p>shift + command + v 裁剪板历史</p>
+<p>鼠标三击 选中一行</p>
+<p>方法前双击 选中整个方法</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;F1 查看备注文档&lt;/p&gt;
+&lt;p&gt;F2 跳转到报错的地方&lt;/p&gt;
+&lt;p&gt;command + n 生成代码&lt;/p&gt;
+&lt;p&gt;command + r 查找替换&lt;/p&gt;
+&lt;p&gt;command + o 重写父类方法&lt;/p&gt;
+&lt;p&gt;option + 鼠标上下滑动 选择多行&lt;/p&gt;
+&lt;p
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Android关闭Activity的方法</title>
@@ -233,8 +268,8 @@
   
   <entry>
     <title>使用Xcode写C语言程序</title>
-    <link href="http://lns666.me/blog/16/xcode-write-c/"/>
-    <id>http://lns666.me/blog/16/xcode-write-c/</id>
+    <link href="http://lns666.me/blog/16/xcode_write_c/"/>
+    <id>http://lns666.me/blog/16/xcode_write_c/</id>
     <published>2016-11-05T00:20:18.000Z</published>
     <updated>2017-05-25T09:32:15.000Z</updated>
     
@@ -269,8 +304,8 @@
   
   <entry>
     <title>BroadcastReceiver广播接收器的简单用法</title>
-    <link href="http://lns666.me/blog/16/Android-BroadcastReceiver/"/>
-    <id>http://lns666.me/blog/16/Android-BroadcastReceiver/</id>
+    <link href="http://lns666.me/blog/16/android_broadcast_receiver/"/>
+    <id>http://lns666.me/blog/16/android_broadcast_receiver/</id>
     <published>2016-11-02T16:07:23.000Z</published>
     <updated>2017-05-26T00:36:58.000Z</updated>
     
@@ -304,8 +339,8 @@
   
   <entry>
     <title>AndroidStudio Log 分段输出</title>
-    <link href="http://lns666.me/blog/16/Android-Segmentation-Log/"/>
-    <id>http://lns666.me/blog/16/Android-Segmentation-Log/</id>
+    <link href="http://lns666.me/blog/16/android_segmentation_log/"/>
+    <id>http://lns666.me/blog/16/android_segmentation_log/</id>
     <published>2016-11-02T15:57:53.000Z</published>
     <updated>2017-05-25T09:30:15.000Z</updated>
     
@@ -329,16 +364,16 @@
     
       <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
-    
       <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
     
   </entry>
   
   <entry>
     <title>AndroidStudio获取SHA1和MD5超简单的方法</title>
-    <link href="http://lns666.me/blog/16/Android-sha1-md5/"/>
-    <id>http://lns666.me/blog/16/Android-sha1-md5/</id>
+    <link href="http://lns666.me/blog/16/android_sha1_md5/"/>
+    <id>http://lns666.me/blog/16/android_sha1_md5/</id>
     <published>2016-10-30T02:17:53.000Z</published>
     <updated>2017-05-25T09:30:52.000Z</updated>
     
@@ -362,16 +397,16 @@
     
       <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
-    
       <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
     
   </entry>
   
   <entry>
     <title>Android 进度条</title>
-    <link href="http://lns666.me/blog/16/Android-ProgressDialog/"/>
-    <id>http://lns666.me/blog/16/Android-ProgressDialog/</id>
+    <link href="http://lns666.me/blog/16/android_progress_dialog/"/>
+    <id>http://lns666.me/blog/16/android_progress_dialog/</id>
     <published>2016-10-26T11:27:53.000Z</published>
     <updated>2017-02-11T05:29:28.000Z</updated>
     
@@ -399,8 +434,8 @@
   
   <entry>
     <title>Application 保存全局变量</title>
-    <link href="http://lns666.me/blog/16/Android-application/"/>
-    <id>http://lns666.me/blog/16/Android-application/</id>
+    <link href="http://lns666.me/blog/16/android_application/"/>
+    <id>http://lns666.me/blog/16/android_application/</id>
     <published>2016-10-25T15:57:33.000Z</published>
     <updated>2017-02-11T05:29:37.000Z</updated>
     
@@ -470,11 +505,11 @@
       <category term="奇技淫巧" scheme="http://lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
     
     
-      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
-    
       <category term="Google" scheme="http://lns666.me/tags/Google/"/>
     
       <category term="搜索" scheme="http://lns666.me/tags/%E6%90%9C%E7%B4%A2/"/>
+    
+      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
@@ -677,8 +712,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://lns666.me/blog/16/hello-world/"/>
-    <id>http://lns666.me/blog/16/hello-world/</id>
+    <link href="http://lns666.me/blog/16/hello_world/"/>
+    <id>http://lns666.me/blog/16/hello_world/</id>
     <published>2016-10-08T04:28:13.000Z</published>
     <updated>2017-05-26T01:57:43.000Z</updated>
     

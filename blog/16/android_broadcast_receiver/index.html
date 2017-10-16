@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,开发编程," />
+  <meta name="keywords" content="Android,开发编程,BroadcastReceiver," />
 
 
 
@@ -89,21 +89,22 @@
 
 
 
-<meta name="description" content="使用说明Android 默认进度条样式的简单使用
-//声明进度条对象private ProgressDialog pd;//显示进度条的方法	public void loading(String s) &amp;#123;	pd = new ProgressDialog(LoginActivity.this);	//上下文对象	pd.setMessage(s);	//要显示的文字	pd.setCancel">
+<meta name="description" content="BroadcastReceiver简介BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。
+BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。
+我们的应用可以使用它对外">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android 进度条">
-<meta property="og:url" content="http://lns666.me/blog/16/Android-ProgressDialog/index.html">
+<meta property="og:title" content="BroadcastReceiver广播接收器的简单用法">
+<meta property="og:url" content="http://lns666.me/blog/16/android_broadcast_receiver/index.html">
 <meta property="og:site_name" content="梁耐松">
-<meta property="og:description" content="使用说明Android 默认进度条样式的简单使用
-//声明进度条对象private ProgressDialog pd;//显示进度条的方法	public void loading(String s) &amp;#123;	pd = new ProgressDialog(LoginActivity.this);	//上下文对象	pd.setMessage(s);	//要显示的文字	pd.setCancel">
-<meta property="og:image" content="http://ww2.sinaimg.cn/large/006y8mN6gw1fa8rcz29f1g30gg0su77m.gif">
-<meta property="og:updated_time" content="2017-02-11T05:29:28.000Z">
+<meta property="og:description" content="BroadcastReceiver简介BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。
+BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。
+我们的应用可以使用它对外">
+<meta property="og:updated_time" content="2017-05-26T00:36:58.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android 进度条">
-<meta name="twitter:description" content="使用说明Android 默认进度条样式的简单使用
-//声明进度条对象private ProgressDialog pd;//显示进度条的方法	public void loading(String s) &amp;#123;	pd = new ProgressDialog(LoginActivity.this);	//上下文对象	pd.setMessage(s);	//要显示的文字	pd.setCancel">
-<meta name="twitter:image" content="http://ww2.sinaimg.cn/large/006y8mN6gw1fa8rcz29f1g30gg0su77m.gif">
+<meta name="twitter:title" content="BroadcastReceiver广播接收器的简单用法">
+<meta name="twitter:description" content="BroadcastReceiver简介BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。
+BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。
+我们的应用可以使用它对外">
 
 
 
@@ -131,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="http://lns666.me/blog/16/Android-ProgressDialog/"/>
+  <link rel="canonical" href="http://lns666.me/blog/16/android_broadcast_receiver/"/>
 
 
 
 
 
-  <title> Android 进度条 | 梁耐松 </title>
+  <title> BroadcastReceiver广播接收器的简单用法 | 梁耐松 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -324,7 +325,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/16/Android-ProgressDialog/">
+    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/16/android_broadcast_receiver/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="梁耐松">
@@ -345,7 +346,7 @@
             
             
               
-                Android 进度条
+                BroadcastReceiver广播接收器的简单用法
               
             
           </h1>
@@ -360,8 +361,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-26T19:27:53+08:00">
-                2016-10-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-03T00:07:23+08:00">
+                2016-11-03
               </time>
             
 
@@ -418,10 +419,13 @@
       
 
       
-        <h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>Android 默认进度条样式的简单使用</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//声明进度条对象</span></div><div class="line"><span class="keyword">private</span> ProgressDialog pd;</div><div class="line"></div><div class="line"><span class="comment">//显示进度条的方法</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loading</span><span class="params">(String s)</span> </span>&#123;</div><div class="line">	pd = <span class="keyword">new</span> ProgressDialog(LoginActivity.<span class="keyword">this</span>);	<span class="comment">//上下文对象</span></div><div class="line">	pd.setMessage(s);	<span class="comment">//要显示的文字</span></div><div class="line">	pd.setCanceledOnTouchOutside(<span class="keyword">false</span>);	<span class="comment">//不能通过触屏屏幕空白处取消进度条</span></div><div class="line">	pd.show();		<span class="comment">//显示进度条</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//调用方法显示进度条(在开始等待的地方使用)</span></div><div class="line">loading(<span class="string">"加载中.."</span>);</div><div class="line"></div><div class="line"><span class="comment">//取消显示进度条(在结束等待的地方使用)</span></div><div class="line">pd.dismiss();</div></pre></td></tr></table></figure>
+        <h2 id="BroadcastReceiver简介"><a href="#BroadcastReceiver简介" class="headerlink" title="BroadcastReceiver简介"></a>BroadcastReceiver简介</h2><p>BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。</p>
+<p>BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。</p>
+<p>我们的应用可以使用它对外部事件进行过滤只对感兴趣的外部事件进行接收并做出响应。例如当WIFI断开时，应当停止下载任务，以节省流量。</p>
 <a id="more"></a>
-<h2 id="显示效果"><a href="#显示效果" class="headerlink" title="显示效果"></a>显示效果</h2><p><img src="http://ww2.sinaimg.cn/large/006y8mN6gw1fa8rcz29f1g30gg0su77m.gif" width="300px"></p>
+<h2 id="BroadcastReceiver简单用法"><a href="#BroadcastReceiver简单用法" class="headerlink" title="BroadcastReceiver简单用法"></a>BroadcastReceiver简单用法</h2><p>首先在需要发送信息的地方，把要发送的信息和用于过滤的信息(如Action、Category)装入一个Intent对象 ，然后通过调用 sendOrderBroadcast()或sendStickyBroadcast()方法，把 Intent对象以广播方式发送出去。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 发送广播</span></div><div class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="string">"android.intent.action.CART_BROADCAST"</span>);</div><div class="line">LocalBroadcastManager.getInstance(getActivity()).sendBroadcast(intent);</div></pre></td></tr></table></figure></p>
+<p>当Intent发送以后，所有已经注册的BroadcastReceiver会检查注册时的IntentFilter是否与发送的Intent相匹配，若匹配则就会调用BroadcastReceiver的onReceive()方法。所以当我们定义一个BroadcastReceiver的时候，都需要实现onReceive()方法。<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 广播接收器声明变量</span></div><div class="line"><span class="keyword">private</span> LocalBroadcastManager broadcastManager;</div><div class="line"><span class="keyword">private</span> IntentFilter intentFilter;</div><div class="line"><span class="keyword">private</span> BroadcastReceiver mReceiver;</div><div class="line"></div><div class="line"><span class="comment">// 广播注册,可以写在Activity（onCreate）,也可以写在Fragment（onActivityCreated）里。</span></div><div class="line">broadcastManager = LocalBroadcastManager.getInstance(getActivity());</div><div class="line">intentFilter = <span class="keyword">new</span> IntentFilter();</div><div class="line">intentFilter.addAction(<span class="string">"android.intent.action.CART_BROADCAST"</span>);  <span class="comment">//过滤器</span></div><div class="line">mReceiver = <span class="keyword">new</span> BroadcastReceiver() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onReceive</span><span class="params">(Context context, Intent intent)</span></span>&#123;</div><div class="line">                <span class="comment">//收到广播后所作的操作</span></div><div class="line">            &#125;</div><div class="line"> &#125;;</div><div class="line"> broadcastManager.registerReceiver(mReceiver, intentFilter);</div><div class="line"></div><div class="line"><span class="comment">// 和正常广播一样,也要在对应的生命周期中反注册掉</span></div><div class="line"><span class="meta">@Override</span>  </div><div class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDestroy</span><span class="params">()</span> </span>&#123;  </div><div class="line">   <span class="keyword">super</span>.onDestroy();  </div><div class="line">   broadcastManager.unregisterReceiver(mReceiver);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><p>本文简单阐述了的用法，如果想了解更多可以查看<a href="https://developer.android.com/reference/android/content/BroadcastReceiver.html" target="_blank" rel="external">官方文档</a>。</p>
 
       
     </div>
@@ -476,6 +480,8 @@
           
             <a href="/tags/开发编程/" rel="tag"># 开发编程</a>
           
+            <a href="/tags/BroadcastReceiver/" rel="tag"># BroadcastReceiver</a>
+          
         </div>
       
 
@@ -487,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/blog/16/Android-application/" rel="next" title="Application 保存全局变量">
-                <i class="fa fa-chevron-left"></i> Application 保存全局变量
+              <a href="/blog/16/android_segmentation_log/" rel="next" title="AndroidStudio Log 分段输出">
+                <i class="fa fa-chevron-left"></i> AndroidStudio Log 分段输出
               </a>
             
           </div>
@@ -497,8 +503,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/blog/16/Android-sha1-md5/" rel="prev" title="AndroidStudio获取SHA1和MD5超简单的方法">
-                AndroidStudio获取SHA1和MD5超简单的方法 <i class="fa fa-chevron-right"></i>
+              <a href="/blog/16/xcode_write_c/" rel="prev" title="使用Xcode写C语言程序">
+                使用Xcode写C语言程序 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -573,7 +579,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -672,7 +678,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用说明"><span class="nav-number">1.</span> <span class="nav-text">使用说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示效果"><span class="nav-number">2.</span> <span class="nav-text">显示效果</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#BroadcastReceiver简介"><span class="nav-number">1.</span> <span class="nav-text">BroadcastReceiver简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BroadcastReceiver简单用法"><span class="nav-number">2.</span> <span class="nav-text">BroadcastReceiver简单用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#补充"><span class="nav-number">3.</span> <span class="nav-text">补充</span></a></li></ol></div>
             
 
           </div>
