@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://lns666.me/"/>
-  <updated>2017-10-16T11:28:40.652Z</updated>
+  <updated>2017-10-16T11:38:28.831Z</updated>
   <id>http://lns666.me/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>Android Studio 常用快捷键</title>
     <link href="http://lns666.me/blog/17/as-hotkey/"/>
     <id>http://lns666.me/blog/17/as-hotkey/</id>
-    <published>2017-10-16T11:28:40.651Z</published>
-    <updated>2017-10-16T11:28:40.652Z</updated>
+    <published>2017-10-16T11:38:32.000Z</published>
+    <updated>2017-10-16T11:38:28.831Z</updated>
     
     <content type="html"><![CDATA[<p>F1 查看备注文档</p>
 <p>F2 跳转到报错的地方</p>
@@ -47,6 +47,16 @@
     
     </summary>
     
+      <category term="Android开发" scheme="http://lns666.me/categories/Android%E5%BC%80%E5%8F%91/"/>
+    
+    
+      <category term="Android" scheme="http://lns666.me/tags/Android/"/>
+    
+      <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
+    
+      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="快捷键" scheme="http://lns666.me/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
     
   </entry>
   
@@ -364,9 +374,9 @@
     
       <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
-    
       <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
+    
+      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
@@ -397,9 +407,9 @@
     
       <category term="开发编程" scheme="http://lns666.me/tags/%E5%BC%80%E5%8F%91%E7%BC%96%E7%A8%8B/"/>
     
-      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
-    
       <category term="Android Studio" scheme="http://lns666.me/tags/Android-Studio/"/>
+    
+      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
@@ -505,11 +515,11 @@
       <category term="奇技淫巧" scheme="http://lns666.me/categories/%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
     
     
+      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
+    
       <category term="Google" scheme="http://lns666.me/tags/Google/"/>
     
       <category term="搜索" scheme="http://lns666.me/tags/%E6%90%9C%E7%B4%A2/"/>
-    
-      <category term="技巧" scheme="http://lns666.me/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
