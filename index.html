@@ -1,2139 +1,492 @@
 <!doctype html>
+<html lang="zh-cn">
 
-
-
-  
-
-
-<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
 
+    <style>
+        .divZhanshi {
+            margin-top: 0px;
+            margin-left: 24px;
+        }
 
+        .divZsNeirong {
+            font-family: "Microsoft YaHei", "微软雅黑", SimHei, "黑体";
+            font-size: 9vw;
+            font-weight: bold;
+            color: #000000;
+        }
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+        /* 关联词列表背景 */
+        #suggestions {
+            background-color: #FFFFCC;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            position: absolute;
+            width: 360px;
+            max-height: 500px;
+            overflow-y: auto;
+            z-index: 1;
+            display: none;
+        }
 
+        /* 关联词列表内容 */
+        #suggestions li {
+            padding: 5px;
+            cursor: pointer;
+            font-size: 20px;
+        }
 
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
 
+        /* 模态框内容的样式 */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+        }
 
+        button {
+            cursor: pointer;
+        }
+    </style>
 
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
-
-
-
-
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
-
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="Android, App, LNS_原名字, 技术分享" />
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="LNS_原名字" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
-
-
-
-
-
-
-<meta name="description" content="LNS_原名字 主页 博客 网站">
-<meta property="og:type" content="website">
-<meta property="og:title" content="LNS_原名字">
-<meta property="og:url" content="http://lns666.me/index.html">
-<meta property="og:site_name" content="LNS_原名字">
-<meta property="og:description" content="LNS_原名字 主页 博客 网站">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="LNS_原名字">
-<meta name="twitter:description" content="LNS_原名字 主页 博客 网站">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
-    fancybox: true,
-    motion: true,
-    duoshuo: {
-      userId: 'undefined',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: 'GH8RISOSHU',
-      apiKey: 'db68a4fced9efa768fce547ac1017377',
-      indexName: 'myBlog',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://lns666.me/"/>
-
-
-
-
-
-  <title> LNS_原名字 - LNS_原名字 主页 博客 网站 </title>
+    <title>考试展示1.8梁耐松</title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
-  
-
-
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?c4d70519d174935f8cec0c648bb0c64c";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
-
-
-
-
-
-
-
-
-
-
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left 
-   page-home 
- ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">LNS_原名字</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
-    </div>
-      
-        <p class="site-subtitle">欢迎访问我的个人主页 >_<</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
-        
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
-            
-            首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
-            
-            归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
+<body>
+    <div style="font-size: 12px; padding-bottom: 5px; border-bottom: 1px solid #ccc">
+        科目:
+        <input type="text" id="inputKemu" size="20" value="">
+        <ul id="suggestions"></ul> <!-- 展示关联词 -->
+        <input type="text" id="inputChangci" size="20" value="考试时间: 8:40-10:10">
+        <input type="text" id="inputYeshu" size="20" value="试卷共2页">
+        <button id="btUpdate" onclick="clickUpdate()">修改</button>
+        |
+        <button id="btHuanchang" onclick="clickHuanchang()">换场</button>
+        <button id="btDa" onclick="clickDa()">放大</button>
+        <button id="btXiao" onclick="clickXiao()">缩小</button>
+        <button id="btBofang" onclick="clickBofang()">播放</button>
+        <button id="btBangzhu" onclick="openModal()">帮助</button>
+        <button id="btQuanping" onclick="clickQuanping()">全屏</button>
     </div>
 
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
+    <div class="divZhanshi">
+        <div id="divKemu" class="divZsNeirong">科目: </div>
+        <div id="divChangci" class="divZsNeirong">考试时间: 8:40-10:10</div>
+        <div id="divTime" class="divZsNeirong">现在时间: 加载中..</div>
+        <div id="divYeshu" class="divZsNeirong">试卷共2页</div>
     </div>
 
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-  </div>
+    <button id="btJiaojuan" onclick="clickJiaojuan()" style="opacity: 0;">交卷</button> <!-- opacity 透明度-->
 
-
-
-
-    </div>
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-  <section id="posts" class="posts-expand">
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/17/as-hotkey/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNS_原名字">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNS_原名字">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/17/as-hotkey/" itemprop="url">
-                  Android Studio 常用快捷键
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-16T19:38:32+08:00">
-                2017-10-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+    <!-- 模态框 -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <h2>请使用全屏!</h2>
+            <p>全屏防止电脑休眠阻止弹窗,如果依旧休眠,可能是浏览器不支持,请更换浏览器或修改电脑电源设置;</p>
+            <p>网络时间获取失败会使用电脑时间,如果时间错误,请修改电脑时间;</p>
+            <button onclick="closeModal()">关闭</button>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          F1 查看备注文档
-F2 跳转到报错的地方
-command + n 生成代码
-command + r 查找替换
-command + o 重写父类方法
-option + 鼠标上下滑动 选择多行
-option + command + ← 回到上一个编辑的位置
-shift + return 新起一行
-shift + command + v 裁剪板历史
-鼠标三击 选中一行
-方法前双击 选中整个方法
-
-          
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/17/as-hotkey/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
     </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/17/Android-CloseActivity/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNS_原名字">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNS_原名字">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/17/Android-CloseActivity/" itemprop="url">
-                  Android关闭Activity的方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-25T18:20:12+08:00">
-                2017-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
-                  </a>
-                </span>
+    <script>
+
+        // 打开模态框
+        function openModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "block";
+        }
+
+        // 关闭模态框
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+
+        // 修改科目
+        function clickUpdate() {
+            var inputKemu = "科目: " + document.getElementById("inputKemu").value;
+            var inputChangci = document.getElementById("inputChangci").value;
+            var inputYeshu = document.getElementById("inputYeshu").value;
+            document.getElementById("divKemu").innerHTML = inputKemu;
+            document.getElementById("divChangci").innerHTML = inputChangci;
+            document.getElementById("divYeshu").innerHTML = inputYeshu;
+        }
+
+        // 自动判断场次
+        document.addEventListener('DOMContentLoaded', function () {
+            var currentTime = new Date();
+            var currentHour = currentTime.getHours();
+            var currentMinute = currentTime.getMinutes();
+            var changci = "考试时间: 8:40-10:10";
+
+            if (currentHour === 8 || currentHour === 9) {
+                changci = "考试时间: 8:40-10:10";
+            } else if (currentHour === 10 || currentHour === 11) {
+                changci = "考试时间: 10:20-11:50";
+            } else if ((currentHour === 14) || (currentHour === 15 && currentMinute <= 40)) {
+                changci = "考试时间: 14:30-15:50";
+            } else if ((currentHour === 15 && currentMinute >= 41) || (currentHour === 16) || (currentHour === 17)) {
+                changci = "考试时间: 16:00-17:20";
+            }
+
+            const inputChangci = document.getElementById('inputChangci');
+            inputChangci.value = changci;
+            const divChangci = document.getElementById('divChangci');
+            divChangci.textContent = changci;
+
+        });
+
+        const changCiLb = ["考试时间: 10:20-11:50", "考试时间: 14:30-15:50", "考试时间: 16:00-17:20", "考试时间: 8:40-10:10"];
+        var ccIndex = 0;
+
+        // 换场按钮
+        function clickHuanchang() {
+            document.getElementById("inputChangci").value = changCiLb[ccIndex];
+            document.getElementById("divChangci").innerHTML = changCiLb[ccIndex];
+            ccIndex = (ccIndex + 1) % changCiLb.length;
+        }
+
+        // 获取时间
+        var timestamp = 1711900800;
+        function fetchTimestamp() {
+            const apiUrl = 'https://worldtimeapi.org/api/ip';
+            const timeout = 5000;
+
+            fetch(apiUrl, { timeout: timeout })
+                .then(response => response.json())
+                .then(data => {
+                    timestamp = data.unixtime;  // API 时间
+                })
+                .catch(error => {
+                    console.log('无法获取API时间戳:', error);
+                    timestamp = Math.floor(Date.now() / 1000); // 本地时间
+                });
+        }
+
+        // 页面加载完成后,获取时间戳
+        window.onload = fetchTimestamp;
+
+        // 时间更新
+        const divTime = document.getElementById("divTime");
+        function time() {
+            timestamp++;
+            divTime.innerHTML = "现在时间: " + formatTime(timestamp);
+
+        } setInterval(time, 1000);
+
+        // 时间戳变时分秒
+        function formatTime(timestamp) {
+            const dateObj = new Date(timestamp * 1000); // 将时间戳转换为毫秒
+
+            const hours = dateObj.getHours().toString().padStart(2, '0');
+            const minutes = dateObj.getMinutes().toString().padStart(2, '0');
+            const seconds = dateObj.getSeconds().toString().padStart(2, '0');
+
+            return hours + ':' + minutes + ':' + seconds;
+        }
+
+        // 后台更新时间
+        const visibilityChange = typeof document.hidden !== "undefined" ? "visibilitychange" :
+            typeof document.msHidden !== "undefined" ? "msvisibilitychange" :
+                typeof document.webkitHidden !== "undefined" ? "webkitvisibilitychange" : null;
+
+        if (visibilityChange) {
+            document.addEventListener(visibilityChange, handleVisibilityChange);
+        }
+
+        function handleVisibilityChange() {
+            if (document.visibilityState === 'visible') {
+                // 前台
+                fetchTimestamp();
+            } else {
+                // 后台
+            }
+        }
+
+        const audioKsxz = new Audio('audio/ksxz.mp3'); //音乐文件
+        const btBf = document.getElementById("btBofang"); //播放按钮
+        function clickBofang() {
+            if (audioKsxz.paused) {
+                audioKsxz.currentTime = 0;
+                audioKsxz.play();
+                btBf.textContent = '暂停';
+            } else {
+                audioKsxz.pause();
+                btBf.textContent = '播放';
+            }
+        }
+        // 播放完毕
+        audioKsxz.addEventListener("ended", function () {
+            btBf.textContent = "播放";
+        });
+
+        const audioTqjj = new Audio('audio/tqjj.mp3');
+        function clickJiaojuan() {
+            if (audioTqjj.paused) {
+                audioTqjj.currentTime = 0;
+                audioTqjj.play();
+            } else {
+                audioTqjj.pause();
+            }
+        }
+
+        // 内容展示位
+        const divZsNeirong = document.querySelectorAll(".divZsNeirong");
+
+        // 放大
+        function clickDa() {
+            for (var i = 0; i < divZsNeirong.length; i++) {
+                var div = divZsNeirong[i];
+                var fontSize = window.getComputedStyle(div, null).getPropertyValue('font-size');
+                var currentSize = parseFloat(fontSize);
+                div.style.fontSize = (currentSize + 10) + 'px';
+            }
+        }
+
+        // 缩小
+        function clickXiao() {
+            for (var i = 0; i < divZsNeirong.length; i++) {
+                var div = divZsNeirong[i];
+                var fontSize = window.getComputedStyle(div, null).getPropertyValue('font-size');
+                var currentSize = parseFloat(fontSize);
+                div.style.fontSize = (currentSize - 10) + 'px';
+            }
+        }
+
+        // 全屏
+        function clickQuanping() {
+
+            const element = document.documentElement;
+
+            if (element.requestFullscreen) {
+                element.requestFullscreen();
+            } else if (element.mozRequestFullScreen) {
+                element.mozRequestFullScreen();
+            } else if (element.webkitRequestFullscreen) {
+                element.webkitRequestFullscreen();
+            } else if (element.msRequestFullscreen) {
+                element.msRequestFullscreen();
+            }
+
+            // 防止休眠
+            if ('wakeLock' in navigator) {
+                navigator.wakeLock.request('screen');
+                console.log("进入全屏成功!");
+            }
+        }
+
+        // 关联词
+        const input = document.getElementById('inputKemu');
+        const suggestionsContainer = document.getElementById('suggestions');
+        const suggestions = [
+            "输入字符后展示关联词",
+            "演讲与口才",
+            "中国饮食文化",
+            "刑法",
+            "财务管理基础",
+            "管理学基础",
+            "财经法规与会计职业道德",
+            "审计学基础",
+            "出纳实务",
+            "财务会计",
+            "税法",
+            "财务管理",
+            "初级会计实务",
+            "初级经济法基础",
+            "商务谈判",
+            "金融理论与实务",
+            "统计学基础",
+            "经济法基础",
+            "企业管理基础知识",
+            "商业文化",
+            "物流管理",
+            "酒店服务与管理",
+            "网店运营与推广",
+            "商务文案撰写",
+            "企业行政管理",
+            "人力资源管理",
+            "生产运作管理",
+            "电子商务概述",
+            "会计学基础",
+            "国际贸易地理",
+            "商务英语",
+            "国际商务文化与礼仪",
+            "外贸英语函电与单证",
+            "外贸情景英语训练",
+            "报关与报检实务",
+            "外贸跟单理论与实务",
+            "C语言程序设计",
+            "计算机网络基础",
+            "数据库原理与SQL SERVER",
+            "ASP.NET程序设计",
+            "普通话训练",
+            "英语",
+            "电子商务实务",
+            "经济学基础",
+            "市场营销理论与实务",
+            "销售管理实务",
+            "酒店管理与数字化运营概论",
+            "旅游与酒店礼仪",
+            "酒店人力资源管理",
+            "前厅客房服务与管理",
+            "宴会设计实务",
+            "民宿运营与管理",
+            "酒店公共关系实务",
+            "形体训练",
+            "民航地勤服务",
+            "民航概论",
+            "客舱设备设施",
+            "旅游学概论",
+            "财政学基础",
+            "国际经济与贸易",
+            "证券投资基金",
+            "保险理论与实务",
+            "商业银行经营管理",
+            "金融产品营销实务",
+            "个人投资理财实务",
+            "国际金融理论与实务",
+            "市场营销基础",
+            "行为金融学基础",
+            "旅游地理",
+            "电商实用英语",
+            "电子商务法规",
+            "电子商务案例分析",
+            "运输市场营销",
+            "城市轨道交通车站设备",
+            "城市轨道客运服务实务",
+            "城市轨道交通概论",
+            "城市轨道交通运营心理学",
+            "城市轨道交通票务管理",
+            "餐饮服务与管理",
+            "城市轨道交通站务管理",
+            "城市轨道交通应急处理",
+            "旅游客源国概况",
+            "票务概论",
+            "城市轨道交通运输安全与管理",
+            "客运安检",
+            "铁道概论",
+            "高速铁路旅客运输心理学",
+            "铁路运输市场营销",
+            "基础泰语",
+            "泰语阅读",
+            "泰国语报刊选读",
+            "生物化学",
+            "老年健康照护",
+            "管理学",
+            "烹饪与营养配餐营养与膳食",
+            "婴幼儿活动设计与指导",
+            "婴幼儿托育机构管理",
+            "婴幼儿游戏活动实施",
+            "婴幼儿行为观察与分析",
+            "婴幼儿保育",
+            "婴幼儿卫生与保健",
+            "优生优育与母婴保健",
+            "婴幼儿卫生教育",
+            "婴幼儿健康教育",
+            "托育服务政策法规与职业伦理",
+            "家居室内布置艺术",
+            "家务劳动实务",
+            "家政企业管理实务",
+            "安保职业礼仪",
+            "军人心理学",
+            "治安管理概论",
+            "刑事诉讼法",
+            "危机心理干预",
+            "行政法与行政诉讼法",
+            "商务礼仪",
+            "电子商务基础",
+            "老年康复保健",
+            "老年政策与法规",
+            "舞蹈基础",
+            "急危重症护理",
+            "社交礼仪",
+            "人际关系与沟通技巧",
+            "经济学通识",
+            "经济法",
+            "企业经营基础知识",
+            "礼仪与形体训练"
+        ];
+
+        // 处理输入事件
+        function handleInput() {
+            const query = input.value.trim().toLowerCase();
+            const matchedSuggestions = suggestions.filter(suggestion => suggestion.toLowerCase().includes(query));
+            renderSuggestions(matchedSuggestions);
+        }
+
+        // 处理点击关联词项
+        function handleItemClick(suggestion) {
+            input.value = suggestion;
+            suggestionsContainer.style.display = 'none';
+        }
+
+        // 渲染关联词列表
+        function renderSuggestions(matchedSuggestions) {
+            suggestionsContainer.innerHTML = '';
+
+            if (matchedSuggestions.length > 0) {
+                matchedSuggestions.forEach(suggestion => {
+                    const suggestionItem = document.createElement('li');
+                    suggestionItem.textContent = suggestion;
+
+                    // 为关联词项添加点击事件监听器
+                    suggestionItem.addEventListener('click', () => {
+                        handleItemClick(suggestion);
+                    });
+
+                    suggestionsContainer.appendChild(suggestionItem);
+                });
+
+                suggestionsContainer.style.display = 'block'; // 显示关联词列表
+            } else {
+                suggestionsContainer.style.display = 'none'; // 隐藏关联词列表
+            }
+        }
+
+        // 添加输入事件监听器
+        input.addEventListener('input', handleInput);
+        input.addEventListener('click', handleInput);
+
+        // 添加点击事件监听器，用于判断是否点击输入框以外的区域
+        document.addEventListener('click', event => {
+            if (!input.contains(event.target)) {
+                suggestionsContainer.style.display = 'none';
+            }
+        });
 
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>Activity是Android最常用的组件之一，Activity可以用来显示界面，被打开的Activity始终要关闭，本文将介绍几种常用的Activity关闭方法。</p>
-<h2 id="关闭当前Activity"><a href="#关闭当前Activity" class="headerlink" title="关闭当前Activity"></a>关闭当前Activity</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//关闭当前Activity方法一  </span></div><div class="line">finish();  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法二  </span></div><div class="line">android.os.Process.killProcess(android.os.Process.myPid());  </div><div class="line">      </div><div class="line"><span class="comment">//关闭当前Activity方法三  </span></div><div class="line">System.exit(<span class="number">0</span>);  </div><div class="line">  </div><div class="line"><span class="comment">//关闭当前Activity方法四  </span></div><div class="line"><span class="keyword">this</span>.onDestroy();</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/17/Android-CloseActivity/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/17/Android-EditText/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNS_原名字">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNS_原名字">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/17/Android-EditText/" itemprop="url">
-                  Android EditText 值得注意的地方(转)
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-24T15:24:52+08:00">
-                2017-05-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://ww3.sinaimg.cn/large/006tNbRwgy1ffwh2563h5j30k006st8l.jpg" width="450px"/></p>
-<p>Android上有很多输入法应用，每种输入法都有各自的特点，输入法多数时候是和EditText配合使用，结合我自己的亲身实践分享一下使用EditText过程中遇到的一些问题及解决方法。<a href="http://www.jianshu.com/p/1f05bb1fde3e">原文地址</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/17/Android-EditText/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/17/Android-Dialog/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNS_原名字">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNS_原名字">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/17/Android-Dialog/" itemprop="url">
-                  Android Dialog 对话框
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-09T23:22:32+08:00">
-                2017-05-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://ww2.sinaimg.cn/large/006tNbRwgy1ffg43248mfj30u00sy0t2.jpg" width="400px"/></p>
-<p>Android Dialog 即 Android对话框，在Android开发中，我们经常会需要在Android界面上弹出一些对话框，以询问用户或者让用户选择。Android Dialog 一般有五种，分别是：一般对话框，列表对话框，单选按钮对话框，多选对话框，自定义对话框。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/17/Android-Dialog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/17/Android-CountDownTimer/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNS_原名字">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNS_原名字">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/17/Android-CountDownTimer/" itemprop="url">
-                  Android CountDownTimer 倒计时
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-12T22:20:32+08:00">
-                2017-02-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在Android开发中，我们会常常需要使用倒计时，比如在发送短信验证码时的60秒等待，我们可以通过CountDownTimer来简单的实现倒计时的功能。</p>
-<p><img src="https://ww4.sinaimg.cn/large/006y8lVagy1fcnz0ihdeej30u00k0dgt.jpg" width="400px"/></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/17/Android-CountDownTimer/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/17/Android-TitleBar/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNS_原名字">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNS_原名字">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/17/Android-TitleBar/" itemprop="url">
-                  Android自定义标题栏
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-10T12:10:30+08:00">
-                2017-02-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="https://ww3.sinaimg.cn/large/006tNc79gy1fcmg3a61tqj30u00hhq33.jpg" width="400px"/><br>在Android开发中，我们常常需要在标题栏中增加返回按钮和提交按钮，并将标题文字居中这就需要自定义标题栏。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/17/Android-TitleBar/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/16/xcode_write_c/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNS_原名字">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNS_原名字">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/16/xcode_write_c/" itemprop="url">
-                  使用Xcode写C语言程序
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-05T08:20:18+08:00">
-                2016-11-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C语言/" itemprop="url" rel="index">
-                    <span itemprop="name">C语言</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://ww4.sinaimg.cn/large/006y8lVagw1fa99edxj4wj30m808wmxi.jpg" alt="">在MacOS上写C语言程序Xcode是一个不错的选择，那么如何使用Xcode写C语言程序呢?</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/16/xcode_write_c/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/16/android_broadcast_receiver/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNS_原名字">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNS_原名字">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/16/android_broadcast_receiver/" itemprop="url">
-                  BroadcastReceiver广播接收器的简单用法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-03T00:07:23+08:00">
-                2016-11-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="BroadcastReceiver简介"><a href="#BroadcastReceiver简介" class="headerlink" title="BroadcastReceiver简介"></a>BroadcastReceiver简介</h2><p>BroadcastReceiver作为Android四大组件之一，是一种广泛运用在应用程序之间传输信息的机制，没有界面。</p>
-<p>BroadcastReceiver包括两个概念，广播发送者和广播接收者(Receiver)，这里的广播实际就是指Intent，程序可以自己发送广播自己接收，也可以接受系统或其他应用的广播或是发送广播给其他应用程序。</p>
-<p>我们的应用可以使用它对外部事件进行过滤只对感兴趣的外部事件进行接收并做出响应。例如当WIFI断开时，应当停止下载任务，以节省流量。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/16/android_broadcast_receiver/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/16/android_segmentation_log/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNS_原名字">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNS_原名字">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/16/android_segmentation_log/" itemprop="url">
-                  AndroidStudio Log 分段输出
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-11-02T23:57:53+08:00">
-                2016-11-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="为什么要分段输出"><a href="#为什么要分段输出" class="headerlink" title="为什么要分段输出?"></a>为什么要分段输出?</h2><p>AndroidStudio对Log输出的长度进行了限制，Log最大只能输出1024x4个字符，超出的就无法显示了，因此，我们可以将Log分成长度不超过1024x4的若干个小段，以实现完整的Log输出。</p>
-<h2 id="分段输出的方法"><a href="#分段输出的方法" class="headerlink" title="分段输出的方法"></a>分段输出的方法</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// Log分段输出</span></div><div class="line">String mString = <span class="string">"需要分段输出的内容"</span>;</div><div class="line"></div><div class="line"><span class="keyword">if</span> (mString.length() &gt; <span class="number">4000</span>) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mString.length(); i += <span class="number">4000</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (i + <span class="number">4000</span> &lt; mString.length()) &#123;</div><div class="line">            Log.i(TAG + i, mString.substring(i, i + <span class="number">4000</span>));</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            Log.i(TAG + i, mString.substring(i, mString.length()));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">    Log.i(TAG, mString);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/16/android_segmentation_log/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lns666.me/blog/16/android_sha1_md5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LNS_原名字">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="LNS_原名字">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/blog/16/android_sha1_md5/" itemprop="url">
-                  AndroidStudio获取SHA1和MD5超简单的方法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-10-30T10:17:53+08:00">
-                2016-10-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Android开发/" itemprop="url" rel="index">
-                    <span itemprop="name">Android开发</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="超简单的方法"><a href="#超简单的方法" class="headerlink" title="超简单的方法"></a>超简单的方法</h2><p>在Android开发的过程中经常要查看项目的SHA1或MD5码，通过图示的方法可以方便的查看SHA1和MD5，超简单，有木有!!!<br><img src="http://ww1.sinaimg.cn/large/006y8mN6gw1f9iayk7krcj31kw0zkwm7.jpg" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/blog/16/android_sha1_md5/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
-
-          </div>
-          
-
-
-          
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
-    <div class="sidebar-inner">
-
-      
-
-      
-
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/avatar.jpg"
-               alt="LNS_原名字" />
-          <p class="site-author-name" itemprop="name">LNS_原名字</p>
-           
-              <p class="site-description motion-element" itemprop="description">LNS_原名字 主页 博客 网站</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">15</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">18</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/liangnaisong" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://weibo.com/l8064" target="_blank" title="Weibo">
-                  
-                    <i class="fa fa-fw fa-weibo"></i>
-                  
-                  Weibo
-                </a>
-              </span>
-            
-              <span class="links-of-author-item">
-                <a href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=_paUiczMzLqclYKXm5OW1JmVlw" target="_blank" title="E-mail">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  E-mail
-                </a>
-              </span>
-            
-          
-        </div>
-
-        
-        
-          <div class="cc-license motion-element" itemprop="license">
-            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" target="_blank">
-              <img src="/images/cc-by-nc-sa.svg" alt="Creative Commons" />
-            </a>
-          </div>
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-
-      
-
-    </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy;  2017 - 
-  <span itemprop="copyrightYear">2018</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">LNS_原名字</span>
-</div>
-
-
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
-
-<div class="theme-info">
-
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces</a>
-
-  &nbsp&nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp Hosted by <a href="https://pages.coding.me">Coding Pages</a>
-
-</div>
-
-
-
-        
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
-  </div>
-
-  
-
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
-
-
-  
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-  
-    <script type="text/javascript">
-      (function(d, s) {
-        var j, e = d.getElementsByTagName(s)[0];
-        if (typeof LivereTower === 'function') { return; }
-        j = d.createElement(s);
-        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-        j.async = true;
-        e.parentNode.insertBefore(j, e);
-      })(document, 'script');
     </script>
-  
-
-
-
-
-
-
-  
-
-
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/src/algolia-search.js?v=5.1.0"></script>
-
-
-
-  
-
-  
-
-  
-
-  
 
 </body>
+
 </html>
+
+<!-- 
+1.8 使用API时间
+1.7 输入框科目关联;
+1.6 添加提交语音;
+1.5 根据当前时间自动切换场次,添加帮助,优化全屏功能;
+1.4 添加考试须知播放;
+1.3 实现显示字体放大缩小;
+1.2 添加换场和全屏功能;
+1.1 实现输入框, 通过输入框修改科目等内容;
+1.0 实现时间和科目显示; 
+-->
