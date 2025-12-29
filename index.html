@@ -2,486 +2,313 @@
 <html lang="zh-cn">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta charset="UTF-8">
+  <title>考试展示2.0梁耐松</title>
+  <style>
+    body {
+      font-family: "Microsoft YaHei", "微软雅黑", SimHei, "黑体";
+    }
 
-    <style>
-        .divZhanshi {
-            margin-top: 0px;
-            margin-left: 24px;
-        }
+    .divZhanshi {
+      margin-left: 24px;
+    }
 
-        .divZsNeirong {
-            font-family: "Microsoft YaHei", "微软雅黑", SimHei, "黑体";
-            font-size: 9vw;
-            font-weight: bold;
-            color: #000000;
-        }
+    .divZsNeirong {
+      font-size: 9vw;
+      font-weight: bold;
+      color: #000;
+    }
 
-        /* 关联词列表背景 */
-        #suggestions {
-            background-color: #FFFFCC;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            position: absolute;
-            width: 360px;
-            max-height: 500px;
-            overflow-y: auto;
-            z-index: 1;
-            display: none;
-        }
+    #suggestions {
+      background: #FFFFCC;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      width: 360px;
+      max-height: 500px;
+      overflow-y: auto;
+      z-index: 1;
+      display: none;
+    }
 
-        /* 关联词列表内容 */
-        #suggestions li {
-            padding: 5px;
-            cursor: pointer;
-            font-size: 20px;
-        }
+    #suggestions li {
+      padding: 5px;
+      cursor: pointer;
+      font-size: 20px;
+    }
 
-        /* 模态框样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+    button {
+      cursor: pointer;
+    }
 
-        /* 模态框内容的样式 */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 10% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-        }
+    #helpModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 999;
+      align-items: center;
+      justify-content: center;
+    }
 
-        button {
-            cursor: pointer;
-        }
-    </style>
+    .help-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      text-align: left;
+      font-size: 16px;
+    }
 
-    <title>考试展示1.8梁耐松</title>
+    .help-content p {
+      white-space: pre-line;
+      line-height: 1.5em;
+    }
+
+    .help-content div {
+      text-align: right;
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
-    <div style="font-size: 12px; padding-bottom: 5px; border-bottom: 1px solid #ccc">
-        科目:
-        <input type="text" id="inputKemu" size="20" value="">
-        <ul id="suggestions"></ul> <!-- 展示关联词 -->
-        <input type="text" id="inputChangci" size="20" value="考试时间: 8:40-10:10">
-        <input type="text" id="inputYeshu" size="20" value="试卷共2页">
-        <button id="btUpdate" onclick="clickUpdate()">修改</button>
-        |
-        <button id="btHuanchang" onclick="clickHuanchang()">换场</button>
-        <button id="btDa" onclick="clickDa()">放大</button>
-        <button id="btXiao" onclick="clickXiao()">缩小</button>
-        <button id="btBofang" onclick="clickBofang()">播放</button>
-        <button id="btBangzhu" onclick="openModal()">帮助</button>
-        <button id="btQuanping" onclick="clickQuanping()">全屏</button>
+  <div style="font-size:12px;opacity:.96;padding-bottom:5px;border-bottom:1px solid #ccc">
+    科目:
+    <input id="inputKemu" size="20">
+    <ul id="suggestions"></ul>
+    <input id="inputChangci" size="20">
+    <input id="inputYeshu" size="20" value="考试码 试卷共2页">
+    <button onclick="clickUpdate()">修改</button> |
+    <button onclick="clickHuanchang()">换场</button>
+    <button onclick="clickDa()">放大</button>
+    <button onclick="clickXiao()">缩小</button>
+    <button id="btBofang" onclick="togglePlay()">播放</button>
+    <button onclick="showHelp()">帮助</button>
+    <button onclick="enterFullscreen()">全屏</button>
+  </div>
+
+  <div class="divZhanshi">
+    <div id="divKemu" class="divZsNeirong">科目: </div>
+    <div id="divChangci" class="divZsNeirong"></div>
+    <div id="divTime" class="divZsNeirong">现在时间: 加载中..</div>
+    <div id="divYeshu" class="divZsNeirong"></div>
+  </div>
+
+  <button id="btJiaojuan" onclick="playSubmit()" style="opacity:0;">交卷</button>
+
+  <!-- 帮助模态框 -->
+  <div id="helpModal">
+    <div class="help-content">
+      <p>请使用全屏！
+        全屏时防止系统休眠；若依旧休眠，请更换浏览器或调整电脑电源设置；
+        网络时间获取失败将使用电脑时间，若时间错误请修改电脑时间后重新打开。</p>
+      <div>
+        <button onclick="closeHelp()">我知道了</button>
+      </div>
     </div>
+  </div>
 
-    <div class="divZhanshi">
-        <div id="divKemu" class="divZsNeirong">科目: </div>
-        <div id="divChangci" class="divZsNeirong">考试时间: 8:40-10:10</div>
-        <div id="divTime" class="divZsNeirong">现在时间: 加载中..</div>
-        <div id="divYeshu" class="divZsNeirong">试卷共2页</div>
-    </div>
+  <script>
+    const suggestions = [
+      "统计学基础",
+      "C语言程序设计",
+      "基础泰语/国际商法",
+      "商务文案撰写"
+    ];
+    const changCiLb = ["考试时间: 8:40-10:10", "考试时间: 10:20-11:50", "考试时间: 14:30-15:50", "考试时间: 16:00-17:20"];
+    let ccIndex = 0, timestamp = Math.floor(Date.now() / 1000), wakeLock = null;
+    const el = id => document.getElementById(id); // 简化 document.getElementById 写法
 
-    <button id="btJiaojuan" onclick="clickJiaojuan()" style="opacity: 0;">交卷</button> <!-- opacity 透明度-->
+    // 初始化页面
+    window.onload = () => {
+      fetchTimestamp(); // 获取时间
+      autoSetChangci(); // 自动设定场次
+      updateDisplay(); // 初始数据显示
+      setInterval(updateTime, 1000); // 每秒更新时间
+    };
 
-    <!-- 模态框 -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <h2>请使用全屏!</h2>
-            <p>全屏防止电脑休眠阻止弹窗,如果依旧休眠,可能是浏览器不支持,请更换浏览器或修改电脑电源设置;</p>
-            <p>网络时间获取失败会使用电脑时间,如果时间错误,请修改电脑时间;</p>
-            <button onclick="closeModal()">关闭</button>
-        </div>
-    </div>
+    // 页面恢复前台时重新获取网络时间，避免后台时间暂停
 
-    <script>
+    let lastHiddenTime = null;
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') {
+        lastHiddenTime = Date.now();
+      } else if (document.visibilityState === 'visible') {
+        const now = Date.now();
+        const diff = Math.floor((now - (lastHiddenTime || now)) / 1000);
+        timestamp += diff;
+        fetchTimestamp(); // 前台时尝试重新同步网络时间
+      }
+    });
 
-        // 打开模态框
-        function openModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "block";
-        }
+    // 从网络获取标准时间戳（失败时使用本地时间）
+    async function fetchTimestamp() {
+      try {
+        const res = await fetch('https://worldtimeapi.org/api/ip');
+        const data = await res.json();
+        timestamp = data.unixtime;
+      } catch {
+        timestamp = Math.floor(Date.now() / 1000);
+      }
+    }
 
-        // 关闭模态框
-        function closeModal() {
-            var modal = document.getElementById("myModal");
-            modal.style.display = "none";
-        }
+    // 根据当前时间设定考试场次
+    function autoSetChangci() {
+      const now = new Date(), h = now.getHours(), m = now.getMinutes();
+      let val = changCiLb[0];
+      if (h >= 10 && h < 12) val = changCiLb[1];
+      else if (h === 14 || (h === 15 && m <= 40)) val = changCiLb[2];
+      else if ((h === 15 && m > 40) || h >= 16) val = changCiLb[3];
+      el("inputChangci").value = el("divChangci").innerText = val;
+    }
 
-        // 修改科目
-        function clickUpdate() {
-            var inputKemu = "科目: " + document.getElementById("inputKemu").value;
-            var inputChangci = document.getElementById("inputChangci").value;
-            var inputYeshu = document.getElementById("inputYeshu").value;
-            document.getElementById("divKemu").innerHTML = inputKemu;
-            document.getElementById("divChangci").innerHTML = inputChangci;
-            document.getElementById("divYeshu").innerHTML = inputYeshu;
-        }
+    // 每秒更新时间戳并更新界面显示
+    function updateTime() {
+      timestamp++;
+      el("divTime").innerText = "现在时间: " + new Date(timestamp * 1000).toTimeString().split(' ')[0];
+    }
 
-        // 自动判断场次
-        document.addEventListener('DOMContentLoaded', function () {
-            var currentTime = new Date();
-            var currentHour = currentTime.getHours();
-            var currentMinute = currentTime.getMinutes();
-            var changci = "考试时间: 8:40-10:10";
+    // 点击“修改”按钮：更新科目、页数、考试时间
+    function clickUpdate() {
+      el("divKemu").innerText = "科目: " + el("inputKemu").value;
+      el("divYeshu").innerText = el("inputYeshu").value;
+      el("divChangci").innerText = el("inputChangci").value;
+    }
 
-            if (currentHour === 8 || currentHour === 9) {
-                changci = "考试时间: 8:40-10:10";
-            } else if (currentHour === 10 || currentHour === 11) {
-                changci = "考试时间: 10:20-11:50";
-            } else if ((currentHour === 14) || (currentHour === 15 && currentMinute <= 40)) {
-                changci = "考试时间: 14:30-15:50";
-            } else if ((currentHour === 15 && currentMinute >= 41) || (currentHour === 16) || (currentHour === 17)) {
-                changci = "考试时间: 16:00-17:20";
-            }
+    // 点击“换场”按钮：循环切换考试时间
+    function clickHuanchang() {
+      const val = changCiLb[ccIndex++];
+      if (ccIndex >= changCiLb.length) ccIndex = 0;
+      el("inputChangci").value = el("divChangci").innerText = val;
+    }
 
-            const inputChangci = document.getElementById('inputChangci');
-            inputChangci.value = changci;
-            const divChangci = document.getElementById('divChangci');
-            divChangci.textContent = changci;
+    // 点击放大字体按钮
+    function clickDa() { adjustFontSize(10); }
 
+    // 点击缩小字体按钮
+    function clickXiao() { adjustFontSize(-10); }
+
+    // 调整所有展示区文字大小
+    function adjustFontSize(delta) {
+      document.querySelectorAll('.divZsNeirong').forEach(div => {
+        const f = parseFloat(getComputedStyle(div).fontSize);
+        div.style.fontSize = (f + delta) + 'px';
+      });
+    }
+
+    // 显示帮助模态框
+    function showHelp() {
+      el("helpModal").style.display = "flex";
+    }
+
+    // 关闭帮助模态框
+    function closeHelp() {
+      el("helpModal").style.display = "none";
+    }
+
+    // 进入全屏并尝试防止系统休眠
+    function enterFullscreen() {
+      const docEl = document.documentElement;
+      const f = docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.mozRequestFullScreen || docEl.msRequestFullscreen;
+      if (f) f.call(docEl);
+      if (navigator.wakeLock?.request) requestWakeLock();
+    }
+
+    // 请求唤醒锁，避免自动休眠（部分浏览器支持）
+    async function requestWakeLock() {
+      try {
+        wakeLock = await navigator.wakeLock.request('screen');
+        wakeLock.addEventListener('release', () => wakeLock = null);
+        document.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'visible' && !wakeLock) requestWakeLock();
         });
+      } catch (err) {
+        console.error('WakeLock失败:', err);
+      }
+    }
 
-        const changCiLb = ["考试时间: 10:20-11:50", "考试时间: 14:30-15:50", "考试时间: 16:00-17:20", "考试时间: 8:40-10:10"];
-        var ccIndex = 0;
+    // 播放和暂停“考试须知”音频
+    const audioExam = new Audio('audio/ksxz.mp3');
+    const audioSubmit = new Audio('audio/tqjj.mp3');
+    function togglePlay() {
+      if (audioExam.paused) {
+        audioExam.currentTime = 0;
+        audioExam.play();
+        el("btBofang").innerText = '暂停';
+      } else {
+        audioExam.pause();
+        el("btBofang").innerText = '播放';
+      }
+    }
+    audioExam.addEventListener('ended', () => el("btBofang").innerText = '播放');
 
-        // 换场按钮
-        function clickHuanchang() {
-            document.getElementById("inputChangci").value = changCiLb[ccIndex];
-            document.getElementById("divChangci").innerHTML = changCiLb[ccIndex];
-            ccIndex = (ccIndex + 1) % changCiLb.length;
-        }
+    // 播放“提前交卷”音频
+    function playSubmit() {
+      exitFullscreen();   // 退出全屏
+      audioSubmit.currentTime = 0;
+      audioSubmit.play();
+    }
 
-        // 获取时间
-        var timestamp = 1711900800;
-        function fetchTimestamp() {
-            const apiUrl = 'https://worldtimeapi.org/api/ip';
-            const timeout = 5000;
+    // 退出全屏
+    function exitFullscreen() {
+      const exit =
+        document.exitFullscreen ||
+        document.webkitExitFullscreen ||
+        document.mozCancelFullScreen ||
+        document.msExitFullscreen;
 
-            fetch(apiUrl, { timeout: timeout })
-                .then(response => response.json())
-                .then(data => {
-                    timestamp = data.unixtime;  // API 时间
-                })
-                .catch(error => {
-                    console.log('无法获取API时间戳:', error);
-                    timestamp = Math.floor(Date.now() / 1000); // 本地时间
-                });
-        }
+      if (exit) {
+        exit.call(document);
+      }
+    }
 
-        // 页面加载完成后,获取时间戳
-        window.onload = fetchTimestamp;
+    // 联想输入：关键词建议显示
+    const inputK = el("inputKemu"), sug = el("suggestions");
+    inputK.addEventListener('input', handleInput);
+    inputK.addEventListener('click', handleInput);
+    document.addEventListener('click', e => {
+      if (!inputK.contains(e.target)) sug.style.display = 'none';
+    });
 
-        // 时间更新
-        const divTime = document.getElementById("divTime");
-        function time() {
-            timestamp++;
-            divTime.innerHTML = "现在时间: " + formatTime(timestamp);
+    // 处理输入并过滤匹配建议
+    function handleInput() {
+      const q = inputK.value.trim().toLowerCase();
+      const matched = suggestions.filter(s => s.toLowerCase().includes(q));
+      renderSuggestions(matched);
+    }
 
-        } setInterval(time, 1000);
+    // 渲染建议列表
+    function renderSuggestions(list) {
+      sug.innerHTML = '';
+      if (!list.length) { sug.style.display = 'none'; return; }
+      list.forEach(s => {
+        const li = document.createElement('li');
+        li.textContent = s;
+        li.onclick = () => { inputK.value = s; sug.style.display = 'none'; };
+        sug.appendChild(li);
+      });
+      sug.style.display = 'block';
+    }
 
-        // 时间戳变时分秒
-        function formatTime(timestamp) {
-            const dateObj = new Date(timestamp * 1000); // 将时间戳转换为毫秒
-
-            const hours = dateObj.getHours().toString().padStart(2, '0');
-            const minutes = dateObj.getMinutes().toString().padStart(2, '0');
-            const seconds = dateObj.getSeconds().toString().padStart(2, '0');
-
-            return hours + ':' + minutes + ':' + seconds;
-        }
-
-        // 后台更新时间
-        const visibilityChange = typeof document.hidden !== "undefined" ? "visibilitychange" :
-            typeof document.msHidden !== "undefined" ? "msvisibilitychange" :
-                typeof document.webkitHidden !== "undefined" ? "webkitvisibilitychange" : null;
-
-        if (visibilityChange) {
-            document.addEventListener(visibilityChange, handleVisibilityChange);
-        }
-
-        function handleVisibilityChange() {
-            if (document.visibilityState === 'visible') {
-                // 前台
-                fetchTimestamp();
-            } else {
-                // 后台
-            }
-        }
-
-        const audioKsxz = new Audio('audio/ksxz.mp3'); //音乐文件
-        const btBf = document.getElementById("btBofang"); //播放按钮
-        function clickBofang() {
-            if (audioKsxz.paused) {
-                audioKsxz.currentTime = 0;
-                audioKsxz.play();
-                btBf.textContent = '暂停';
-            } else {
-                audioKsxz.pause();
-                btBf.textContent = '播放';
-            }
-        }
-        // 播放完毕
-        audioKsxz.addEventListener("ended", function () {
-            btBf.textContent = "播放";
-        });
-
-        const audioTqjj = new Audio('audio/tqjj.mp3');
-        function clickJiaojuan() {
-            if (audioTqjj.paused) {
-                audioTqjj.currentTime = 0;
-                audioTqjj.play();
-            } else {
-                audioTqjj.pause();
-            }
-        }
-
-        // 内容展示位
-        const divZsNeirong = document.querySelectorAll(".divZsNeirong");
-
-        // 放大
-        function clickDa() {
-            for (var i = 0; i < divZsNeirong.length; i++) {
-                var div = divZsNeirong[i];
-                var fontSize = window.getComputedStyle(div, null).getPropertyValue('font-size');
-                var currentSize = parseFloat(fontSize);
-                div.style.fontSize = (currentSize + 10) + 'px';
-            }
-        }
-
-        // 缩小
-        function clickXiao() {
-            for (var i = 0; i < divZsNeirong.length; i++) {
-                var div = divZsNeirong[i];
-                var fontSize = window.getComputedStyle(div, null).getPropertyValue('font-size');
-                var currentSize = parseFloat(fontSize);
-                div.style.fontSize = (currentSize - 10) + 'px';
-            }
-        }
-
-        // 全屏
-        function clickQuanping() {
-
-            const element = document.documentElement;
-
-            if (element.requestFullscreen) {
-                element.requestFullscreen();
-            } else if (element.mozRequestFullScreen) {
-                element.mozRequestFullScreen();
-            } else if (element.webkitRequestFullscreen) {
-                element.webkitRequestFullscreen();
-            } else if (element.msRequestFullscreen) {
-                element.msRequestFullscreen();
-            }
-
-            // 防止休眠
-            if ('wakeLock' in navigator) {
-                navigator.wakeLock.request('screen');
-                console.log("进入全屏成功!");
-            }
-        }
-
-        // 关联词
-        const input = document.getElementById('inputKemu');
-        const suggestionsContainer = document.getElementById('suggestions');
-        const suggestions = [
-            "输入字符后展示关联词",
-            "演讲与口才",
-            "中国饮食文化",
-            "刑法",
-            "财务管理基础",
-            "管理学基础",
-            "财经法规与会计职业道德",
-            "审计学基础",
-            "出纳实务",
-            "财务会计",
-            "税法",
-            "财务管理",
-            "初级会计实务",
-            "初级经济法基础",
-            "商务谈判",
-            "金融理论与实务",
-            "统计学基础",
-            "经济法基础",
-            "企业管理基础知识",
-            "商业文化",
-            "物流管理",
-            "酒店服务与管理",
-            "网店运营与推广",
-            "商务文案撰写",
-            "企业行政管理",
-            "人力资源管理",
-            "生产运作管理",
-            "电子商务概述",
-            "会计学基础",
-            "国际贸易地理",
-            "商务英语",
-            "国际商务文化与礼仪",
-            "外贸英语函电与单证",
-            "外贸情景英语训练",
-            "报关与报检实务",
-            "外贸跟单理论与实务",
-            "C语言程序设计",
-            "计算机网络基础",
-            "数据库原理与SQL SERVER",
-            "ASP.NET程序设计",
-            "普通话训练",
-            "英语",
-            "电子商务实务",
-            "经济学基础",
-            "市场营销理论与实务",
-            "销售管理实务",
-            "酒店管理与数字化运营概论",
-            "旅游与酒店礼仪",
-            "酒店人力资源管理",
-            "前厅客房服务与管理",
-            "宴会设计实务",
-            "民宿运营与管理",
-            "酒店公共关系实务",
-            "形体训练",
-            "民航地勤服务",
-            "民航概论",
-            "客舱设备设施",
-            "旅游学概论",
-            "财政学基础",
-            "国际经济与贸易",
-            "证券投资基金",
-            "保险理论与实务",
-            "商业银行经营管理",
-            "金融产品营销实务",
-            "个人投资理财实务",
-            "国际金融理论与实务",
-            "市场营销基础",
-            "行为金融学基础",
-            "旅游地理",
-            "电商实用英语",
-            "电子商务法规",
-            "电子商务案例分析",
-            "运输市场营销",
-            "城市轨道交通车站设备",
-            "城市轨道客运服务实务",
-            "城市轨道交通概论",
-            "城市轨道交通运营心理学",
-            "城市轨道交通票务管理",
-            "餐饮服务与管理",
-            "城市轨道交通站务管理",
-            "城市轨道交通应急处理",
-            "旅游客源国概况",
-            "票务概论",
-            "城市轨道交通运输安全与管理",
-            "客运安检",
-            "铁道概论",
-            "高速铁路旅客运输心理学",
-            "铁路运输市场营销",
-            "基础泰语",
-            "泰语阅读",
-            "泰国语报刊选读",
-            "生物化学",
-            "老年健康照护",
-            "管理学",
-            "烹饪与营养配餐营养与膳食",
-            "婴幼儿活动设计与指导",
-            "婴幼儿托育机构管理",
-            "婴幼儿游戏活动实施",
-            "婴幼儿行为观察与分析",
-            "婴幼儿保育",
-            "婴幼儿卫生与保健",
-            "优生优育与母婴保健",
-            "婴幼儿卫生教育",
-            "婴幼儿健康教育",
-            "托育服务政策法规与职业伦理",
-            "家居室内布置艺术",
-            "家务劳动实务",
-            "家政企业管理实务",
-            "安保职业礼仪",
-            "军人心理学",
-            "治安管理概论",
-            "刑事诉讼法",
-            "危机心理干预",
-            "行政法与行政诉讼法",
-            "商务礼仪",
-            "电子商务基础",
-            "老年康复保健",
-            "老年政策与法规",
-            "舞蹈基础",
-            "急危重症护理",
-            "社交礼仪",
-            "人际关系与沟通技巧",
-            "经济学通识",
-            "经济法",
-            "企业经营基础知识",
-            "礼仪与形体训练"
-        ];
-
-        // 处理输入事件
-        function handleInput() {
-            const query = input.value.trim().toLowerCase();
-            const matchedSuggestions = suggestions.filter(suggestion => suggestion.toLowerCase().includes(query));
-            renderSuggestions(matchedSuggestions);
-        }
-
-        // 处理点击关联词项
-        function handleItemClick(suggestion) {
-            input.value = suggestion;
-            suggestionsContainer.style.display = 'none';
-        }
-
-        // 渲染关联词列表
-        function renderSuggestions(matchedSuggestions) {
-            suggestionsContainer.innerHTML = '';
-
-            if (matchedSuggestions.length > 0) {
-                matchedSuggestions.forEach(suggestion => {
-                    const suggestionItem = document.createElement('li');
-                    suggestionItem.textContent = suggestion;
-
-                    // 为关联词项添加点击事件监听器
-                    suggestionItem.addEventListener('click', () => {
-                        handleItemClick(suggestion);
-                    });
-
-                    suggestionsContainer.appendChild(suggestionItem);
-                });
-
-                suggestionsContainer.style.display = 'block'; // 显示关联词列表
-            } else {
-                suggestionsContainer.style.display = 'none'; // 隐藏关联词列表
-            }
-        }
-
-        // 添加输入事件监听器
-        input.addEventListener('input', handleInput);
-        input.addEventListener('click', handleInput);
-
-        // 添加点击事件监听器，用于判断是否点击输入框以外的区域
-        document.addEventListener('click', event => {
-            if (!input.contains(event.target)) {
-                suggestionsContainer.style.display = 'none';
-            }
-        });
-
-    </script>
-
+    // 初始化科目页数考试时间展示
+    function updateDisplay() {
+      el("divYeshu").innerText = el("inputYeshu").value;
+      el("divChangci").innerText = el("inputChangci").value;
+    }
+  </script>
 </body>
 
 </html>
 
 <!-- 
-1.8 使用API时间
-1.7 输入框科目关联;
+2.0 完整优化
+1.8 使用API时间,后台更新时间,模态框
+1.7 输入框科目联想;
 1.6 添加提交语音;
 1.5 根据当前时间自动切换场次,添加帮助,优化全屏功能;
 1.4 添加考试须知播放;
